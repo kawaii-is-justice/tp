@@ -1,0 +1,12 @@
+# Note: it would be helpful to refer to the below file:
+# https://github.com/renpy/renpy/blob/master/.gitignore
+
+.vscode/
+
+saves/
+
+log.txt
+
+*.rpyc
+*.rpyb
+*.rpymc
