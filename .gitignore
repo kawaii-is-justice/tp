@@ -7,6 +7,9 @@ saves/
 cache/
 
 log.txt
+erros.txt
+traceback.txt
+project.json
 
 *.rpyc
 *.rpyb
