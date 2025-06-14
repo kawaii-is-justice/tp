@@ -7,7 +7,7 @@ saves/
 cache/
 
 log.txt
-erros.txt
+errors.txt
 traceback.txt
 project.json
 
