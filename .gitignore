@@ -4,8 +4,12 @@
 .vscode/
 
 saves/
+cache/
 
 log.txt
+errors.txt
+traceback.txt
+project.json
 
 *.rpyc
 *.rpyb
