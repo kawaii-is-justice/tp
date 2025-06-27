@@ -66,7 +66,7 @@ label loop_1:
 
     # TODO: add screen blinking effect
 
-    h "당신을 이곳을 테스트—{nw}"
+    h "당신은 이곳을 테스트—{p=0.3}{nw}"
 
     syswarn "허용되지 않은 정보 접근 감지.{p=0.5}세션 강제 초기화 중{cps=3}...{/cps}"
 
