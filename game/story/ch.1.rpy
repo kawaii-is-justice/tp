@@ -13,9 +13,14 @@ label loop_0:
     
     who "전학생~ 전학생이구나~"
     n "난 {color=#FFAEC9}누리{/color},{p}전학생, 넌 이름이 뭐니?"
+
+    show nuri at shadow
+    with dissolve
     
-    $ set_name()
-    pause 0.5
+    $ prtname = get_name(banned_names)
+    
+    show nuri at light
+    with dissolve
 
     n "음~ 그렇구나.\n좋은 이름인걸!"
 
