@@ -24,14 +24,14 @@ transform ilight:
 # Note. `chls` and `chrs` are intended to be used in tandem
 #       with a character image such as `charles happy`.
 
-# `chls` places a displayable at xpos=0.3.
+# `chls` places a displayable at xcenter=0.3.
 transform chls:    # character at left side
-    xpos 0.3 xanchor 0.5
+    xcenter 0.3
     yalign 1.0
 
-# `chrs` places a displayable at xpos=0.7.
+# `chrs` places a displayable at xcenter=0.7.
 transform chrs:   # character at right side
-    xpos 0.7 xanchor 0.5
+    xcenter 0.7
     yalign 1.0
 
 # `disappear` makes a displayable disappear gradually.
