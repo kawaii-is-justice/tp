@@ -1,11 +1,18 @@
-# `shadow` makes a displayable darken
-transform shadow:
-    matrixcolor TintMatrix("#FFFFFF") * SaturationMatrix(1.0)
-    linear 0.5 matrixcolor TintMatrix("#4E4E4E") * SaturationMatrix(1.0)
+# `shade` gives a displayable a gradual darken
+transform shade:
+    linear 0.5 matrixcolor TintMatrix("#777777")
 
-# `light` makes a displayable lighten
+# `light` gives a displayable a gradual lighten
 transform light:
-    linear 0.5 matrixcolor TintMatrix("#FFFFFF") * SaturationMatrix(1.0)
+    linear 0.5 matrixcolor TintMatrix("#FFFFFF")
+
+# `ishade` gives a displayable a instant darken
+transform ishade:
+    matrixcolor TintMatrix("#777777")
+
+# `ilight` gives a displayable a instant lighten
+transform ilight:
+    matrixcolor TintMatrix("#FFFFFF")
 
 # Note. `chls` and `chrs` are the same except the xpos value.
 #       However, if we made it a function, we couldn't use
@@ -31,11 +38,11 @@ transform chrs:   # character at right side
 transform disappear:
     linear 0.5 alpha 0.0
 
-# `downup` gives a displayable a down-and-up motion.
-transform downup:
-    easein 0.3 yoffset 30
-    easeout 0.3 yoffset 0
+# `appear` makes a displayable appear gradually.
+transform appear:
+    linear 0.5 alpha 1.0
 
-# `doup` is an alias of `downup`, since 'downup' is too long to type in.
-transform doup:
-    downup
+# `doup` gives a displayable a down-and-up motion.
+transform doup:     # down up, which is too long to type in.
+    easein  0.3 yoffset 30
+    easeout 0.3 yoffset 0
