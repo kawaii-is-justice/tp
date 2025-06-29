@@ -5,13 +5,13 @@ label loop_3:
    "......여긴?{p}또... 교실인 건가?"
    "......또?{p}내가 지금... 뭘 생각한 거지?\n전학 첫날이라 긴장했나......"
 
-   show nuri smile at center, shadow
+   show nuri smile at center, ishade
    with dissolve
 
    "나는 고개를 돌려 누리가 있는 쪽을 바라보았다."
    "누리는 뭔가 하려다 살짝 당황한 듯, 멈칫하며 말을 걸었다."
 
-   show nuri at light
+   show nuri at doup, light
 
    n "오~ 전학생! 감이 좋은걸~\n나는 {color=#FFAEC9}누리{/color}야.\n전학생은 이름이 뭐야?"
 
@@ -22,14 +22,15 @@ label loop_3:
          p "오늘 날씨가 참 좋네, 그렇지 않아?"
          "누리는 멈칫했지만 곧 웃으며 반응했다."
    
-   show nuri at right
-   with move
-
-   n "{color=#AAAAAA}[prtname]{/color}이구나~ 좋은 이름인걸!"
+   show nuri:
+      ease 0.5 chrs
+   n "{color=#AAAAAA}[prtname]{/color}이구나~ "
+   show nuri at doup
+   extend "좋은 이름인걸!"
 
    "이게... 뭐지?{p}그러고보니 나도 자연스럽게 누리가 있던 곳을 쳐다봤어..."
    
-   show hanl at left
+   show hanl at chls
    with moveinleft
 
    "......응?{p}어느샌가 내 옆에는 반장인 하늘이가 와 있었고,\n하늘이는 내 팔을 잡은 채로 아무 말 없이 도서관 쪽으로 나를 끌고 갔다."
@@ -40,7 +41,9 @@ label loop_3:
    show hanl
    with dissolve
 
-   h "당신... 당신 때문이에요... 알고 있나요?{w=3.0}{nw}"
+   show hanl say at doup
+
+   h "당신... 당신 때문이에요... 알고 있나요?{w=2.0}{nw}"
    h "주머니를 확인해봐요."
 
    "나는 주머니를 더듬어보았다. 그러자 작은 플라스틱 카드가 손에 잡혔다."

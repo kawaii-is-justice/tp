@@ -8,24 +8,23 @@ label loop_0:
 
     "한 소녀가 활짝 웃으며 오른손을 크게 들고 내게 인사한다."
 
-    show nuri smile
+    show nuri smile at center, doup
     with dissolve
     
     who "전학생~ 전학생이구나~"
     n "난 {color=#FFAEC9}누리{/color},{p}전학생, 넌 이름이 뭐니?"
 
-    show nuri at shadow
-    with dissolve
-    
-    $ prtname = get_name(banned_names)
-    
+    show nuri at shade
+
+    $ prtname = get_name(banlist=banned_names)
+
     show nuri at light
-    with dissolve
+    pause 0.75
+    show nuri at doup
 
     n "음~ 그렇구나.\n좋은 이름인걸!"
 
-    show nuri at shadow
-    with dissolve
+    show nuri at shade
 
     "누리는 옆자리에 앉아, 나를 신기하다는 듯이 빤히 쳐다봤다.\n나는 그런 누리를 못 본 척했다."
 
@@ -39,7 +38,7 @@ label loop_0:
     scene bg school cafeteria
     with fade
 
-    show nuri smile
+    show nuri smile at center, doup
     with dissolve
 
     n "전학생은 어떤 음식 좋아해?\n오늘 급식은 카레라이스랑 오므라이스, 둘 중에 고를 수 있대!"
@@ -58,7 +57,7 @@ label loop_0:
     scene bg school classroom afternoon
     with fade
 
-    show nuri smile
+    show nuri smile at center, doup
     with dissolve
 
     n "점심 시간 끝나면 바로 체육이야!\n체육복으로 갈아입고 운동장에서 보자!"
