@@ -13,7 +13,8 @@ label loop_1:
     n "전학생~ 전학생이구나~"
     n "나는 {color=#FFAEC9}누리{/color}야.{p}전학생의 이름은{cps=7}... {/cps}{cps=5}{color=#AAAAAA}[prtname]{/color} {/cps}맞지?\n앞으로 잘 부탁해!"
 
-    show nuri at shade
+    show nuri at ilight  # Without this, the following shade
+    show nuri at shade   # animation would not work properly.
 
     "누리는 옆자리에 앉아, 나를 신기하다는 듯 빤히 쳐다봤다.\n나는 그런 누리를 못 본 척했다."
 

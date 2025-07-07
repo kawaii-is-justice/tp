@@ -12,9 +12,10 @@ label loop_0:
     with dissolve
     
     who "전학생~ 전학생이구나~"
-    n "난 {color=#FFAEC9}누리{/color},{p}전학생, 넌 이름이 뭐니?"
+    n "난 {color=#FFAEC9}누리{/color}.{p}전학생, 넌 이름이 뭐니?"
 
-    show nuri at shade
+    show nuri at ilight  # Without this, the following shade
+    show nuri at shade   # animation would not work properly.
 
     $ prtname = get_name(banlist=banned_names)
 
@@ -26,7 +27,7 @@ label loop_0:
 
     show nuri at shade
 
-    "누리는 옆자리에 앉아, 나를 신기하다는 듯이 빤히 쳐다봤다.\n나는 그런 누리를 못 본 척했다."
+    "누리는 옆자리에 앉아, 나를 신기하다는 듯이 빤히 쳐다봤다.{p=0.5}나는 그런 누리를 못 본 척했다."
 
     hide nuri
     with dissolve
@@ -76,7 +77,7 @@ label loop_0:
     play sound car_accident
 
     "{cps=10}누군가 소리치며 달려오는 게 들렸다.{p}아마... 누리겠지.{/cps}{w=1.0}{nw}"
-    "{cps=10}차는 나를 치고 멈췄다. 졸음운전이었나 보다.{/cps}{w=1.0}{nw}"
+    "{cps=10}차는 나를 치고 멈췄다.{p}졸음운전이었나 보다.{/cps}{w=1.0}{nw}"
     "{cps=10}그런데 고양이는 나 따위는 안중에도 없다는 듯 도망갔다.{/cps}{w=1.0}{nw}"
     "{cps=10}그 모습이... 이상하게 눈에 밟힌다.{/cps}{w=1.0}{nw}"
     "{cps=10}이렇게... 죽는 걸까.{/cps}{w=1.0}{nw}"
