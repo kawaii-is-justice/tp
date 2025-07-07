@@ -1,6 +1,6 @@
 # Character definitions
 # refer to https://www.renpy.org/doc/html/dialogue.html#the-character-store
-define character.p = Character("[prtname]", color="#AAAAAA")  # protagonist
+define character.p = Character("prtname", dynamic=True, color="#AAAAAA")  # protagonist
 define character.n = Character("누리", color="#FFAEC9")
 define character.h = Character("하늘", color="#99D9EA")
 
