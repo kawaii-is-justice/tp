@@ -1,3 +1,6 @@
+# Splash screen
+image splashscreen_text = ParameterizedText(size=128, color="#000", font="Galmuri11-Bold.ttf")
+
 # Background image definitions
 image bg school classroom morning = Placeholder("bg")
 image bg school classroom afternoon = Placeholder("bg")
