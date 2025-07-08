@@ -59,13 +59,13 @@ define gui.interface_text_color = '#404040'
 ## 글자와 글자 크기 ###################################################################
 
 ## 인-게임 글자에 사용됩니다.
-define gui.text_font = "Galmuri9.ttf"
+define gui.text_font = "fonts/Galmuri9.ttf"
 
 ## 캐릭터의 이름에 사용됩니다.
-define gui.name_text_font = "Galmuri11-Bold.ttf"
+define gui.name_text_font = "fonts/Galmuri11-Bold.ttf"
 
 ## 인터페이스에 사용됩니다.
-define gui.interface_text_font = "Galmuri9.ttf"
+define gui.interface_text_font = "fonts/Galmuri9.ttf"
 
 ## 일반 대사의 글자 크기입니다.
 define gui.text_size = 33
