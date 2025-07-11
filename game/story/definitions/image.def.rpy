@@ -1,6 +1,6 @@
 # Splash screen
-image splscr_txt_presented_by = Text("presented by", size=72, color="#777", font="Galmuri11-Bold.ttf", xycenter=(0.5,0.4), yoffset=-30)
-image splscr_txt_team_name = Text("귀여움은 정의다", size=128, color="#333", font="Galmuri11-Bold.ttf", xycenter=(0.5,0.5))
+image splscr_txt_presented_by = Text("presented by", size=72, color="#777", font="fonts/Galmuri11-Bold.ttf", xycenter=(0.5,0.4), yoffset=-30)
+image splscr_txt_team_name = Text("귀여움은 정의다", size=128, color="#333", font="fonts/Galmuri11-Bold.ttf", xycenter=(0.5,0.5))
 image splscr_txt_combined = Fixed("splscr_txt_presented_by", "splscr_txt_team_name")
 
 # Background image definitions
