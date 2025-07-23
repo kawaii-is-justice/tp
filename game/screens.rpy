@@ -81,20 +81,10 @@ style frame:
 ## 게임내 스크린
 ################################################################################
 
-
-## Say 스크린 #####################################################################
-##
-## Say 스크린은 플레이어에게 대사를 출력할 때 씁니다. 화자 who와 대사 what, 두
-## 개의 매개변수를 받습니다. (화자 이름이 없으면 who는 None일 수 있음)
-##
-## 이 스크린은 id "what"을 가진 텍스트 디스플레이어블을 생성해야 합니다. (이 디
-## 스플레이어블은 렌파이의 대사 출력에 필요합니다.) id "who" 와 id "window" 디스
-## 플레이블이 존재할 경우 관련 스타일 속성이 적용됩니다.
-##
-## https://www.renpy.org/doc/html/screen_special.html#say
-
+##############
+# SAY SCREEN #
+##############
 screen say(who, what):
-
     window:
         id "window"
 
@@ -107,12 +97,86 @@ screen say(who, what):
 
         text what id "what"
 
+    if quick_menu:
+        use quick_menu()
 
-    ## 사이드 이미지가 있는 경우 글자 위에 표시합니다. 휴대폰 환경에서는 보이지
-    ## 않습니다.
     if not renpy.variant("small"):
         add SideImage() xalign 0.0 yalign 1.0
 
+##############
+# QUICK MENU #
+##############
+# `quick_menu` variable controls the show/hide of this quick menu.
+default quick_menu = True
+
+# `quick_menu` screen is used inside the say screen.
+# It uses 3 screens: qm_hist_tooltip, qm_pref_tooltip, qm_save_tooltip
+screen quick_menu():
+    imagebutton:
+        action [Hide("qm_hist_tooltip"), ShowMenu('history')]
+        auto "gui/quick_menu/histbtn.%s.png"
+        xpos gui.quickmenu.btn.left
+        ypos gui.quickmenu.histbtn.top
+        hovered Show("qm_hist_tooltip")
+        unhovered Hide("qm_hist_tooltip")
+    
+    imagebutton:
+        action [Hide("qm_save_tooltip"), ShowMenu('save')]
+        auto "gui/quick_menu/savebtn.%s.png"
+        xpos gui.quickmenu.btn.left
+        ypos gui.quickmenu.savebtn.top
+        hovered Show("qm_save_tooltip")
+        unhovered Hide("qm_save_tooltip")
+
+    imagebutton:
+        action [Hide("qm_pref_tooltip"), ShowMenu('preferences')]
+        auto "gui/quick_menu/prefbtn.%s.png"
+        xpos gui.quickmenu.btn.left
+        ypos gui.quickmenu.prefbtn.top
+        hovered Show("qm_pref_tooltip")
+        unhovered Hide("qm_pref_tooltip")
+
+# used in the quick_menu screen
+screen qm_hist_tooltip():
+    frame:
+        xsize gui.quickmenu.histbtntooltip.width
+        ysize gui.quickmenu.histbtntooltip.height
+        xpos  gui.quickmenu.histbtntooltip.left
+        ypos  gui.quickmenu.histbtntooltip.top
+        background "#000000dc"
+
+    text "지난 대화":
+        xpos gui.quickmenu.histbtntooltip.textleft
+        ypos gui.quickmenu.histbtntooltip.texttop
+        size gui.rfsiz
+
+# used in the quick_menu screen
+screen qm_save_tooltip():
+    frame:
+        xsize gui.quickmenu.savebtntooltip.width
+        ysize gui.quickmenu.savebtntooltip.height
+        xpos  gui.quickmenu.savebtntooltip.left
+        ypos  gui.quickmenu.savebtntooltip.top
+        background "#000000dc"
+
+    text "저장":
+        xpos gui.quickmenu.savebtntooltip.textleft
+        ypos gui.quickmenu.savebtntooltip.texttop
+        size gui.rfsiz
+
+# used in the quick_menu screen
+screen qm_pref_tooltip():
+    frame:
+        xsize gui.quickmenu.prefbtntooltip.width
+        ysize gui.quickmenu.prefbtntooltip.height
+        xpos  gui.quickmenu.prefbtntooltip.left
+        ypos  gui.quickmenu.prefbtntooltip.top
+        background "#000000dc"
+
+    text "환경설정":
+        xpos gui.quickmenu.prefbtntooltip.textleft
+        ypos gui.quickmenu.prefbtntooltip.texttop
+        size gui.rfsiz
 
 ## Character 객체를 통해 스타일을 지정할 수 있도록 namebox를 사용할 수 있게 만듭
 ## 니다.
@@ -131,34 +195,35 @@ style namebox_label is say_label
 style window:
     xalign 0.5
     xfill True
-    yalign gui.textbox_yalign
-    ysize gui.textbox_height
+    yalign gui.textbox.yalign
+    ysize gui.textbox.height
 
     background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
 
 style namebox:
-    xpos gui.name_xpos
-    xanchor gui.name_xalign
-    xsize gui.namebox_width
-    ypos gui.name_ypos
-    ysize gui.namebox_height
+    xpos gui.name.xpos
+    xanchor gui.name.xalign
+    xsize gui.namebox.width
+    ypos gui.name.ypos
+    ysize gui.namebox.height
 
-    background Frame("gui/namebox.png", gui.namebox_borders, tile=gui.namebox_tile, xalign=gui.name_xalign)
-    padding gui.namebox_borders.padding
+    background Frame("gui/namebox.png", gui.namebox.borders, tile=gui.namebox.tile, xalign=gui.name.xalign)
+    padding gui.namebox.borders.padding
 
 style say_label:
     properties gui.text_properties("name", accent=True)
-    xalign gui.name_xalign
+    xalign gui.name.xalign
     yalign 0.5
 
 style say_dialogue:
     properties gui.text_properties("dialogue")
 
-    xpos gui.dialogue_xpos
-    xsize gui.dialogue_width
-    ypos gui.dialogue_ypos
+    xpos gui.dialogue.left
+    xsize gui.dialogue.width
+    ypos gui.dialogue.top
 
     adjust_spacing False
+    line_spacing gui.dialogue.linespace
 
 ## Input 스크린 ###################################################################
 ##
@@ -175,10 +240,10 @@ screen input(prompt):
     window:
 
         vbox:
-            xanchor gui.dialogue_text_xalign
-            xpos gui.dialogue_xpos
-            xsize gui.dialogue_width
-            ypos gui.dialogue_ypos
+            xanchor gui.dialogue.text_xalign
+            xpos gui.dialogue.left
+            xsize gui.dialogue.width
+            ypos gui.dialogue.top
 
             text prompt style "input_prompt"
             input id "input"
@@ -186,12 +251,12 @@ screen input(prompt):
 style input_prompt is default
 
 style input_prompt:
-    xalign gui.dialogue_text_xalign
+    xalign gui.dialogue.text_xalign
     properties gui.text_properties("input_prompt")
 
 style input:
-    xalign gui.dialogue_text_xalign
-    xmaximum gui.dialogue_width
+    xalign gui.dialogue.text_xalign
+    xmaximum gui.dialogue.width
 
 
 ## Choice 스크린 ##################################################################
@@ -226,51 +291,6 @@ style choice_button is default:
 
 style choice_button_text is default:
     properties gui.text_properties("choice_button")
-
-
-## Quick Menu 스크린 ##############################################################
-##
-## 퀵메뉴는 게임 외 메뉴 접근성을 높여주기 위해 게임 내에 표시됩니다.
-
-screen quick_menu():
-
-    ## 다른 화면 위에 표시되는지 확인합니다.
-    zorder 100
-
-    if quick_menu:
-
-        hbox:
-            style_prefix "quick"
-
-            xalign 0.5
-            yalign 1.0
-
-            textbutton _("되감기") action Rollback()
-            textbutton _("대사록") action ShowMenu('history')
-            textbutton _("넘기기") action Skip() alternate Skip(fast=True, confirm=True)
-            textbutton _("자동진행") action Preference("auto-forward", "toggle")
-            textbutton _("저장하기") action ShowMenu('save')
-            textbutton _("Q.저장하기") action QuickSave()
-            textbutton _("Q.불러오기") action QuickLoad()
-            textbutton _("설정") action ShowMenu('preferences')
-
-
-## 플레이어가 UI(스크린)을 일부러 숨기지 않는 한 퀵메뉴가 게임 내에 오버레이로
-## 출력되게 합니다.
-init python:
-    config.overlay_screens.append("quick_menu")
-
-default quick_menu = True
-
-style quick_button is default
-style quick_button_text is button_text
-
-style quick_button:
-    properties gui.button_properties("quick_button")
-
-style quick_button_text:
-    properties gui.text_properties("quick_button")
-
 
 ################################################################################
 ## Main과 Game Menu 스크린
