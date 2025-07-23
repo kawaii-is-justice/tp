@@ -1,24 +1,15 @@
-﻿################################################################################
-## 초기화
-################################################################################
+﻿init offset = -2
 
-## 이 파일에서 init offset 문을 사용하면 이 파일의 초기화 문이 다른 파일의 init
-## 코드보다 먼저 실행됩니다.
-init offset = -2
-
-## gui.init의 호출은 스타일을 합리적인 기본값으로 재설정하고, 게임의 너비(width)
-## 와 높이(height)를 설정합니다.
 init python:
-    gui.init(1920, 1080)
+    gui.vpw = 1920  # viewport width
+    gui.vph = 1080  # viewport height
+    gui.init(gui.vpw, gui.vph)
 
-## 화면 또는 트랜스폼에서 유효하지 않거나 불안정한 프로퍼티 검사 활성화
 define config.check_conflicting_properties = True
-
 
 ################################################################################
 ## GUI 설정 변수
 ################################################################################
-
 
 ## 색상 ##########################################################################
 ##
@@ -52,39 +43,25 @@ define gui.muted_color = '#66c1ff'
 define gui.hover_muted_color = '#99d6ff'
 
 ## 대사(dialogue)와 선택지(menu choice)의 글자에서 사용됩니다.
-define gui.text_color = '#404040'
+define gui.text_color = '#eaeaea'
 define gui.interface_text_color = '#404040'
 
+######################
+# FONT AND FONT SIZE #
+######################
+define gui.rfsiz = 40   # Root font size
+define gui.deffont = "fonts/Galmuri9.ttf"   # Default font
 
-## 글자와 글자 크기 ###################################################################
+define gui.text_font = gui.deffont
+define gui.name_text_font = gui.deffont
+define gui.interface_text_font = gui.deffont
 
-## 인-게임 글자에 사용됩니다.
-define gui.text_font = "fonts/Galmuri9.ttf"
-
-## 캐릭터의 이름에 사용됩니다.
-define gui.name_text_font = "fonts/Galmuri11-Bold.ttf"
-
-## 인터페이스에 사용됩니다.
-define gui.interface_text_font = "fonts/Galmuri9.ttf"
-
-## 일반 대사의 글자 크기입니다.
-define gui.text_size = 33
-
-## 캐릭터 이름의 글자 크기입니다.
-define gui.name_text_size = 45
-
-## 게임의 유저 인터페이스에서 글자의 크기입니다.
-define gui.interface_text_size = 33
-
-## 게임의 유저 인터페이스에서 레이블(label)들의 글자 크기입니다.
-define gui.label_text_size = 36
-
-## 통지(notify) 화면의 글자 크기입니다.
-define gui.notify_text_size = 24
-
-## 게임의 타이틀(title) 글자의 크기입니다.
-define gui.title_text_size = 75
-
+define gui.text_size = gui.rfsiz
+define gui.name_text_size = gui.rfsiz
+define gui.interface_text_size = gui.rfsiz
+define gui.label_text_size = gui.rfsiz
+define gui.notify_text_size = gui.rfsiz
+define gui.title_text_size = gui.rfsiz * 2
 
 ## 메인과 게임 메뉴들 ##################################################################
 
@@ -92,54 +69,81 @@ define gui.title_text_size = 75
 define gui.main_menu_background = "gui/main_menu.png"
 define gui.game_menu_background = "gui/game_menu.png"
 
+##############################
+# TEXTBOX, NAMEBOX, DIALOGUE #
+##############################
+# Note: textbox.png is (1920, 270)px long and
+# it has a left and right margin with the same length.
+define gui.textbox.actualwidth = 1240
+define gui.textbox.actualheight = 232
+define gui.textbox.marginleft = int((gui.vpw - gui.textbox.actualwidth) / 2)  # 340px
+define gui.textbox.span = gui.textbox.marginleft + gui.textbox.actualwidth
+define gui.textbox.paddingleft = 60
+define gui.textbox.paddingright = gui.textbox.paddingleft
+define gui.textbox.paddingtop = 24
+define gui.textbox.height = 270
+define gui.textbox.ypos = gui.vph - gui.textbox.height
+define gui.textbox.yalign = 1.0
 
-## 대사 ##########################################################################
-##
-## 이러한 변수들은 한 번에 한 줄의 대사가 어떻게 화면에 표시되는지 제어합니다.
+# Note: left, top = initial x, y of the first dialogue line
+# Note: the namebox is above the first dialogue line.
+define gui.dialogue.linespace = 4
+define gui.dialogue.left = gui.textbox.marginleft + gui.textbox.paddingleft  # 400px
+define gui.dialogue.top = gui.textbox.paddingtop + gui.text_size + gui.dialogue.linespace # 68px
+define gui.dialogue.width = gui.textbox.actualwidth - (gui.textbox.paddingleft + gui.textbox.paddingright) # 1120px
+define gui.dialogue.text_xalign = 0.0
 
-## 대사를 포함하는 텍스트 박스의 높이입니다.
-define gui.textbox_height = 278
+define gui.namebox.iconheight = 24  # size of `>` icon
+define gui.namebox.width = gui.dialogue.width - gui.namebox.iconheight
+define gui.namebox.height = gui.text_size
+define gui.namebox.borders = Borders(gui.namebox.iconheight,0,0,0)
+define gui.namebox.tile = False
 
-## 화면에 텍스트박스를 세로로 배치합니다. 0.0은 최상단, 0.5는 중앙, 그리고 1.0은
-## 최하단입니다.
-define gui.textbox_yalign = 1.0
+define gui.name.xpos = gui.dialogue.left
+define gui.name.ypos = gui.textbox.paddingtop
+define gui.name.xalign = 0.0
 
+##############
+# QUICK MENU #
+##############
+define gui.quickmenu.margin = 20   # span between quick menu elements
 
-## 말하는 캐릭터의 이름을 텍스트 박스를 기준으로 배치합니다. 이것은 좌측이나 최
-## 상단으로부터 전체 픽셀값의 숫자가 되거나, 0.5로 중앙이 될 수 있습니다.
-define gui.name_xpos = 360
-define gui.name_ypos = 0
+define gui.quickmenu.btn.width = 50
+define gui.quickmenu.btn.height = gui.quickmenu.btn.width
+define gui.quickmenu.btn.left = gui.textbox.span + gui.quickmenu.margin
 
-## 캐릭터들의 이름을 수평으로 정렬합니다. 이것은 0.0으로 좌측 정렬, 0.5로 중앙,
-## 그리고 1.0으로 우측 정렬될 수 있습니다.
-define gui.name_xalign = 0.0
+define gui.quickmenu.span = gui.quickmenu.btn.height + gui.quickmenu.margin
+define gui.quickmenu.padding = int((gui.textbox.actualheight - (gui.quickmenu.btn.height * 3 + gui.quickmenu.margin * 2)) / 2)
 
-## 캐릭터들의 이름이 들어 있는 박스의 너비, 높이, 그리고 테두리입니다. 혹은 그것
-## 을 None으로 자동 설정할 수 있습니다.
-define gui.namebox_width = None
-define gui.namebox_height = None
+define gui.quickmenu.histbtn.left = gui.quickmenu.btn.left
+define gui.quickmenu.histbtn.top = gui.textbox.ypos + gui.quickmenu.padding
 
-## 캐릭터의 이름이 들어 있는 박스의 테두리를 좌측, 상단, 우측, 하단의 순서로 정
-## 합니다.
-define gui.namebox_borders = Borders(5, 5, 5, 5)
+define gui.quickmenu.savebtn.left = gui.quickmenu.btn.left
+define gui.quickmenu.savebtn.top = gui.quickmenu.histbtn.top + gui.quickmenu.span
 
-## 만약 참(True)이면, 네임박스의 배경은 바둑판식으로 배열(tiled)될 것이고, 거짓
-## (False)이면, 네임박스의 배경은 채워질(scaled) 것입니다.
-define gui.namebox_tile = False
+define gui.quickmenu.prefbtn.left = gui.quickmenu.btn.left
+define gui.quickmenu.prefbtn.top = gui.quickmenu.savebtn.top + gui.quickmenu.span
 
+define gui.quickmenu.histbtntooltip.width = 183
+define gui.quickmenu.histbtntooltip.height = gui.quickmenu.btn.height
+define gui.quickmenu.histbtntooltip.left = gui.quickmenu.histbtn.left + gui.quickmenu.btn.width
+define gui.quickmenu.histbtntooltip.top = gui.quickmenu.histbtn.top
+define gui.quickmenu.histbtntooltip.textleft = gui.quickmenu.histbtntooltip.left + 4
+define gui.quickmenu.histbtntooltip.texttop = gui.quickmenu.histbtntooltip.top + 3
 
-## 텍스트박스에서 대사의 위치입니다. These can be a whole number of pixels
-## relative to the left or top side of the textbox, or 0.5 to center.
-define gui.dialogue_xpos = 402
-define gui.dialogue_ypos = 75
+define gui.quickmenu.savebtntooltip.width = 87
+define gui.quickmenu.savebtntooltip.height = gui.quickmenu.btn.height
+define gui.quickmenu.savebtntooltip.left = gui.quickmenu.savebtn.left + gui.quickmenu.btn.width
+define gui.quickmenu.savebtntooltip.top = gui.quickmenu.histbtntooltip.top + gui.quickmenu.span
+define gui.quickmenu.savebtntooltip.textleft = gui.quickmenu.savebtntooltip.left + 4
+define gui.quickmenu.savebtntooltip.texttop = gui.quickmenu.savebtntooltip.top + 3
 
-## 픽셀값에서 대사의 최대 너비입니다.
-define gui.dialogue_width = 1116
-
-## 대사 글자의 수평 정렬입니다. 이것은 0.0으로 좌측 정렬, 0.5로 중앙, 그리고 1.0
-## 으로 우측 정렬이 될 수 있습니다.
-define gui.dialogue_text_xalign = 0.0
-
+define gui.quickmenu.prefbtntooltip.width = 163
+define gui.quickmenu.prefbtntooltip.height = gui.quickmenu.btn.height
+define gui.quickmenu.prefbtntooltip.left = gui.quickmenu.prefbtn.left + gui.quickmenu.btn.width
+define gui.quickmenu.prefbtntooltip.top = gui.quickmenu.savebtntooltip.top + gui.quickmenu.span
+define gui.quickmenu.prefbtntooltip.textleft = gui.quickmenu.prefbtntooltip.left + 4
+define gui.quickmenu.prefbtntooltip.texttop = gui.quickmenu.prefbtntooltip.top + 3
 
 ## 버튼들 #########################################################################
 ##
@@ -436,10 +440,10 @@ init python:
         gui.label_text_size = 51
 
         ## 텍스트박스의 위치를 조정합니다.
-        gui.textbox_height = 360
-        gui.name_xpos = 120
-        gui.dialogue_xpos = 135
-        gui.dialogue_width = 1650
+        gui.textbox.height = 360
+        gui.name.xpos = 120
+        gui.dialogue.left = 135
+        gui.dialogue.width = 1650
 
         ## 다양한 사물의 크기와 간격을 변경합니다.
         gui.slider_size = 54
