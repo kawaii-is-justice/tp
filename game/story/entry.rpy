@@ -31,4 +31,5 @@
     return
 
 label start:
+    stop music
     jump loop_0
