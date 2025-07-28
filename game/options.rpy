@@ -51,7 +51,7 @@ define config.has_voice = True
 # define config.sample_voice = "sample-voice.ogg"
 
 # Title screen background music
-define config.main_menu_music = "audio/music/Kubbi - Up In My Jam.mp3"
+define config.main_menu_music = "audio/music/title_screen.mp3"
 
 ## 번역 ##########################################################################
 ##
