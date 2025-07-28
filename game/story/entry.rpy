@@ -3,17 +3,17 @@
     with dissolve
     pause 1.0
 
-    play sound "audio/sfx/splashscreen_in.wav" volume 0.5 fadein 0.05
+    play sound "audio/sfx/splash_screen/in.wav" volume 0.5 fadein 0.05
 
     show splscr_txt_presented_by with ComposeTransition(dissolve, after=easeintop)
     pause 1.0
 
-    play sound "audio/sfx/splashscreen_title.wav"
+    play sound "audio/sfx/splash_screen/title.wav"
 
     show splscr_txt_team_name with Dissolve(0.3)
     pause 1.5
 
-    play sound "audio/sfx/splashscreen_out.wav" volume 0.5 fadeout 0.1
+    play sound "audio/sfx/splash_screen/out.wav" volume 0.5 fadeout 0.1
 
     hide splscr_txt_presented_by
     hide splscr_txt_team_name
