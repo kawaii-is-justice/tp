@@ -38,29 +38,20 @@ define gui.about = _p("""
 define build.name = "SpringBeginningAgain"
 
 
-## 음악과 음향 ######################################################################
-
-## 이 세 가지 변수는 무엇보다도 플레이어에게 기본적으로 표시되는 믹서를 제어합니
-## 다. 이 중 하나를 False로 설정하면 해당 믹서가 숨겨집니다.
-
+#################
+# AUDIO CONTROL #
+#################
+# Mixer
 define config.has_sound = True
 define config.has_music = True
 define config.has_voice = True
 
-
-## 사용자가 음향 또는 음성 채널에서 테스트 사운드를 재생할 수 있게 하려면 아래
-## 줄의 주석을 제거하고 이를 사용하여 재생할 샘플 사운드를 설정하십시오.
-
+# Test sound
 # define config.sample_sound = "sample-sound.ogg"
 # define config.sample_voice = "sample-voice.ogg"
 
-
-## 플레이어가 주 메뉴에 있을 때 재생할 오디오 파일을 설정하려면 다음 줄의 주석
-## 처리를 제거하십시오. 이 파일은 중지되거나 다른 파일이 재생 될 때까지 계속 재
-## 생합니다.
-
-# define config.main_menu_music = "main-menu-theme.ogg"
-
+# Title screen background music
+define config.main_menu_music = "audio/music/Kubbi - Up In My Jam.mp3"
 
 ## 번역 ##########################################################################
 ##
