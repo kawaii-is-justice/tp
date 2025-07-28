@@ -1,4 +1,4 @@
-﻿################################################################################
+################################################################################
 ## 초기화
 ################################################################################
 
@@ -357,39 +357,22 @@ style navigation_button:
 style navigation_button_text:
     properties gui.text_properties("navigation_button")
 
-
-## Main Menu 스크린 ###############################################################
-##
-## 렌파이가 시작할 때 메인메뉴를 출력합니다.
-##
-## https://www.renpy.org/doc/html/screen_special.html#main-menu
-
+#############
+# MAIN MENU #
+#############
 screen main_menu():
+    default titlescreen = TitleScreenCDD((gui.vpw, gui.vph))
 
-    ## 이렇게 하면 다른 메뉴 화면이 모두 교체됩니다.
     tag menu
 
-    add gui.main_menu_background
-
-    ## 이 빈 프레임은 기본 메뉴를 어둡게 만듭니다.
-    frame:
-        style "main_menu_frame"
-
-    ## use 명령어로 스크린 내에 다른 스크린을 불러옵니다. 메인 메뉴 스크린의 내
-    ## 용물은 navigation 스크린에 있습니다.
-    use navigation
-
-    if gui.show_name:
-
-        vbox:
-            style "main_menu_vbox"
-
-            text "[config.name!t]":
-                style "main_menu_title"
-
-            text "[config.version]":
-                style "main_menu_version"
-
+    add gui.ts.bg
+    add Solid(gui.ts.bg_tint)
+    add Frame(gui.ts.lb.top, xysize=gui.ts.lb.dim)
+    add Frame(gui.ts.lb.btm, yalign=1.0, xysize=gui.ts.lb.dim)
+    add titlescreen
+    add gui.ts.hanl:
+        zoom 2.0
+        pos (gui.ts.hanl_left, gui.ts.hanl_top)
 
 style main_menu_frame is empty
 style main_menu_vbox is vbox
@@ -433,7 +416,7 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
     style_prefix "game_menu"
 
     if main_menu:
-        add gui.main_menu_background
+        add gui.ts.bg
     else:
         add gui.game_menu_background
 

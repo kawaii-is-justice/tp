@@ -63,10 +63,18 @@ define gui.label_text_size = gui.rfsiz
 define gui.notify_text_size = gui.rfsiz
 define gui.title_text_size = gui.rfsiz * 2
 
-## 메인과 게임 메뉴들 ##################################################################
+################
+# TITLE SCREEN #
+################
+define gui.ts.bg = Image("gui/title_screen/background.jpg")
+define gui.ts.bg_tint = "#FFFFFF7F"
+define gui.ts.lb.top = "gui/title_screen/letbox.top.png"
+define gui.ts.lb.btm = "gui/title_screen/letbox.btm.png"
+define gui.ts.lb.dim = (1920,50)
+define gui.ts.hanl = Image("gui/title_screen/hanl.png")
+define gui.ts.hanl_left = 670
+define gui.ts.hanl_top = 390
 
-## 이미지들은 메인(main)과 게임 메뉴(game menu)에 사용됩니다.
-define gui.main_menu_background = "gui/main_menu.png"
 define gui.game_menu_background = "gui/game_menu.png"
 
 ##############################
