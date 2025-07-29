@@ -95,7 +95,10 @@ screen say(who, what):
                 style "namebox"
                 text who id "who"
 
-        text what id "what"
+        text what id "what":
+            # Narrator
+            if who is None:
+                ypos gui.dialogue.top_narrator
 
     if quick_menu:
         use quick_menu()

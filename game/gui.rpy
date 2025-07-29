@@ -100,6 +100,7 @@ define gui.dialogue.left = gui.textbox.marginleft + gui.textbox.paddingleft  # 4
 define gui.dialogue.top = gui.textbox.paddingtop + gui.text_size + gui.dialogue.linespace # 68px
 define gui.dialogue.width = gui.textbox.actualwidth - (gui.textbox.paddingleft + gui.textbox.paddingright) # 1120px
 define gui.dialogue.text_xalign = 0.0
+define gui.dialogue.top_narrator = gui.dialogue.top - gui.rfsiz
 
 define gui.namebox.iconheight = 24  # size of `>` icon
 define gui.namebox.width = gui.dialogue.width - gui.namebox.iconheight
