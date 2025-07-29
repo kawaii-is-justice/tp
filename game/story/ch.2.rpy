@@ -72,7 +72,7 @@ label loop_1:
     
     h "{cps=8}당신은 이곳을 테스트—{/cps}{w=1.0}{nw}" with vpunch
 
-    syswarn "허용되지 않은 정보 접근 감지.{w=0.5}\n세션 강제 초기화 중{cps=3}...{/cps}{w=1.0}{nw}"
+    "{color=#FF0000}허용되지 않은 정보 접근 감지.{w=0.5}\n세션 강제 초기화 중{cps=3}...{/cps}{w=1.0}{nw}{/color}"
 
     jump loop_2
 
@@ -237,10 +237,16 @@ label loop_2_after_school_library:
             n "그럼 이제 귀찮은 일도 끝났으니 케이크나 먹으러 갈까?"
             jump loop_2_after_school_cafe
         else:
-            n "그럼 이제 귀찮은 일도 끝났으니 집으로 돌아가자~\n조심히 돌아가, {color=#AAAAAA}[prtname]{/color}~ 내일 보자!"
-            jump loop_2_after_school_home
+            n "그러면 내가 정말 좋아하는 카페 있는데, 같이 갈래?\n거기 디저트가 진짜 맛있어~!"
+            menu:
+                "간다.":
+                    jump loop_2_after_school_cafe
+                "가지 않는다.":
+                    n "그럼 이제 귀찮은 일도 끝났으니 집으로 돌아가자~\n조심히 돌아가, {color=#AAAAAA}[prtname]{/color}~ 내일 보자!"
+                    jump loop_2_after_school_home
     else:
-        h "{cps=8}당신은 {i}이곳에 있을 사람이 아니기 때문{/i}입니다.{/cps}{p}...아닙니다. 방금 한 말은 잊어주세요.\n여기 당신의 학생증입니다. 받아주세요."
+        h "{cps=8}당신은 {i}이곳에 있을 사람이 아니기 때문{/i}입니다.{/cps}"
+        h "...아닙니다. 방금 한 말은 잊어주세요.\n여기 당신의 학생증입니다. 받아주세요."
 
         menu:
             "그게 무슨 말이야?":
