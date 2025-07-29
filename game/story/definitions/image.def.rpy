@@ -4,16 +4,16 @@ image splscr_txt_team_name = Text("귀여움은 정의다", size=128, color="#33
 image splscr_txt_combined = Fixed("splscr_txt_presented_by", "splscr_txt_team_name")
 
 # Background image definitions
-image bg school classroom morning = Placeholder("bg")
-image bg school classroom afternoon = Placeholder("bg")
-image bg school cafeteria = Placeholder("bg")
-image bg school yard = Placeholder("bg")
-image bg school hallway = Placeholder("bg")
-image bg school library morning = Placeholder("bg")
-image bg school library afternoon = Placeholder("bg")
-image bg school nurseoffice = Placeholder("bg")
-image bg cafe lateafternoon = Placeholder("bg")
-image bg home bedroom night = Placeholder("bg")
+image bg school classroom morning = ("bg/School_Classroom_Morning.png")
+image bg school classroom afternoon = ("bg/School_Classroom_Afternoon.png")
+image bg school cafeteria = ("bg/School_Cafeteria.png")
+image bg school yard = ("bg/School_Yard.png")
+image bg school hallway = ("bg/School_Hallway.png")
+image bg school library morning = ("bg/School_Library_Bright.png")
+image bg school library afternoon = ("bg/School_Library_Dark.png")
+image bg school nurseoffice = ("bg/School_Nurseoffice.png")
+image bg cafe lateafternoon = ("bg/Cafe_Afternoon.png")
+image bg home bedroom night = ("bg/Home_Bedroom_Night.png")
 
 # Character sprites image definitions
 image nuri = Placeholder("girl")
