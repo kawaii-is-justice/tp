@@ -1,14 +1,14 @@
 label interlude:
     "어느 쪽의 이야기를 먼저 들으시겠습니까?"
     menu:
-        "하늘":
+        "하늘이의 이야기":
             jump interlude_hanl
-        "누리":
+        "누리의 이야기":
             jump interlude_nuri
 
 label interlude_hanl:
 
-    scene School_Library_Dark
+    scene bg school library afternoon  
 
     show hanl
 
@@ -31,7 +31,7 @@ label interlude_hanl:
     h "그래서 저는...\n다음에도 이 노트를 반드시 찾을 수 있게 잘 숨겨두었습니다."
     h "어쩌면...{p}이미 수 없이 놓쳤을지도 모르겠네요."
 
-    play sound dish brake
+    play sound dish_brake
 
     h "...?!"
     h "이 소리...\n{cps=6}...{/cps}푸른색 유령 같은 게 튀어나오진 않겠죠?"
@@ -49,6 +49,57 @@ label interlude_hanl:
     h "그 아이가 어떤 선택을 하게 될지...\n계속 생각하게 되네요."
     h "내일도...\n그 아이에게 말을 걸게 될까요."
 
+    $ hanl_done = True
+
+    if nuri_done == True:
+        jump loop_4
+    else:
+        jump interlude_nuri
+
 label interlude_nuri:
 
     scene bg home kitchen
+
+    show nuri
+
+    n "흠~ 또 비가 오네?"
+    n "요즘 왜 이렇게 자주 비가 오는거야?"
+    n "비 오는 날엔...\n초콜릿이 땡기는걸!"
+    n "아, 맞다!\n내 소개를 아직 안 했구나."
+    n "내 이름은 누리! █████학교 ■학년 ■반!"
+    n "참고로 우리 반의 반장은 하늘이야."
+    n "원래 조용한 애긴 했는데...\n요즘엔 좀 이상한 것 같아."
+    n "{cps=6}...{/cps}뭔가 날 피하는 것 같기도 하고?"
+    n "내가 뭘 잘못했나?"
+    n "그래서 내일은 쿠키라도 만들어서 가져다주려고~"
+    n "전에 하늘이에게 초코 쿠키를 만들어 준 적이 있었는데,\n정말 좋아하더라고~"
+    n "하늘이가 원체 겉으로 티를 안 내는지라 남들은 잘 모르겠지만,\n분명 내 쿠키를 좋아하는 눈치였어!"
+    n "그리고...\n오늘 우리 반에 전학생이 왔는데—"
+    n "왠지 모르게 알던 사이인 것처럼 말 걸 수 있었어!"
+    n  "그리고 분명 처음 본 걸텐데...\n왠지 모르게 두근두근했달까..."
+    n "{cps=6}...{/cps}이게 그냥 전학생이라서 그런걸까?"
+    n "아니면{cps=6}......{/cps}"
+    n @ smile blush "이게...{p}한눈에 반해버렸다는 거?!"
+    n "에이! 모르겠다!\n일단 쿠키부터 만들자!"
+    n "주방이 어질러져서, 재료도 막 흩어져있고...{p}전에 태운 쿠키 잔해도 있고..."
+    n "조심하자...\n뭐가 튀어나올지 몰라..."
+
+    #minigame part 
+
+    n "됐다! 완성~!"
+    n "초콜릿이 녹지 않게 냉장고에 넣어놔야겠다~"
+    n "아차...{p}냉장고 열기 전에 노크해야 되는데!"
+    n @ smile"왜냐하면—{p}샐러드가 드레스를 입고 있을지도 모르잖아~? 히히~"
+    n "그러니까{cps=6}...{/cps}\n드레싱{cps=6}...{/cps} dressing이 옷을 갈아입는다는 뜻도 있어서{cps=6}...{/cps}"
+    n "아무튼!"
+    n "좋아!\n내일은 하늘이한테 쿠키를 주고{cps=6}...{/cps}"
+    n "그리고—\n그 애랑도 꼭 말해봐야지."
+    n "내일은{cps=6}...{/cps}\n조금 더 가까워질 수 있을까?"
+
+    $ nuri_done = True
+
+    if hanl_done == True:
+        jump loop_4
+    else:
+        jump interlude_hanl
+    

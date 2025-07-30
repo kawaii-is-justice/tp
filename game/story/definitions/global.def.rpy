@@ -10,3 +10,5 @@ default loop_0_lunch_menu_not_selected = None
 default loop_2_after_school_plan = None   # from ch. 2
 default loop_2_nuri_company = None
 default loop_3_wait_for_hanl = True # from ch.3
+default nuri_done = False # from ch.3.5
+default hanl_done = False
