@@ -1,57 +1,37 @@
-﻿## 이 파일은 귀하의 게임 커스텀으로 변경될 수 있는 옵션을 포함합니다.
-##
-## 두 개의 '#' 표시로 시작되는 줄은 주석이며, 그것을 없애지 말아야 합니다. 한 개
-## 의 '#' 표시로 시작되는 줄은 주석 처리된 코드로 필요한 경우 제거해도 됩니다.
-
-
-## 기본 ##########################################################################
-
-## 인간이 읽을 수 있는 게임의 이름. 기본 윈도우의 제목으로 사용되며, 인터페이스
-## 와 오류 보고에서 보여집니다.
-##
-## 문자열을 _()로 둘러 쌓으면 씌우면 번역의 대상으로 표시됩니다.
-
+﻿# Note: _() is for translation.
 define config.name = _("다시 시작하는 봄")
-
-
-## 위에 주어진 제목이 주 메뉴 화면에 표시되는지 결정합니다. 제목을 숨기려면 이것
-## 을 False로 설정하십시오.
-
-define gui.show_name = True
-
-
-## 게임의 버전입니다.
-
-define config.version = ""
-
-
-## 게임의 about 스크린에 배치되는 텍스트입니다. 텍스트를 삼중 따옴표 사이에 배치
-## 하고 단락 사이에 빈 줄을 남겨 둡니다.
+define config.version = "1.0.0"
 
 define gui.about = _p("""
+===========================================
+
+2025 가상융합서비스 개발자 경진대회 출품작
+
+팀 "귀여움은 정의다" 에 의해 제작됨:
+
+- 원두현    개발 담당
+
+- 장유진    아트 담당
+
+- 고준석    스토리 담당
+
+===========================================
 """)
 
-
-## 배포판의 실행 파일과 디렉토리에 사용되는 게임의 약식 이름. 이것은 ASCII 전용
-## 이어야 하며 공백, 콜론 또는 세미콜론을 포함해서는 안 됩니다.
-
+# Note: Only ASCII excluding space, colon, and semicolon.
 define build.name = "SpringBeginningAgain"
-
 
 #################
 # AUDIO CONTROL #
 #################
-# Mixer
+define config.main_menu_music = "audio/music/title_screen.mp3"
+
 define config.has_sound = True
 define config.has_music = True
 define config.has_voice = True
 
-# Test sound
 # define config.sample_sound = "sample-sound.ogg"
 # define config.sample_voice = "sample-voice.ogg"
-
-# Title screen background music
-define config.main_menu_music = "audio/music/title_screen.mp3"
 
 ## 번역 ##########################################################################
 ##
@@ -101,20 +81,11 @@ define config.window = "auto"
 define config.window_show_transition = Dissolve(.2)
 define config.window_hide_transition = Dissolve(.2)
 
-
-## 환경설정 기본값 ####################################################################
-
-## 기본 글자 속도를 제어합니다. 기본적으로, 0은 즉시이며 다른 숫자는 초당 입력
-## 할 문자 수입니다.
-
-default preferences.text_cps = 20
-
-
-## 기본 auto-forward 지연 시간입니다. 숫자가 클수록 대기 시간이 길어지며, 0 ~ 30
-## 이 유효한 범위가 됩니다.
-
-default preferences.afm_time = 15
-
+###############
+# PREFERENCES #
+###############
+default preferences.text_cps = 20   # Note: 0 = immediate
+default preferences.afm_time = 15   # Note: [0,30] is a valid range.
 
 ## 세이브 디렉토리 ####################################################################
 ##
