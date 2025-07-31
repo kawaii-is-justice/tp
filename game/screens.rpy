@@ -134,8 +134,8 @@ style say_dialogue:
 ##############
 # QUICK MENU #
 ##############
-# `quick_menu` screen is used inside the say screen.
-# It uses 3 screens: qm_hist_tooltip, qm_pref_tooltip, qm_save_tooltip
+# Note: `quick_menu` screen is used inside the say screen.
+# It uses 3 screens: qm_hist_tooltip, qm_pref_tooltip, qm_save_tooltip.
 screen quick_menu():
     imagebutton:
         action [Hide("qm_hist_tooltip"), ShowMenu('history')]
@@ -161,7 +161,7 @@ screen quick_menu():
         hovered Show("qm_pref_tooltip")
         unhovered Hide("qm_pref_tooltip")
 
-# Used in the quick_menu screen
+# Note: used in the quick_menu screen
 screen qm_hist_tooltip():
     frame:
         xsize gui.quickmenu.histbtntooltip.width
@@ -175,7 +175,7 @@ screen qm_hist_tooltip():
         ypos gui.quickmenu.histbtntooltip.texttop
         size gui.rfsiz
 
-# Used in the quick_menu screen
+# Note: used in the quick_menu screen
 screen qm_save_tooltip():
     frame:
         xsize gui.quickmenu.savebtntooltip.width
@@ -189,7 +189,7 @@ screen qm_save_tooltip():
         ypos gui.quickmenu.savebtntooltip.texttop
         size gui.rfsiz
 
-# Used in the quick_menu screen
+# Note: used in the quick_menu screen
 screen qm_pref_tooltip():
     frame:
         xsize gui.quickmenu.prefbtntooltip.width
