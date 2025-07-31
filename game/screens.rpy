@@ -652,19 +652,27 @@ screen preferences():
 
                 vbox:
                     label _("텍스트 재생 속도")
+                    null:
+                        height gui.slider_span
                     bar value Preference("text speed")
 
                     label _("자동 진행 시간")
+                    null:
+                        height gui.slider_span
                     bar value Preference("auto-forward time")
 
                 vbox:
                     if config.has_music:
                         label _("배경음 음량")
+                        null:
+                            height gui.slider_span
                         hbox:
                             bar value Preference("music volume")
 
                     if config.has_sound:
                         label _("효과음 음량")
+                        null:
+                            height gui.slider_span
                         hbox:
                             bar value Preference("sound volume")
                             if config.sample_sound:
@@ -672,6 +680,8 @@ screen preferences():
 
                     if config.has_voice:
                         label _("음성 음량")
+                        null:
+                            height gui.slider_span
                         hbox:
                             bar value Preference("voice volume")
                             if config.sample_voice:
