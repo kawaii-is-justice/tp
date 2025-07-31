@@ -257,60 +257,29 @@ define gui.pref_button_spacing = 0
 define gui.page_spacing = 0
 define gui.slot_spacing = 15
 
-## 버튼들 #########################################################################
-##
-## 이러한 변수들은 GUI/버튼에서 이미지 파일들과 함께 어떻게 버튼이 표시되는지 제
-## 어합니다.
-
-## 픽셀값에서 버튼의 너비와 높이입니다. 만약 None이면, 렌파이가 크기를 계산합니
-## 다.
+###########
+# BUTTONS #
+###########
+# Note: None = auto-calculated
 define gui.button_width = None
 define gui.button_height = None
 
-## 좌측, 상단, 우측, 하단의 순서에서 버튼의 테두리 값입니다.
 define gui.button_borders = Borders(6, 6, 6, 6)
-
-## 만약 참(True)이면, 배경 이미지는 바둑판식으로 배열(tiled)될 것입니다. 만약 거
-## 짓(False)이면, 배경 이미지는 선으로 채워질(scaled) 것입니다.
 define gui.button_tile = False
 
-## 버튼에 사용된 글자의 폰트입니다.
 define gui.button_text_font = gui.interface_text_font
-
-## 버튼에 사용된 글자의 크기입니다.
 define gui.button_text_size = gui.interface_text_size
 
-## 다양한 상태의 버튼 글자의 색상입니다.
 define gui.button_text_idle_color = gui.idle_color
 define gui.button_text_hover_color = gui.hover_color
 define gui.button_text_selected_color = gui.selected_color
 define gui.button_text_insensitive_color = gui.insensitive_color
 
-## 버튼 글자의 수평 정렬(0.0은 왼쪽，0.5은 가운데，1.0은 오른쪽)입니다.
 define gui.button_text_xalign = 0.0
 
-
-## 이러한 변수는 다른 종류의 버튼 설정을 덮어씌웁니다. 사용 가능한 버튼의 종류
-## 와, 각각 무엇을 위해 사용하는지는 gui 문서를 확인해주세요.
-##
-## 이러한 사용자 지정은 기본 인터페이스에 사용됩니다:
-
-define gui.radio_button_borders = Borders(27, 6, 6, 6)
-
+define gui.radio_button_borders = Borders(40, 6, 6, 6)
 define gui.check_button_borders = Borders(27, 6, 6, 6)
-
 define gui.page_button_borders = Borders(15, 6, 15, 6)
-
-define gui.quick_button_borders = Borders(15, 6, 15, 0)
-define gui.quick_button_text_size = 21
-define gui.quick_button_text_idle_color = gui.idle_small_color
-define gui.quick_button_text_selected_color = gui.accent_color
-
-## 당신은 또한 설정된 이름의 변수를 추가함으로써 당신만의 커스텀을 추가할 수 있
-## 습니다. 예를 들어, 다음 행의 주석 표시를 제거하여 탐색(navigation) 버튼의 너
-## 비를 설정할 수 있습니다.
-
-# define gui.navigation_button_width = 250
 
 ## 막대, 스크롤바, 슬라이더 ##############################################################
 ##
