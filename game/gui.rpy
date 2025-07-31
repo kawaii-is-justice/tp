@@ -256,6 +256,7 @@ define gui.pref_spacing = 15
 define gui.pref_button_spacing = 0
 define gui.page_spacing = 0
 define gui.slot_spacing = 15
+define gui.slider_span = 8
 
 ###########
 # BUTTONS #
@@ -281,38 +282,26 @@ define gui.radio_button_borders = Borders(40, 6, 6, 6)
 define gui.check_button_borders = Borders(40, 6, 6, 6)
 define gui.page_button_borders = Borders(15, 6, 15, 6)
 
-## 막대, 스크롤바, 슬라이더 ##############################################################
-##
-## 이러한 설정은 막대와 스크롤바, 그리고 슬라이더의 보여지는 것과 크기를 제어합
-## 니다.
-##
-## 기본 GUI는 슬라이더와 세로 스크롤 막대만 사용합니다. 다른 모든 막대는 제작자
-## 가 작성한 화면에서만 사용됩니다.
-
-## 수평 막대, 스크롤바, 슬라이더의 높이. 수직 막대, 스크롤바, 슬라이더의 너비.
+##########################
+# BAR, SCROLLBAR, SLIDER #
+##########################
 define gui.bar_size = 38
 define gui.scrollbar_size = 18
 define gui.slider_size = 38
 
-## 막대 이미지가 바둑판식 배열돼야 하면 참(True)입니다. 선으로 채워져야 한다면
-## 거짓(False)입니다.
 define gui.bar_tile = False
 define gui.scrollbar_tile = False
 define gui.slider_tile = False
 
-## 수평 테두리입니다.
 define gui.bar_borders = Borders(6, 6, 6, 6)
 define gui.scrollbar_borders = Borders(6, 6, 6, 6)
 define gui.slider_borders = Borders(6, 6, 6, 6)
 
-## 수직 테두리입니다.
 define gui.vbar_borders = Borders(6, 6, 6, 6)
 define gui.vscrollbar_borders = Borders(6, 6, 6, 6)
 define gui.vslider_borders = Borders(6, 6, 6, 6)
 
-## What to do with unscrollable scrollbars in the game menu. "hide" hides them,
-## while None shows them.
-define gui.unscrollable = "hide"
+define gui.unscrollable = "hide"    # None to show
 
 ## NVL-모드 ######################################################################
 ##
