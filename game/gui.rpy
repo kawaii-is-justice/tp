@@ -7,44 +7,21 @@ init python:
 
 define config.check_conflicting_properties = True
 
-################################################################################
-## GUI 설정 변수
-################################################################################
+#########
+# Color #
+#########
+define gui.accent_color = "#CC254F"
+define gui.idle_color = "#EAEAEA"
+define gui.idle_small_color = "#FFFFFF"
+define gui.hover_color = "#069997"
+define gui.selected_color = "#7FFF00"
+define gui.insensitive_color = "#7F7F7F"
 
-## 색상 ##########################################################################
-##
-## 인터페이스에서 글자의 색상입니다.
+define gui.text_color = "#EAEAEA"
+define gui.interface_text_color = gui.text_color
 
-## 강조 색상은 레이블(label)과 강조된 글자로 인터페이스 전체에서 사용됩니다.
-define gui.accent_color = '#0099ff'
-
-## 텍스트 버튼(text button)이 선택(selected)됐거나 커서를 올리지(hovered) 않았을
-## 때 사용됩니다.
-define gui.idle_color = '#707070'
-
-## 작은(small) 색상은 같은 효과를 내기 위해 더 밝거나 어두워야 하는 작은 글자에
-## 사용됩니다.
-define gui.idle_small_color = '#606060'
-
-## 버튼(button)과 막대(bar)에 커서를 올렸을 때(hovered) 사용됩니다.
-define gui.hover_color = '#0099ff'
-
-## 텍스트 버튼(text button)에 선택됐지만(selected) 포커스되지(focused) 않았을 때
-## 사용됩니다. 버튼(button)은 현재 화면이거나 설정값인 경우 선택됨(selected)이
-## 됩니다.
-define gui.selected_color = '#555555'
-
-## 텍스트 버튼(text button)이 선택되지(selected) 않았을 때 사용됩니다.
-define gui.insensitive_color = '#7070707f'
-
-## 채워지지 않은 빈 막대(bar)에 사용됩니다. 이것은 바로 사용되지 않지만, 막대
-## (bar) 이미지 파일이 재생성됐을 때 사용됩니다.
 define gui.muted_color = '#66c1ff'
 define gui.hover_muted_color = '#99d6ff'
-
-## 대사(dialogue)와 선택지(menu choice)의 글자에서 사용됩니다.
-define gui.text_color = '#eaeaea'
-define gui.interface_text_color = '#404040'
 
 ######################
 # FONT AND FONT SIZE #
@@ -61,7 +38,7 @@ define gui.name_text_size = gui.rfsiz
 define gui.interface_text_size = gui.rfsiz
 define gui.label_text_size = gui.rfsiz
 define gui.notify_text_size = gui.rfsiz
-define gui.title_text_size = gui.rfsiz * 2
+define gui.title_text_size = int(gui.rfsiz * 1.25)
 
 ################
 # TITLE SCREEN #
@@ -75,11 +52,40 @@ define gui.ts.hanl = Image("gui/title_screen/hanl.png")
 define gui.ts.hanl_left = 670
 define gui.ts.hanl_top = 390
 
-define gui.game_menu_background = "gui/game_menu.png"
+##############
+# GAME MENU  #
+# NAVIGATION #
+##############
+define gui.nav_lmargin = 12
+define gui.nav_tmargin = gui.nav_lmargin
+define gui.nav_lpad = 40
+define gui.nav_rpad = gui.nav_lpad 
+define gui.nav_num_elem = 9
+define gui.navigation_spacing = 8
+define gui.nav_width = 320
+define gui.nav_height = gui.rfsiz * (gui.nav_num_elem + gui.navigation_spacing) - gui.navigation_spacing
+define gui.nav_fullwidth = gui.nav_lpad + gui.nav_width + gui.nav_rpad
+define gui.nav.label.width = int(gui.title_text_size * 6.5)  # 리플레이 종료 = 6.5 characters long
+define gui.nav.label.left = gui.nav_lmargin + (gui.nav_fullwidth - gui.nav.label.width) // 2
+define gui.nav.label.top = gui.nav_tmargin + 32
+
+define gui.gm.bg = "gui/game_menu/base.png"
+define gui.gm.title.im = "gui/game_menu/logo.png"
+define gui.gm.overlay = "gui/game_menu/overlay.png"
+define gui.gm.title.w = 1000 // 4
+define gui.gm.title.h = 820 // 4
+define gui.gm.title.left = gui.nav_tmargin + (gui.nav_fullwidth - gui.gm.title.w) // 2
+define gui.gm.title.top = gui.gm.title.left
+
+define gui.navigation_xpos = gui.nav_lmargin + gui.nav_lpad
+define gui.navigation_ypos = gui.gm.title.top + gui.gm.title.h + 75
 
 ##############################
 # TEXTBOX, NAMEBOX, DIALOGUE #
 ##############################
+init python:
+    config.character_id_prefixes.append('namebox')
+
 # Note: textbox.png is (1920, 270)px long and
 # it has a left and right margin with the same length.
 define gui.textbox.actualwidth = 1240
@@ -115,6 +121,9 @@ define gui.name.xalign = 0.0
 ##############
 # QUICK MENU #
 ##############
+# `quick_menu` variable controls the show/hide of this quick menu.
+default quick_menu = True
+
 define gui.quickmenu.margin = 20   # span between quick menu elements
 
 define gui.quickmenu.btn.width = 50
@@ -227,39 +236,27 @@ define gui.choice_button_text_idle_color = '#707070'
 define gui.choice_button_text_hover_color = "#ffffff"
 define gui.choice_button_text_insensitive_color = '#7070707f'
 
-
-## 파일 슬롯 버튼 ####################################################################
-##
-## 파일 슬롯 버튼은 버튼의 특별한 종류입니다. 그것은 썸네일 이미지나 저장 슬롯의
-## 콘텐츠를 설명하는 글자를 포함합니다. GUI/버튼에서 저장 슬롯은 버튼의 다른 종
-## 류와 같은 이미지 파일을 사용합니다.
-
-## 저장 슬롯 버튼입니다.
+####################
+# SAVE & LOAD SLOT #
+####################
 define gui.slot_button_width = 414
 define gui.slot_button_height = 309
 define gui.slot_button_borders = Borders(15, 15, 15, 15)
-define gui.slot_button_text_size = 21
+define gui.slot_button_text_size = gui.rfsiz // 2
 define gui.slot_button_text_xalign = 0.5
 define gui.slot_button_text_idle_color = gui.idle_small_color
 define gui.slot_button_text_selected_idle_color = gui.selected_color
 define gui.slot_button_text_selected_hover_color = gui.hover_color
 
-## 저장 슬롯에 사용되는 썸네일의 너비와 높이입니다.
 define config.thumbnail_width = 384
 define config.thumbnail_height = 216
 
-## 저장 슬롯의 그리드(grid)에서 행(rows)과 열(columns)의 갯수입니다.
 define gui.file_slot_cols = 3
 define gui.file_slot_rows = 2
 
-
-## 위치와 간격 ######################################################################
-##
-## 이러한 변수들은 다양한 사용자 인터페이스 요소들의 위치와 간격을 제어합니다.
-
-## 화면의 왼쪽을 기준으로 하는 네비게이션 버튼의 왼쪽 위치입니다.
-define gui.navigation_xpos = 60
-
+#######################
+# GUI ELEMENTS VALUES #
+#######################
 ## 스킵 표시기(skip indicator)의 수직 위치입니다.
 define gui.skip_ypos = 15
 
@@ -268,9 +265,6 @@ define gui.notify_ypos = 68
 
 ## 선택지의 메뉴 선택 간의 간격입니다.
 define gui.choice_spacing = 33
-
-## 메인과 게임 메뉴에서 네비게이션 섹션의 버튼들 간의 간격입니다.
-define gui.navigation_spacing = 6
 
 ## 환경 설정들 간의 간격을 제어합니다.
 define gui.pref_spacing = 15
@@ -342,33 +336,24 @@ define gui.vslider_borders = Borders(6, 6, 6, 6)
 ## while None shows them.
 define gui.unscrollable = "hide"
 
-
-## 대사록 #########################################################################
-##
-## 대사록 화면은 사용자가 이미 확인한 다이얼로그를 표시합니다.
-
-## 렌파이가 보관할 대사록의 블록 갯수입니다.
+###########
+# HISTORY #
+###########
 define config.history_length = 250
-
-## 대사록 화면 항목의 높이를 지정하거나 None으로 하여 높이를 성능에 맡길 수 있습
-## 니다.
-define gui.history_height = 210
-
-## Additional space to add between history screen entries.
+define gui.history_height = gui.rfsiz * 4 + 20
 define gui.history_spacing = 0
 
-## 말하는 캐릭터의 이름을 나타내는 레이블의 위치, 너비, 그리고 정렬입니다.
 define gui.history_name_xpos = 233
 define gui.history_name_ypos = 0
 define gui.history_name_width = 233
 define gui.history_name_xalign = 1.0
 
-## 대사 글자의 위치, 너비, 그리고 정렬입니다.
 define gui.history_text_xpos = 255
-define gui.history_text_ypos = 3
+define gui.history_text_ypos = 0
 define gui.history_text_width = 1110
 define gui.history_text_xalign = 0.0
 
+define gui.history_allow_tags = { "alt", "noalt", "rt", "rb", "art" }
 
 ## NVL-모드 ######################################################################
 ##
