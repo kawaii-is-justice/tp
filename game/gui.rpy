@@ -263,12 +263,19 @@ define gui.skip_height = 64
 define gui.skip_xpos = gui.textbox.marginleft
 define gui.skip_ypos = gui.textbox.ypos - gui.skip_height - gui.skip_frame_borders.pad_bottom - 16
 
+##########
+# NOTIFY #
+##########
+#24, 8, 60, 8
+
+define gui.notify_frame_borders = Borders(8, 8, 8, 8, \
+                                        16, 12, 8, 8)
+define gui.notify_xpos = 32
+define gui.notify_ypos = 32
+
 #######################
 # GUI ELEMENTS VALUES #
 #######################
-## 통지(notify) 스크린의 수직 위치입니다.
-define gui.notify_ypos = 68
-
 ## 선택지의 메뉴 선택 간의 간격입니다.
 define gui.choice_spacing = 33
 
@@ -300,7 +307,6 @@ define gui.frame_tile = False
 
 define gui.frame_borders = Borders(6, 6, 6, 6)
 define gui.confirm_frame_borders = Borders(60, 60, 60, 60)
-define gui.notify_frame_borders = Borders(24, 8, 60, 8)
 
 ## 막대, 스크롤바, 슬라이더 ##############################################################
 ##
