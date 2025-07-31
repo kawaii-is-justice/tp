@@ -8,7 +8,7 @@ init python:
 define config.check_conflicting_properties = True
 
 #########
-# Color #
+# COLOR #
 #########
 define gui.accent_color = "#CC254F"
 define gui.idle_color = "#EAEAEA"
@@ -254,12 +254,18 @@ define config.thumbnail_height = 216
 define gui.file_slot_cols = 3
 define gui.file_slot_rows = 2
 
+########
+# SKIP #
+########
+define gui.skip_frame_borders = Borders(8, 8, 8, 8, \
+                                        12, 8, 8, 8)
+define gui.skip_height = 64
+define gui.skip_xpos = gui.textbox.marginleft
+define gui.skip_ypos = gui.textbox.ypos - gui.skip_height - gui.skip_frame_borders.pad_bottom - 16
+
 #######################
 # GUI ELEMENTS VALUES #
 #######################
-## 스킵 표시기(skip indicator)의 수직 위치입니다.
-define gui.skip_ypos = 15
-
 ## 통지(notify) 스크린의 수직 위치입니다.
 define gui.notify_ypos = 68
 
@@ -294,7 +300,6 @@ define gui.frame_tile = False
 
 define gui.frame_borders = Borders(6, 6, 6, 6)
 define gui.confirm_frame_borders = Borders(60, 60, 60, 60)
-define gui.skip_frame_borders = Borders(24, 8, 75, 8)
 define gui.notify_frame_borders = Borders(24, 8, 60, 8)
 
 ## 막대, 스크롤바, 슬라이더 ##############################################################
