@@ -1035,15 +1035,12 @@ style confirm_button:
 style confirm_button_text:
     properties gui.text_properties("confirm_button")
 
-## Skip indicator 스크린 ##########################################################
-##
-## Skip_indicator 스크린은 스킵 중일 때 "스킵 중"을 표시하기 위해 출력됩니다.
-##
-## https://www.renpy.org/doc/html/screen_special.html#skip-indicator
-
+##################
+# SKIP INDICATOR #
+##################
 screen skip_indicator():
-    zorder 100
     style_prefix "skip"
+    zorder 100
 
     frame:
         hbox:
@@ -1056,7 +1053,6 @@ screen skip_indicator():
             text "▸" at delayed_blink(0.2, 1.0) style "skip_triangle"
             text "▸" at delayed_blink(0.4, 1.0) style "skip_triangle"
 
-## 이 transform으로 화살표를 순서대로 페이드인/페이드아웃합니다.
 transform delayed_blink(delay, cycle):
     alpha .5
     pause delay
@@ -1083,44 +1079,36 @@ style skip_text:
 style skip_triangle:
     font "fonts/Galmuri9.ttf"
 
-## Notify 스크린 ##################################################################
-##
-## Notify 스크린으로 플레이어에게 메시지를 출력합니다. (예를 들어 '퀵세이브 완
-## 료'나 '스크린샷 저장 완료')
-##
-## https://www.renpy.org/doc/html/screen_special.html#notify-screen
-
+##########
+# NOTIFY #
+##########
 screen notify(message):
-
-    zorder 100
     style_prefix "notify"
+    zorder 100
 
     frame at notify_appear:
         text "[message!tq]"
 
     timer 3.25 action Hide('notify')
 
-
 transform notify_appear:
     on show:
         alpha 0
-        linear .25 alpha 1.0
+        linear 0.25 alpha 1.0
     on hide:
-        linear .5 alpha 0.0
-
+        linear 0.5 alpha 0.0
 
 style notify_frame is empty
 style notify_text is gui_text
 
 style notify_frame:
+    xpos gui.notify_xpos
     ypos gui.notify_ypos
-
     background Frame("gui/notify.png", gui.notify_frame_borders, tile=gui.frame_tile)
     padding gui.notify_frame_borders.padding
 
 style notify_text:
     properties gui.text_properties("notify")
-
 
 ## NVL 스크린 #####################################################################
 ##
