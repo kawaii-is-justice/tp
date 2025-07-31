@@ -236,15 +236,9 @@ style input:
     xalign gui.dialogue.text_xalign
     xmaximum gui.dialogue.width
 
-
-## Choice 스크린 ##################################################################
-##
-## menu 명령어로 생성된 게임내 선택지를 출력하는 스크린입니다. 한 개의 매개변수
-## items를 받고, 이는 선택지 내용(caption)과 선택지 결과(action)이 있는 오브젝트
-## 가 들어있는 리스트입니다.
-##
-## https://www.renpy.org/doc/html/screen_special.html#choice
-
+###############
+# CHOICE MENU #
+###############
 screen choice(items):
     style_prefix "choice"
 
@@ -252,16 +246,14 @@ screen choice(items):
         for i in items:
             textbutton i.caption action i.action
 
-
 style choice_vbox is vbox
 style choice_button is button
 style choice_button_text is button_text
 
 style choice_vbox:
     xalign 0.5
-    ypos 405
+    ypos 400
     yanchor 0.5
-
     spacing gui.choice_spacing
 
 style choice_button is default:

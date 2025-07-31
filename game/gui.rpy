@@ -15,7 +15,7 @@ define gui.idle_color = "#EAEAEA"
 define gui.idle_small_color = "#FFFFFF"
 define gui.hover_color = "#069997"
 define gui.selected_color = "#7FFF00"
-define gui.insensitive_color = "#7F7F7F"
+define gui.insensitive_color = "#8b8b8b"
 
 define gui.text_color = "#EAEAEA"
 define gui.interface_text_color = gui.text_color
@@ -220,21 +220,20 @@ define gui.quick_button_text_selected_color = gui.accent_color
 
 # define gui.navigation_button_width = 250
 
-
-## 선택 버튼들 ######################################################################
-##
-## 선택 버튼은 인-게임 메뉴에 사용됩니다.
-
-define gui.choice_button_width = 1185
+###############
+# CHOICE MENU #
+###############
+define gui.choice_button_width = 1194
 define gui.choice_button_height = None
 define gui.choice_button_tile = False
-define gui.choice_button_borders = Borders(150, 8, 150, 8)
+define gui.choice_button_borders = Borders(20, 20, 20, 20, \
+                                            0, -4, 0, -4)
 define gui.choice_button_text_font = gui.text_font
 define gui.choice_button_text_size = gui.text_size
 define gui.choice_button_text_xalign = 0.5
-define gui.choice_button_text_idle_color = '#707070'
-define gui.choice_button_text_hover_color = "#ffffff"
-define gui.choice_button_text_insensitive_color = '#7070707f'
+define gui.choice_button_text_idle_color = gui.idle_color
+define gui.choice_button_text_hover_color = "#000000"
+define gui.choice_button_text_insensitive_color = gui.insensitive_color
 
 ####################
 # SAVE & LOAD SLOT #
@@ -254,9 +253,9 @@ define config.thumbnail_height = 216
 define gui.file_slot_cols = 3
 define gui.file_slot_rows = 2
 
-########
-# SKIP #
-########
+##################
+# SKIP INDICATOR #
+##################
 define gui.skip_frame_borders = Borders(8, 8, 8, 8, \
                                         12, 8, 8, 8)
 define gui.skip_height = 64
@@ -273,12 +272,14 @@ define gui.notify_frame_borders = Borders(8, 8, 8, 8, \
 define gui.notify_xpos = 32
 define gui.notify_ypos = 32
 
+###############
+# CHOICE MENU #
+###############
+define gui.choice_spacing = 16
+
 #######################
 # GUI ELEMENTS VALUES #
 #######################
-## 선택지의 메뉴 선택 간의 간격입니다.
-define gui.choice_spacing = 33
-
 ## 환경 설정들 간의 간격을 제어합니다.
 define gui.pref_spacing = 15
 
