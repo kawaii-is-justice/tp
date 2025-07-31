@@ -21,6 +21,11 @@ define gui.about = _p("""
 # Note: Only ASCII excluding space, colon, and semicolon.
 define build.name = "SpringBeginningAgain"
 
+###############
+# CHOICE MENU #
+###############
+define config.menu_include_disabled = True
+
 #################
 # AUDIO CONTROL #
 #################
