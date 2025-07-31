@@ -287,21 +287,15 @@ define gui.main_menu_text_xalign = 1.0
 ## 이러한 변수들은 오버레이되거나 창이 없을 때 보여지는 사용자 인터페이스 구성
 ## 요소들을 포함하는 프레임을 제어합니다.
 
-## 일반 프레임.
-define gui.frame_borders = Borders(6, 6, 6, 6)
-
-## 프레임은 확인(confirm) 화면의 일부로 사용됩니다.
-define gui.confirm_frame_borders = Borders(60, 60, 60, 60)
-
-## 프레임은 스킵(skip) 화면의 일부로 사용됩니다.
-define gui.skip_frame_borders = Borders(24, 8, 75, 8)
-
-## 프레임은 통지(notify) 화면의 일부로 사용됩니다.
-define gui.notify_frame_borders = Borders(24, 8, 60, 8)
-
-## 프레임 배경들은 바둑판식으로 배열해야 할까요?
+#########
+# FRAME #
+#########
 define gui.frame_tile = False
 
+define gui.frame_borders = Borders(6, 6, 6, 6)
+define gui.confirm_frame_borders = Borders(60, 60, 60, 60)
+define gui.skip_frame_borders = Borders(24, 8, 75, 8)
+define gui.notify_frame_borders = Borders(24, 8, 60, 8)
 
 ## 막대, 스크롤바, 슬라이더 ##############################################################
 ##
