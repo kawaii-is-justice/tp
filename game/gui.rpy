@@ -15,7 +15,7 @@ define gui.idle_color = "#EAEAEA"
 define gui.idle_small_color = "#FFFFFF"
 define gui.hover_color = "#069997"
 define gui.selected_color = "#7FFF00"
-define gui.insensitive_color = "#8b8b8b"
+define gui.insensitive_color = "#8B8B8B"
 
 define gui.text_color = "#EAEAEA"
 define gui.interface_text_color = gui.text_color
