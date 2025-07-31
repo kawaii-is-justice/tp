@@ -278,7 +278,7 @@ define gui.button_text_insensitive_color = gui.insensitive_color
 define gui.button_text_xalign = 0.0
 
 define gui.radio_button_borders = Borders(40, 6, 6, 6)
-define gui.check_button_borders = Borders(27, 6, 6, 6)
+define gui.check_button_borders = Borders(40, 6, 6, 6)
 define gui.page_button_borders = Borders(15, 6, 15, 6)
 
 ## 막대, 스크롤바, 슬라이더 ##############################################################
