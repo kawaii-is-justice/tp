@@ -1081,6 +1081,37 @@ style skip_text:
 style skip_triangle:
     font "fonts/Galmuri9.ttf"
 
+#######
+# CTC #
+#######
+style ctc_text:
+    font  gui.deffont
+    color gui.idle_color
+    size  gui.rfsiz
+
+define ctc.usual = Text("▸", style="ctc_text")
+define ctc.pause = ctc.usual
+define ctc.timedpause = ctc.usual
+
+transform ctc.anim.usual:
+    alpha 0.25
+    block:
+        easein 0.75 alpha 1.0
+        pause 0.1
+        easeout 0.75 alpha 0.25
+        pause 0.1
+        repeat
+
+transform ctc.anim.pause:
+    ctc.anim.usual
+
+transform ctc.anim.timedpause:
+    alpha 0.5
+
+image ctc usual = At(ctc.usual, ctc.anim.usual)
+image ctc pause = At(ctc.pause, ctc.anim.pause)
+image ctc timedpause = At(ctc.timedpause, ctc.anim.timedpause)
+
 ##########
 # NOTIFY #
 ##########
