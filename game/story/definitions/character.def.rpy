@@ -36,7 +36,7 @@ define character.p_noname = Character( \
     ctc_timedpause="ctc timedpause", \
     ctc_position="nestled-close")
 
-define character.who = Character( \
+define character.stranger = Character( \
     "???", color="#777777", \
     ctc="ctc usual", \
     ctc_pause="ctc pause", \
