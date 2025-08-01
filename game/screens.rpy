@@ -203,20 +203,13 @@ screen qm_pref_tooltip():
         ypos gui.quickmenu.prefbtntooltip.texttop
         size gui.rfsiz
 
-## Input 스크린 ###################################################################
-##
-## 플레이어 입력을 받는 renpy.input을 출력할 때 쓰이는 스크린입니다. prompt 매개
-## 변수를 통해 입력 지문을 표시할 수 있습니다.
-##
-## 이 스크린은 id "input"을 가진 input 디스플레이어블을 생성해야 합니다.
-##
-## https://www.renpy.org/doc/html/screen_special.html#input
-
+#########
+# INPUT #
+#########
 screen input(prompt):
     style_prefix "input"
 
     window:
-
         vbox:
             xanchor gui.dialogue.text_xalign
             xpos gui.dialogue.left
@@ -235,6 +228,7 @@ style input_prompt:
 style input:
     xalign gui.dialogue.text_xalign
     xmaximum gui.dialogue.width
+    color gui.hover_color
 
 ###############
 # CHOICE MENU #
@@ -1067,7 +1061,7 @@ define ctc.timedpause = ctc.usual
 transform ctc.anim.usual:
     alpha 0.25
     block:
-        easein 0.75 alpha 1.0
+        easein  0.75 alpha 1.0
         pause 0.1
         easeout 0.75 alpha 0.25
         pause 0.1
