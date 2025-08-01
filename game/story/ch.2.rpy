@@ -47,12 +47,12 @@ label loop_1:
     show hanl say at center, doup
     with dissolve
 
-    who "{cps=10}...전학생.{/cps}"
+    stranger "{cps=10}...전학생.{/cps}"
 
     "나는 깜짝 놀라 고개를 돌렸다."
 
-    who "뭔가 이상하다고 느끼고 있지 않나요?{p}궁금하시다면, 방과 후에 도서관으로 와보세요."
-    who "그럼 이만..."
+    stranger "뭔가 이상하다고 느끼고 있지 않나요?{p}궁금하시다면, 방과 후에 도서관으로 와보세요."
+    stranger "그럼 이만..."
 
     "...누구지? 같은 반이었나?\n처음 보는 얼굴이었는데..."
     "그런데... 어디선가 들어본 적 있는 목소리다."
@@ -63,7 +63,7 @@ label loop_1:
     show hanl say at center, doup
     with dissolve
 
-    who "와줘서 고마워요."
+    stranger "와줘서 고마워요."
     h "전 {color=#99D9EA}하늘{/color}이라고 합니다."
     h "제가 당신을 부른 건{cps=5}...{/cps}\n당신은 여기 있을 사람이 아닙니다."
     h "사실 당신은{cps=5}...{/cps}" with hpunch
