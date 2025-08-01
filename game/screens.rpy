@@ -1027,7 +1027,7 @@ screen skip_indicator():
             text "▸" at delayed_blink(0.4, 1.0) style "skip_triangle"
 
 transform delayed_blink(delay, cycle):
-    alpha .5
+    alpha 0.5
     pause delay
     block:
         linear 0.2 alpha 1.0
@@ -1050,7 +1050,7 @@ style skip_text:
     size gui.notify_text_size
 
 style skip_triangle:
-    font "fonts/Galmuri9.ttf"
+    font gui.deffont
 
 #######
 # CTC #
