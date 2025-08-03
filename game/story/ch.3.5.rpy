@@ -31,7 +31,7 @@ label interlude_hanl:
     h "그래서 저는...\n다음에도 이 노트를 반드시 찾을 수 있게 잘 숨겨두었습니다."
     h "어쩌면...{p}이미 수 없이 놓쳤을지도 모르겠네요."
 
-    play sound dish brake
+    # play sound dish brake
 
     h "...?!"
     h "이 소리...\n{cps=6}...{/cps}푸른색 유령 같은 게 튀어나오진 않겠죠?"
@@ -41,7 +41,22 @@ label interlude_hanl:
     h "이게 유령이 아니라면...{p}세상이 저를 시험하고 있는 걸지도 모르죠."
     h "...일단 정리를 마저 하도록 하죠."
 
-    #minigame part
+    # Proceeds to the tilestep minigame
+    window hide dissolve
+    $ disable_save()
+    
+    call screen minigame_tilestep(1)
+    $ tilestep_res = _return['res']
+    
+    h "흠{cps=5}... {/cps}이번 청소는 "
+    if tilestep_res == "perfect":
+        extend "깔끔하게 완료됐습니다!"
+    elif tilestep_res == "not bad":
+        extend "그럭저럭 한 것 같네요."
+    elif tilestep_res == "bad":
+        extend "썩 잘 하지 못한 것 같습니다..."
+
+    $ enable_save()
 
     h "...후.\n어느 정도 정리가 된 것 같네요."
     h "오늘 있었던 일도...\n노트에 잘 기록했고요."
