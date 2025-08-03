@@ -23,3 +23,16 @@ init python:
                 pass
         
         return tempname
+
+    def disable_save():
+        global quick_menu, _game_menu_screen, config
+        quick_menu = False
+        _game_menu_screen = None  # disable esc
+        config.rollback_enabled = False
+
+    def enable_save():
+        global quick_menu, _game_menu_screen, config
+        renpy.block_rollback()
+        config.rollback_enabled = True
+        _game_menu_screen = "save"
+        quick_menu = True
