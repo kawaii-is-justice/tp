@@ -31,7 +31,7 @@ label interlude_hanl:
     h "그래서 저는...\n다음에도 이 노트를 반드시 찾을 수 있게 잘 숨겨두었습니다."
     h "어쩌면...{p}이미 수 없이 놓쳤을지도 모르겠네요."
 
-    # play sound dish brake
+    play sound dish brake
 
     h "...?!"
     h "이 소리...\n{cps=6}...{/cps}푸른색 유령 같은 게 튀어나오진 않겠죠?"
