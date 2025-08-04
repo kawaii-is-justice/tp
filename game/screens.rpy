@@ -331,7 +331,12 @@ screen main_menu():
     add titlescreen
     add gui.ts.hanl:
         zoom 2.0
-        pos (gui.ts.hanl_left, gui.ts.hanl_top)
+        xpos gui.ts.hanl_left
+        ypos gui.ts.hanl_top
+    add gui.ts.nuri:
+        zoom 2.0
+        xpos gui.ts.nuri_left
+        ypos gui.ts.nuri_top
 
 #############
 # GAME MENU #

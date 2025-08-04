@@ -51,6 +51,9 @@ define gui.ts.lb.dim = (1920,50)
 define gui.ts.hanl = Image("gui/title_screen/hanl.png")
 define gui.ts.hanl_left = 670
 define gui.ts.hanl_top = 390
+define gui.ts.nuri = Image("gui/title_screen/nuri.png")
+define gui.ts.nuri_left = 1155
+define gui.ts.nuri_top = 390
 
 ##############
 # GAME MENU  #
