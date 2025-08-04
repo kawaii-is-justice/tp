@@ -17,7 +17,7 @@ label loop_3:
 
    menu:
       "(누리의 인사를 무시하고 자리에서 일어난다)":
-         "그러자 누리가 엄청난 괴력으로 나를 다시 자리에 앉혔다."
+         "그러자\n누리가 엄청난 괴력으로 나를 다시 자리에 앉혔다."
       "(아무 말이나 한다)":
          p "오늘 날씨가 참 좋네, 그렇지 않아?"
          "누리는 멈칫했지만 곧 웃으며 반응했다."
@@ -76,6 +76,7 @@ label loop_3:
 
    scene bg school cafeteria
    with fade
+   pause 0.3
 
    "교실로 돌아갔더니 바로 누리에게 붙잡혀 급식실로 끌려왔다."
    "벌써 점심 시간인건지, \n급식실엔 맛있는 냄새가 퍼지고 학생들도 많았다."
@@ -107,18 +108,20 @@ label loop_3:
          $ nurilove -=1
 
    scene bg school hallway
+   with dissolve
+   pause 0.3
 
    "점심을 먹고 반으로 돌아가려던 참이었다.\n그런데. 또 한번 반장, 하늘이에게 붙잡히고 말았다. "
    "내가 없어진 걸 깨달은 누리는 \n고개를 돌려 나를 찾다 하늘이와 눈이 마주치곤 \n조용히 고개를 숙이고 반으로 돌아갔다."
 
-   show hanl
+   show hanl at center, doup with dissolve
 
    h "이제 당신도...\n어느 정도 눈치 챘을거에요.."
    h "궁금한 게 있다면 언제든지 도서관으로 찾아오세요."
 
    scene bg school classroom afternoon
 
-   show nuri
+   show nuri at center, doup with dissolve
 
    p "누리 너는 하늘이에 대해 잘 알아?"
 
@@ -151,7 +154,7 @@ label loop_3:
 
    "그 순간, 교실 문이 '쾅' 하고 열리며 하늘이 들어왔다."
 
-   show hanl
+   show hanl at chrs with moveinright
    
    h "전학생.\n여기서 더 대화를 이어가시면 안 됩니다."
 
@@ -164,14 +167,18 @@ label loop_3:
    n "{cps=6}...{/cps}그게 무슨 말이야. \n아까도 갑자기 데려가더니, \n이번엔 또 왜?"
    n "왜 자꾸 나랑 전학생을 떼어놓으려고 하는데...?"
 
-   "그러나 누리가 말을 마치기도 전에 \n하늘이가 조용히 내 팔을 잡은 채로 나를 교실 밖으로 데리고 나갔다."
+   "그러나 누리가 말을 마치기도 전에 \n하늘이가 조용히 내 팔을 잡은 채\n나를 교실 밖으로 데리고 나갔다."
    "뒤에서 누리의 목소리가 들려왔다."
 
    n "...너 진짜...!"
 
-   scene bg school hallway
+   hide nuri with fade
 
-   show hanl 
+   scene bg school hallway
+   with dissolve
+   pause 0.3
+
+   show hanl at center, doup with dissolve
    
    h "따라오시죠.\n지금 누리는{cps=6}...{/cps}매우 위험한 상태입니다."
    h "그리고 지금이라면 당신에게 \n진실을 어느 정도 말씀드릴 수 있을지도 모르겠군요."
@@ -181,12 +188,14 @@ label loop_3:
    "우리가 도착한 곳은,"
 
    scene bg school library afternoon
+   with dissolve
+   pause 0.3
 
-   "조용한 도서관이었다. 텅 빈 공간에 우리의 발소리만이 들린다."
+   "조용한 도서관이었다.\n텅 빈 공간에 우리의 발소리만이 들린다."
 
    h "잠시만 기다려주시겠습니까."
 
-   "하늘은 책장 사이, 어둠이 짙게 깔린 안쪽으로 사라졌다."
+   "하늘이는 책장 사이,\n어둠이 짙게 깔린 안쪽으로 사라졌다."
    "도서관 안을 좀 둘러볼까......"
    menu:
       "(가만히 있는다.)":
@@ -200,7 +209,11 @@ label loop_3:
          $ loop_3_wait_for_hanl = False
          $ hanllove -= 1
          $ nurilove += 1
+
          scene bg school classroom afternoon
+         with dissolve
+         pause 0.3
+
          "조심스럽게 교실 문을 열자,\n누리가 고개를 숙인 채 책상에 엎드려 있었다.\n누리의 어깨가 작게 떨리고 있다."
          p "누리야... 괜찮아?"
          "누리는 내 목소리에 놀란 듯 고개를 들었다.\n울고있었던건지, 눈시울이 붉었다."
@@ -215,7 +228,7 @@ label loop_3:
                "누리가 다시 고개를 떨궜다."
          "그 순간, 뒤에서 들려오는 작은 발소리와 함꼐\n하늘이의 날카롭고 차가운 목소리가 들려왔다."
 
-         show hanl angry
+         show hanl angry at center, doup with dissolve
 
          h "{cps=6}......{/cps}여기서 뭐 하시는 거죠?"
          h "당신 때문에,\n누리가 더 불안정해질지도 모릅니다."
@@ -226,8 +239,10 @@ label loop_3:
          "누리가 더 불안정해질 수도 있다...\n라는 하늘이의 말에 순순히 하늘이를 따라갔다."
 
    scene bg school library afternoon
+   with dissolve
+   pause 0.3
 
-   show hanl
+   show hanl at center, doup with dissolve
 
    if loop_3_wait_for_hanl == True:
       "나는 텅 빈 도서관에서 하늘이가 돌아오기를 기다렸다.\n잠시 후, 하늘이 손에 노트 한 권을 들고 돌아왔다."
@@ -239,10 +254,10 @@ label loop_3:
    menu:
       "(괜찮다고 답한다.)":
          $ hanllove += 1
-         "응, 괜찮아.\n너나 누리나{cps=6}...{/cps} 다 이유가 있어서 그러는 거겠지."
+         p "응, 괜찮아.\n너나 누리나{cps=6}...{/cps} 다 이유가 있어서 그러는 거겠지."
       "(누리에 대해 묻는다.)":
          $ hanllove -= 1
-         "누리가 왜 저러는거야...?"
+         p "누리가 왜 저러는거야...?"
          h "그건{cps=6}......{/cps}\n전에 말하지 않았었나요?"
          h "{cps=6}...{/cps}당신 때문입니다."
          h "정확한 사정을 지금 말할 수는 없지만,\n곧ㅡ\n당신 스스로 깨닫게 될 겁니다."
@@ -252,6 +267,6 @@ label loop_3:
 
    "하늘이는 노트를 펼쳐 무언가를 열심히 쓰기 시작했다.\n무표정하지만 눈가는 미세하게 떨리고 있었다."
 
-   "그런 하늘이를 바라보다, 눈을 깜빡였더니\n눈 앞이 깜깜해지고 말았다."
+   "그런 하늘이를 바라보다,\n눈을 깜빡였더니,{p}눈 앞이 깜깜해지고 말았다."
 
    jump interlude
