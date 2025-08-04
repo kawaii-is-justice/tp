@@ -13,6 +13,11 @@ screen testScreen():
    add snake:
       align (.5,.5)
 
+style SnakeScore_text:
+   font "gui/fonts/Galmuri11-Bold.ttf"
+   color "#FFF"
+   yalign 0.5
+
 label snakeGame:
    show screen testScreen
    pause

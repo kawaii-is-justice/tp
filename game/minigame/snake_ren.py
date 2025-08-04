@@ -20,7 +20,7 @@ class SnakeMinigameCDD(renpy.Displayable):
       render_canvas.rect((25,25,100,255), playable_area)
       render_canvas.rect((250,0,0), foodRect)
 
-      score_text = Text("Score: {}".format(self.score), size=30)
+      score_text = Text("Score: {}".format(self.score), style="SnakeScore_text", size=30)
       score_render = renpy.render(score_text, width, height, st, at)
       render.blit(score_render, (self.scoreX, 75))
 
@@ -32,8 +32,8 @@ class SnakeMinigameCDD(renpy.Displayable):
       headRect = pygame.Rect((self.snakeBody[0]), (self.blockSize, self.blockSize))
 
       if headRect.colliderect(foodRect):
-         self.foodPositionX = (random.randint(1, 80) * 10) + (self.render_size[0] - self.area_size) // 2
-         self.foodPositionY = (random.randint(1, 80) * 10) + (self.render_size[1] - self.area_size) // 2
+         self.foodPositionX = (random.randint(0, 79) * 10) + (self.render_size[0] - self.area_size) // 2
+         self.foodPositionY = (random.randint(0, 79) * 10) + (self.render_size[1] - self.area_size) // 2
          self.speed -= 0.001
          self.score += 10
          if self.speed <= 0.001:
@@ -41,8 +41,16 @@ class SnakeMinigameCDD(renpy.Displayable):
       else:
          self.snakeBody.pop()
 
+      # if the snake bumps into the walls, reset the game.
       if not headRect.colliderect(playable_area):
          self.reset()
+      
+      # if the snake bumps into itself
+      for segment in enumerate(self.snakeBody):
+         if segment[0] > 1:
+            temp_rect = pygame.Rect(segment[1], (self.blockSize, self.blockSize))
+            if headRect.colliderect(temp_rect):
+               self.reset()
 
       renpy.redraw(self, self.speed)
       return render
@@ -72,8 +80,8 @@ class SnakeMinigameCDD(renpy.Displayable):
       self.score = 0
       self.area_size = 800
       self.render_size = (1920, 1080)
-      self.foodPositionX = (random.randint(1, 80) * 10) + (self.render_size[0] - self.area_size) // 2
-      self.foodPositionY = (random.randint(1, 80) * 10) + (self.render_size[1] - self.area_size) // 2
+      self.foodPositionX = (random.randint(0, 79) * 10) + (self.render_size[0] - self.area_size) // 2
+      self.foodPositionY = (random.randint(0, 79) * 10) + (self.render_size[1] - self.area_size) // 2
       self.scoreX = self.render_size[0] // 2
       
       snake_score = 0
