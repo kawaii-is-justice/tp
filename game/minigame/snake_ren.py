@@ -22,14 +22,14 @@ class SnakeMinigameCDD(renpy.Displayable):
 
       score_text = Text("Score: {}".format(self.score), size=30)
       score_render = renpy.render(score_text, width, height, st, at)
-      render.blit(score_render, self.scoreX, 75)
+      render.blit(score_render, (self.scoreX, 75))
 
       for segment in self.snakeBody:
          render_canvas.rect((255,255,0), [segment[0], segment[1], self.blockSize, self.blockSize])
       newHead = tuple(map(lambda i, j: i+j, self.snakeBody[0], self.snakeDirection))
       self.snakeBody.insert(0, newHead)
 
-      headRect = pygame.rect((self.snakeBody[0]), (self.blockSize, self.blockSize))
+      headRect = pygame.Rect((self.snakeBody[0]), (self.blockSize, self.blockSize))
 
       if headRect.colliderect(foodRect):
          self.foodPositionX = (random.randint(1, 80) * 10) + (self.render_size[0] - self.area_size) // 2
@@ -45,7 +45,7 @@ class SnakeMinigameCDD(renpy.Displayable):
          self.reset()
 
       renpy.redraw(self, self.speed)
-         return render
+      return render
 
    def event(self, ev, x, y, st):
       if ev.type == pygame.KEYDOWN:
@@ -68,7 +68,7 @@ class SnakeMinigameCDD(renpy.Displayable):
       self.snakeBody = [(960,540),(950,540),(940,540)]
       self.blockSize = 10
       self.snakeDirection = (self.blockSize, 0)
-      self.snakespeed = 0.05
+      self.speed = 0.05
       self.score = 0
       self.area_size = 800
       self.render_size = (1920, 1080)

@@ -7,3 +7,13 @@ screen minigame_tilestep(id):
       xalign 0.5
       yalign 0.5
       zoom 1.0
+
+screen testScreen():
+   $ snake = SnakeMinigameCDD()
+   add snake:
+      align (.5,.5)
+
+label snakeGame:
+   show screen testScreen
+   pause
+   return
