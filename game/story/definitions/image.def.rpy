@@ -15,6 +15,8 @@ image bg school nurseoffice = ("bg/School_Nurseoffice.png")
 image bg cafe lateafternoon = ("bg/Cafe_Afternoon.png")
 image bg home bedroom night = ("bg/Home_Bedroom_Night.png")
 image bg home kitchen = ("bg/Home_Kitchen_Night.png")
+image bg white screen = ("bg/White_Screen.jpg")
+image bg black screen = ("bg/Black_Screen.jpg")
 
 # Character sprites image definitions
 image nuri = Placeholder("girl")
