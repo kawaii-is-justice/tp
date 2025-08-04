@@ -3,7 +3,7 @@ label interlude:
     scene bg black screen
     with fade
 
-    "이번에는 누리와 하늘이의 이야기를 해보자 합니다."
+    "이번에는 누리와 하늘이의 이야기를 해보고자 합니다."
 
     "어느 쪽의 이야기를 먼저 들으시겠습니까?"
     menu:
