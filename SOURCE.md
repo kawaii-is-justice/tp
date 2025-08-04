@@ -11,7 +11,7 @@ This document shows the sources of the resources used in this game.
 
 - [audio/sfx/dish_brake.wav](https://soundbible.com/1761-Glass-Breaking.html) by Mike Koenig.
 
-- [audio/sfx/car_accident.wav] (https://freesound.org/people/Medartimus/sounds/217542/) by Medartimus.
+- [audio/sfx/car_accident.wav](https://freesound.org/people/Medartimus/sounds/217542/) by Medartimus.
 
 ### Image Resources
 - [gui/title_screen/background.jpg](https://lemmasoft.renai.us/forums/download/file.php?id=38913&mode=view) from this [collection](https://lemmasoft.renai.us/forums/viewtopic.php?t=17302).
