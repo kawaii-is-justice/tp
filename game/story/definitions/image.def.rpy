@@ -5,6 +5,7 @@ image splscr_txt_combined = Fixed("splscr_txt_presented_by", "splscr_txt_team_na
 
 # Background image definitions
 image bg school classroom morning = ("bg/School_Classroom_Morning.png")
+image bg school classroom midday = ("bg/School_Classroom_Midday.png")
 image bg school classroom afternoon = ("bg/School_Classroom_Afternoon.png")
 image bg school cafeteria = ("bg/School_Cafeteria.png")
 image bg school yard = ("bg/School_Yard.png")
