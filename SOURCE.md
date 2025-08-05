@@ -9,7 +9,7 @@ This document shows the sources of the resources used in this game.
 ### Audio Resources
 - [audio/music/title_screen.mp3](https://soundcloud.com/kubbi/up-in-my-jam-all-of-a-sudden) by Kubbi. Music name: Up In My Jam.
 
-- [audio/sfx/dish_brake.wav](https://soundbible.com/1761-Glass-Breaking.html) by Mike Koenig.
+- [audio/sfx/dish_break.wav](https://soundbible.com/1761-Glass-Breaking.html) by Mike Koenig.
 
 - [audio/sfx/car_accident.wav](https://freesound.org/people/Medartimus/sounds/217542/) by Medartimus.
 
