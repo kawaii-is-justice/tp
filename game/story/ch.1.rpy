@@ -14,10 +14,8 @@ label loop_0:
     stranger "전학생~ 전학생이구나~"
     n "난 {color=#FFAEC9}누리{/color}. {p}전학생, 넌 이름이 뭐니?"
 
-    # show nuri at ilight  # Without this, the following shade
-    # show nuri at shade   # animation would not work properly.
-    show nuri smile at ilight
-    show nuri smile at shade
+    show nuri smile at ilight  # Without this, the following shade
+    show nuri smile at shade   # animation would not work properly.
 
     $ prtname = get_name(banlist=banned_names)
 
