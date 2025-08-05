@@ -311,6 +311,8 @@ label loop_5:
     show nuri smile at center
     n "오늘 급식은 카레랑 오므라이스래! {color=#AAAAAA}[prtname]{/color}, 같이 밥 먹으러 가자~!"
 
+    scene bg school cafeteria
+    
     menu:
         "(점심을 같이 먹는다.)":
             $ nurilove += 1
