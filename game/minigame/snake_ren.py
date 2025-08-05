@@ -24,7 +24,10 @@ class SnakeMinigameCDD(renpy.Displayable):
       score_render = renpy.render(score_text, width, height, st, at)
       render.blit(score_render, (self.scoreX, 75))
 
+      # self.snakeBody = [(960,540),(950,540),(940,540)]
+      # 뱀 몸통을 이루는 각 마디에 대해서
       for segment in self.snakeBody:
+         # 노란색(255,255,0) 의 사각형을 그려서 뱀 몸통 한마디를 표현
          render_canvas.rect((255,255,0), [segment[0], segment[1], self.blockSize, self.blockSize])
       newHead = tuple(map(lambda i, j: i+j, self.snakeBody[0], self.snakeDirection))
       self.snakeBody.insert(0, newHead)
@@ -46,7 +49,9 @@ class SnakeMinigameCDD(renpy.Displayable):
          self.reset()
       
       # if the snake bumps into itself
+      # (0, (960, 540)), (1, (950, 540)), (2, (940, 540))
       for segment in enumerate(self.snakeBody):
+         # except head
          if segment[0] > 1:
             temp_rect = pygame.Rect(segment[1], (self.blockSize, self.blockSize))
             if headRect.colliderect(temp_rect):

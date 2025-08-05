@@ -9,7 +9,8 @@ screen minigame_tilestep(id):
       zoom 1.0
 
 screen testScreen():
-   $ snake = SnakeMinigameCDD()
+   # $ snake = SnakeMinigameCDD()
+   $ snake = NurigameCDD()
    add snake:
       align (.5,.5)
 
