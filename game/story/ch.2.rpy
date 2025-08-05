@@ -1,4 +1,7 @@
 label loop_1:
+
+    $ save_name = "익숙함의 틈"
+
     scene bg school classroom morning
     with Fade(2.0, 2.0, 1.0)
 

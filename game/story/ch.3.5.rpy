@@ -1,5 +1,7 @@
 label interlude:
 
+    $ save_name = "interlude"
+
     scene bg black screen
     with fade
 
@@ -13,6 +15,8 @@ label interlude:
             jump interlude_nuri
 
 label interlude_hanl:
+
+    $ save_name = "각자의 이야기: 하늘"
 
     scene bg school library afternoon
     with dissolve
@@ -81,6 +85,8 @@ label interlude_hanl:
 
 label interlude_nuri:
 
+    $ save_name = "각자의 이야기: 누리"
+    
     scene bg home kitchen
     with dissolve
     pause 0.3

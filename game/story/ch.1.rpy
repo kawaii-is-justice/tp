@@ -1,4 +1,7 @@
 label loop_0:
+    
+    $ save_name = "멈춰 있는 봄"
+
     scene bg school classroom morning
     with Fade(1.0, 1.0, 1.0, color="#000")
 

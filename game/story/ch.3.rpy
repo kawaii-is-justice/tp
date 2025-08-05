@@ -1,4 +1,7 @@
 label loop_3:
+
+   $ save_name = "흔들리는 봄"
+
    scene bg school classroom morning
    with fade
 

@@ -1,5 +1,7 @@
 label loop_6:
 
+    $ save_name = "마지막 봄날"
+
     scene bg school classroom morning
     with fade
     pause 0.3
@@ -175,7 +177,10 @@ label loop_6:
             else:
                 jump end_nuri_low
 
-    label end_hanl:
+label end_hanl:
+
+    $ save_name = "마지막 봄날"
+
     "하늘이 내 손을 잡는다. 처음으로, 차가운 손이 약간 떨리고 있었다."
 
     show hanl smile with doup
@@ -202,6 +207,8 @@ label loop_6:
 
 label end_hanl_low:
 
+    $ save_name = "끝없는 하루의 끝"
+
     "하늘은 말없이 내 팔을 잡아끌었다.\n그 눈에는 감정이 거의 없었다."
 
     h "......이제야 선택하셨군요.{p}늦지 않았길 바랍니다."
@@ -217,6 +224,8 @@ label end_hanl_low:
     p "......끝난 걸까?"
 
 label end_nuri:
+
+    $ save_name = "끝없는 봄날"
 
     "나는 누리의 손을 잡았다\n그녀의 얼굴이 금세 환해졌다."
 
@@ -244,6 +253,8 @@ label end_nuri:
     "그녀의 미소는 누구보다 따뜻했고,{p}나는 더 이상 아무것도 의심하지 않았다."
 
 label end_nuri_low:
+
+    $ save_name = "영원히 함께"
 
     hide hanl with fade
 
