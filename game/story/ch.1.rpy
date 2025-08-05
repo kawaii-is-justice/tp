@@ -55,7 +55,7 @@ label loop_0:
 
     "누리는 내가 고른 메뉴를 따라 먹겠다고 했다.{p}첫날부터 밥 같이 먹을 사람이 생기다니... 참 다행이다."
 
-    scene bg school classroom afternoon
+    scene bg school classroom midday
     with fade
 
     show nuri smile at center, doup
