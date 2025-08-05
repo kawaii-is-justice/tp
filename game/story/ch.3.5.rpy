@@ -36,18 +36,18 @@ label interlude_hanl:
     h "제 글씨였습니다.\n처음엔 누군가의 장난인 줄 알았습니다."
     h "하지만— 너무 많은 것들이 들어맞았고,\n무엇보다 틀림없이 제 필체였습니다."
     h "이건... 반복을 인지한\n또 다른 '저'의 기록이라고밖에 설명할 수 없었습니다."
-    h "그래서 저는...\n다음에도 이 노트를 반드시 찾을 수 있게 잘 숨겨두었습니다."
-    h "어쩌면...{p}이미 수 없이 놓쳤을지도 모르겠네요." with hpunch
+    h "그래서 저는...\n다음에도 이 노트를\n반드시 찾을 수 있게 잘 숨겨두었습니다."
+    h "어쩌면...{p}이미 수 없이 놓쳤을지도 모르겠네요." 
 
     play sound dish_break
 
-    h "...?!"
+    h "...?!" with hpunch
     h "이 소리...\n{cps=6}...{/cps}푸른색 유령 같은 게 튀어나오진 않겠죠?"
     h "옛날 게임에 도서관에 그런 괴물이 등장했다던데요."
     h "푸른 얼굴에, 저택을 배회하는 유령.{p}이상하게도 기억에 남아 있네요."
     h "하지만 저는 무섭지 않습니다."
     h "이게 유령이 아니라면...{p}세상이 저를 시험하고 있는 걸지도 모르죠."
-    h "...일단 정리를 마저 하도록 하죠."
+    h "...일단 도서관 정리를 마저 하도록 하죠."
 
     # Proceeds to the tilestep minigame
     window hide dissolve
@@ -60,7 +60,7 @@ label interlude_hanl:
     if tilestep_res == "perfect":
         extend "깔끔하게 완료됐습니다!"
     elif tilestep_res == "not bad":
-        extend "그럭저럭 한 것 같네요."
+        extend "그럭저럭 적당한 것 같네요."
     elif tilestep_res == "bad":
         extend "썩 잘 하지 못한 것 같습니다..."
 
