@@ -12,14 +12,15 @@ image bg school hallway = ("bg/School_Hallway.png")
 image bg school library morning = ("bg/School_Library_Bright.png")
 image bg school library afternoon = ("bg/School_Library_Dark.png")
 image bg school nurseoffice = ("bg/School_Nurseoffice.png")
+image bg school rooftop = ("bg/School_Rooftop.png")
 image bg cafe lateafternoon = ("bg/Cafe_Afternoon.png")
 image bg home bedroom night = ("bg/Home_Bedroom_Night.png")
 image bg home kitchen = ("bg/Home_Kitchen_Night.png")
 image bg white screen = ("bg/White_Screen.jpg")
 image bg black screen = ("bg/Black_Screen.jpg")
+image bg hospital = ("bg/Hospital.png")
 
 # Character sprites image definitions
-
 image nuri = Crop((0, 0, 1500, 100), "images/nuri/nuri_base.png")
 image nuri say = Crop((0, 0, 1500, 1000),"images/nuri/nuri_say.png")
 image nuri smile = Crop((0, 0, 1500, 1000),"images/nuri/nuri_smile.png")
