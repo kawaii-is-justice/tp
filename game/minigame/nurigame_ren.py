@@ -6,6 +6,10 @@ import random, pygame
 
 class NurigameCDD(renpy.Displayable):
    TILE_SIZE = 40
+   CHAR_DISP = renpy.displayable("nuri walk down")
+   ITEM_COLLECTED_DISP = Transform("images/minigame/cookie.png", zoom=0.25)
+   ITEM_SPAWNED_DISP = Transform("images/minigame/pie.png", zoom=0.25)
+   BG_DISP = Solid("#777")
 
    def __init__(self, **kwargs):
       super(NurigameCDD, self).__init__(**kwargs)
@@ -15,12 +19,17 @@ class NurigameCDD(renpy.Displayable):
       self.w = self.lw * self.tsiz
       self.h = self.lh * self.tsiz
 
+      self.char = NurigameCDD.CHAR_DISP
+      self.icol = NurigameCDD.ITEM_COLLECTED_DISP
+      self.ispwn = NurigameCDD.ITEM_SPAWNED_DISP
+      self.bg = NurigameCDD.BG_DISP
+
       self.init_game()
 
    def init_game(self):
       self.segments = [[3,3]]
       self.direction = (1,0)
-      self.redraw_time = 0.2   # thus determines the move speed.
+      self.redraw_time = 0.3   # thus determines the move speed.
       self.item_count = 0
       self.item_pos = self.spawn_item()
 
@@ -31,39 +40,36 @@ class NurigameCDD(renpy.Displayable):
 
    def render(self, width, height, st, at):
       # Update first before drawing.
-      tail = self.segments[-1]
-      head = self.segments[0]
+      tail_x = self.segments[-1][0]
+      tail_y = self.segments[-1][1]
+      head_x = self.segments[0][0]
+      head_y = self.segments[0][1]
 
-      #prev = head
-      px = head[0]
-      py = head[1]
+      prev_x = head[0]
+      prev_y = head[1]
       for segment in self.segments[1:]:
          # Pass the coords onto the next segment.
-         tx = segment[0]
-         ty = segment[1]
-         segment[0] = px
-         segment[1] = py
-         px = tx
-         py = ty
-         #temp = segment
-         #segment = prev
-         #prev = temp
+         temp_x = segment[0]
+         temp_y = segment[1]
+         segment[0] = prev_x
+         segment[1] = prev_y
+         prev_x = temp_x
+         prev_y = temp_y
 
       head[0] += self.direction[0]
       head[1] += self.direction[1]
 
       # Check if char has collided with item.
-      col_pos = (head[0], head[1] + 1)  # char = 80px, tile = 40px
+      col_pos = (head[0], head[1])  # char = 80px, tile = 40px
 
       if col_pos == self.item_pos:
          self.segments.insert(len(self.segments), [tail[0], tail[1]])
-         #self.segments.insert(len(self.segments), tail)
 
          self.item_pos = self.spawn_item()
          self.item_count += 1
 
-         if self.redraw_time > 0.1:
-            self.redraw_time -= 0.02
+         # if self.redraw_time > 0.15:
+         #    self.redraw_time -= 0.01
       
       # Check if char has collided with walls.
       xcond = col_pos[0] == 0 or col_pos[0] == 11
@@ -73,29 +79,35 @@ class NurigameCDD(renpy.Displayable):
 
       # Check if char has collided with itself.
       for segment in self.segments[1:]:
-         if col_pos == segment:
+         xcond = col_pos[0] == segment[0]
+         ycond = col_pos[1] == segment[1]
+         if xcond and ycond:
             self.init_game()
 
       # Render
       text = Text(f"Score: {self.item_count}", size=gui.rfsiz)
-      char = Image("gui/title_screen/hanl.png")
-      item = Transform("images/minigame/cookie.png", zoom=0.25)
-      food = Transform("images/minigame/pie.png", zoom=0.25)
-      bg = Solid("#777")
+      char = self.char
+      icol = self.icol
+      ispwn = self.ispwn
+      bg = self.bg
+
+      s = self.tsiz
+      c = self.segments[0]
 
       rdmain = renpy.Render(self.w, self.h)
       rdtext = renpy.render(text, width, height, st, at)
       rdchar = renpy.render(char, width, height, st, at)
-      rditem = renpy.render(item, width, height, st, at)
-      rdfood = renpy.render(food, width, height, st, at)
+      rdicol = renpy.render(icol, width, height, st, at)
+      rdispwn = renpy.render(ispwn, width, height, st, at)
       rdbg = renpy.render(bg, 480, 480, st, at)
 
       rdmain.blit(rdbg, (0, 0))
       rdmain.blit(rdtext, (0, 0))
       for segment in self.segments[1:]:
-         rdmain.blit(rditem, tuple(self.tsiz * n for n in segment))
-      rdmain.blit(rdfood, tuple(self.tsiz * n for n in self.item_pos))
-      rdmain.blit(rdchar, tuple(self.tsiz * n for n in self.segments[0]))
+         rdmain.blit(rdicol, tuple(s * n for n in segment))
+      rdmain.blit(rdispwn, tuple(s * n for n in self.item_pos))
+      # rdmain.blit(rdchar, tuple(s * n for n in self.segments[0]))
+      rdmain.blit(rdchar, (s * c[0], s * (c[1] - 1)))
       
       renpy.redraw(self, self.redraw_time)
       return rdmain
