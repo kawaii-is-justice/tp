@@ -2,7 +2,7 @@ label loop_0:
     
     $ save_name = "멈춰 있는 봄"
 
-    play music loop general
+    # play music loop general
 
     scene bg school classroom morning
     with Fade(1.0, 1.0, 1.0, color="#000")
@@ -15,7 +15,7 @@ label loop_0:
 
     show nuri smile at center, doup
     with dissolve
-    
+
     stranger "전학생~ 전학생이구나~"
     n "난 {color=#FFAEC9}누리{/color}. {p}전학생, 넌 이름이 뭐니?"
 

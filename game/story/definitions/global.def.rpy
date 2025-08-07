@@ -12,3 +12,8 @@ default loop_2_nuri_company = None
 default loop_3_wait_for_hanl = True # from ch.3
 default nuri_done = False # from ch.3.5
 default hanl_done = False
+
+label screen_whiteout:
+    show flash_screen at white_fadein
+    with Pause(2.0)
+    return

@@ -46,3 +46,18 @@ transform appear:
 transform doup:     # down up, which is too long to type in.
     easein  0.3 yoffset 30
     easeout 0.3 yoffset 0
+
+transform flash(n):
+    alpha 0.0
+    linear 0.1 alpha 1.0
+    pause 0.1
+    linear 0.1 alpha 0.0 
+    repeat n 
+
+transform white_fadein:
+    alpha 0.0
+    linear 2.0 alpha 1.0
+
+transform white_fadeout:
+    alpha 1.0
+    linear 2.0 alpha 0.0
