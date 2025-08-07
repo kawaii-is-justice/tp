@@ -94,7 +94,6 @@ label interlude_hanl:
         jump interlude_nuri
 
 label interlude_nuri:
-
     $ save_name = "각자의 이야기: 누리"
     
     scene bg home kitchen
@@ -102,6 +101,7 @@ label interlude_nuri:
     pause 0.3
 
     play music event fadein 1.0
+    play sound rain fadein 1.0
 
     show nuri at center, doup with dissolve
 
@@ -127,7 +127,7 @@ label interlude_nuri:
     n "주방이 어질러져서, 재료도 막 흩어져있고... {p}전에 태운 쿠키 잔해도 있고..."
     n "조심하자... \n뭐가 튀어나올지 몰라..."
 
-    #minigame part 
+    # minigame part
 
     n "됐다! 완성~!"
     n "초콜릿이 녹지 않게 냉장고에 넣어놔야겠다~"
@@ -145,4 +145,3 @@ label interlude_nuri:
         jump loop_4
     else:
         jump interlude_hanl
-    
