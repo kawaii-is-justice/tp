@@ -15,12 +15,14 @@ class NurigameCDD(renpy.Displayable):
    ITEM_SPAWNED_DISP = Transform("images/minigame/pie.png", zoom=0.25)
    ITEM_BAD = Transform("images/minigame/pufferfish.png", zoom=0.25)
    BG_DISP = Solid("#777")
-   STAGESIZ = 18
+   STAGESIZ = 20  # actual field size is 16x16
+   STAGEPAD = 4
 
    def __init__(self, **kwargs):
       super(NurigameCDD, self).__init__(**kwargs)
       self.lw = NurigameCDD.STAGESIZ  # logical width
       self.lh = NurigameCDD.STAGESIZ  # logical height
+      self.pad = NurigameCDD.STAGEPAD
       self.tsiz = NurigameCDD.TILE_SIZE
       self.w = self.lw * self.tsiz
       self.h = self.lh * self.tsiz
@@ -37,8 +39,8 @@ class NurigameCDD(renpy.Displayable):
       self.init_game()
 
    def init_game(self):
-      center_x = (self.lw - 2) // 2
-      center_y = (self.lh - 2) // 2
+      center_x = (self.lw - self.pad) // 2
+      center_y = (self.lh - self.pad) // 2
       self.segments = [[center_x, center_y]]
       self.direction = (1,0)
       self.redraw_time = 0.1   # thus determines the move speed.
@@ -53,9 +55,11 @@ class NurigameCDD(renpy.Displayable):
       # renpy.timeout(0)
 
    def spawn_item(self):
+      halfpad = self.pad // 2
+
       while True:
-         x = random.randint(1, self.lw - 2)
-         y = random.randint(1, self.lh - 2)
+         x = random.randint(halfpad, self.lw - halfpad)
+         y = random.randint(halfpad, self.lh - halfpad)
 
          if (x,y) == self.btem_pos:
             continue
@@ -115,13 +119,91 @@ class NurigameCDD(renpy.Displayable):
          self.end_game()
 
       # Check if char has collided with itself.
-      if len(self.segments) > 2:
+      if len(self.segments) > 5:
          for segment in self.segments[1:]:
             xcond = col_pos[0] == segment[0]
             ycond = col_pos[1] == segment[1]
             if xcond and ycond:
                # self.init_game()
                self.end_game()
+
+   def gen_map(self):
+      tiles = []
+      lw = self.lw
+      lh = self.lh
+
+      # fill tiles
+      for y in range(0, lh):
+         line = []
+         for x in range(0, lw):
+            line.append(12)
+         tiles.append(line)
+      
+      # set corners
+      lx = lw - 1
+      ilx = lx - 1
+      ly = lh - 1
+      ily = ly - 1
+
+      tiles[0][0] = 20
+      tiles[0][lx] = 23
+      tiles[ly][0] = 21
+      tiles[ly][lx] = 22
+
+      tiles[1][1] = 3
+      tiles[1][ilx] = 2
+      tiles[ily][1] = 1
+      tiles[ily][ilx] = 0
+
+      # set walls
+      for x in range(2, ilx):
+         tiles[1][x] = 7
+         tiles[ily][x] = 6
+      for y in range(2, ily):
+         tiles[y][1] = 4
+         tiles[y][ilx] = 5
+
+      # manipulate specific tiles
+      for segment in self.segments[1:]:
+         sx = segment[0]
+         sy = segment[1]
+         tiles[sy][sx] = 15
+      
+      itemx = self.item_pos[0]
+      itemy = self.item_pos[1]
+      tiles[itemy][itemx] = 13
+
+      btemx = self.btem_pos[0]
+      btemy = self.btem_pos[1]
+      tiles[btemy][btemx] = 14
+      print(tiles)
+      return tiles
+
+   def ts2crd(self, ts):
+      q = ts // 4
+      r = ts % 4
+      q *= self.tsiz
+      r *= self.tsiz
+      return (r,q)
+
+   def get_field(self, ts):
+      tz = self.tsiz
+      lw = self.lw
+      lh = self.lh
+      w = self.w
+      h = self.h
+
+      args = []
+
+      for i in range(lh):
+         for j in range(lw):
+            x,y = self.ts2crd(ts[i][j])
+            w,h = tz,tz
+            args.append((j * tz, i * tz))
+            args.append(Crop((x,y,w,h), "tileset house"))
+
+      return Flatten(Composite((w,h), *args), drawable_resolution=False)
+
 
    def render(self, width, height, st, at):
       if not self.game_ended:
@@ -133,7 +215,7 @@ class NurigameCDD(renpy.Displayable):
       icol = self.icol
       ispwn = self.ispwn
       ibad = self.ibad
-      bg = self.bg
+      bg = self.get_field(self.gen_map())
 
       s = self.tsiz
       c = self.segments[0]

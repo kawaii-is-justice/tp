@@ -1,6 +1,7 @@
 image charset hanl = "images/minigame/charset.hanl.png"
 image tileset lib  = "images/minigame/tileset.lib.png"
 
+image tileset house = "images/minigame/tileset.house.png"
 image charset nuri = "images/minigame/charset.nuri.png"
 image nuri down 1 = Crop((0, 0, 40, 80), "charset nuri")
 image nuri down 2 = Crop((40, 0, 40, 80), "charset nuri")
