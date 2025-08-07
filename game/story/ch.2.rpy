@@ -70,18 +70,20 @@ label loop_1:
     h "전 {color=#99D9EA}하늘{/color}이라고 합니다."
     h "제가 당신을 부른 건{cps=5}...{/cps} \n당신은 여기 있을 사람이 아닙니다."
     h "사실 당신은{cps=5}...{/cps}" with hpunch
-    # TODO: add screen blinking effect
-    show flash_screen at flash(1)
-    with Pause(0.5)
-    hide flash_screen
+    
+    show solid white at flash(1)
+    pause 0.5
 
     h "{cps=8}당신은 이곳을 테스트—{/cps}{w=1.0}{nw}" with vpunch
-    show flash_screen at flash(2)
-    with Pause(0.5)
-    hide flash_screen
+
+    show solid white at flash(2)
+    pause 0.5
 
     "{color=#FF0000}허용되지 않은 정보 접근 감지.{w=0.5} \n세션 강제 초기화 중{cps=3}...{/cps}{w=1.0}{nw}{/color}"
-    call screen_whiteout
+
+    show solid white at white_fadein
+    pause 2.0
+
     jump loop_2
 
 label loop_2:
