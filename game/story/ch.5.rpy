@@ -6,6 +6,8 @@ label loop_6:
     with fade
     pause 0.3
 
+    play music general1 fadein 1.0
+
     "......또다시 이 교실이다. {p}이젠 확실하다. {p}같은 날이 반복되고 있어."
 
     "손을 주머니에 넣자, \n익숙한 감촉이 느껴졌다. \n수첩은... 잘 있네."
@@ -179,6 +181,8 @@ label loop_6:
 
 label end_hanl:
 
+    play music end fadein 1.0
+
     $ save_name = "마지막 봄날"
 
     "하늘이 내 손을 잡는다. 처음으로, 차가운 손이 약간 떨리고 있었다."
@@ -212,6 +216,8 @@ label end_hanl:
 
 label end_hanl_low:
 
+    play music end fadein 1.0
+
     $ save_name = "끝없는 하루의 끝"
 
     "하늘은 말없이 내 팔을 잡아끌었다. \n그 눈에는 감정이 거의 없었다."
@@ -234,6 +240,8 @@ label end_hanl_low:
     jump splashscreen
 
 label end_nuri:
+
+    play music event fadein 1.0
 
     $ save_name = "끝없는 봄날"
 
@@ -267,6 +275,8 @@ label end_nuri:
     jump splashscreen
 
 label end_nuri_low:
+
+    play music event fadein 1.0
 
     $ save_name = "영원히 함께"
 

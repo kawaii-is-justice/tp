@@ -5,6 +5,8 @@ label interlude:
     scene bg black screen
     with fade
 
+    play music general1 fadein 1.0
+
     "이번에는 누리와 하늘이의 이야기를 해보고자 합니다."
 
     "어느 쪽의 이야기를 먼저 들으시겠습니까?"
@@ -17,10 +19,13 @@ label interlude:
 label interlude_hanl:
 
     $ save_name = "각자의 이야기: 하늘"
+    
 
     scene bg school library afternoon
     with dissolve
     pause 0.3
+
+    play music event fadein 1.0
 
     show hanl at center, doup with dissolve
 
@@ -43,10 +48,15 @@ label interlude_hanl:
     h "그래서 저는... \n다음에도 이 노트를 \n반드시 찾을 수 있게 잘 숨겨두었습니다."
     h "어쩌면... {p}이미 수 없이 놓쳤을지도 모르겠네요." 
 
+    stop music fadeout 0.5
+
     play sound dish_break
 
     h "...?!" with hpunch
     h "이 소리... \n{cps=6}...{/cps}푸른색 유령 같은 게 튀어나오진 않겠죠?"
+
+    play music event fadein 1.0
+
     h "옛날 게임에 도서관에 그런 괴물이 등장했다던데요."
     h "푸른 얼굴에, 저택을 배회하는 유령. {p}이상하게도 기억에 남아 있네요."
     h "하지만 저는 무섭지 않습니다."
@@ -90,6 +100,8 @@ label interlude_nuri:
     scene bg home kitchen
     with dissolve
     pause 0.3
+
+    play music event fadein 1.0
 
     show nuri at center, doup with dissolve
 

@@ -6,6 +6,8 @@ label loop_4:
     with fade
     pause 0.3
 
+    play music general1 fadein 1.0
+
     "...졸았던건가? \n이상하게 어지럽네..."
 
     show nuri smile with dissolve
@@ -100,9 +102,13 @@ label loop_4:
 
     p "도서관에서 학생증이라니... \n일단 따라가보자."
 
+    stop music fadeout 1.0
+
     scene bg school library morning
     with dissolve
     pause 0.3
+
+    play music general2 fadein 1.0
 
     show hanl at chrs with dissolve
     h "잠시만 기다려 주시겠습니까."
@@ -201,6 +207,8 @@ label cafe_event:
     with fade
     pause 0.3
 
+    play music event fadein 1.0
+
     show nuri smile with dissolve
     n "여기 케이크 진짜 맛있어! \n그중에서 내가 제일 좋아하는 건——"
     n "이 딸기가 올라간 초코케이크! \n전학생도 한 입 먹어볼래?"
@@ -257,6 +265,8 @@ label loop_5:
     scene bg school classroom morning
     with fade
     pause 0.3
+
+    play music general1 fadein 1.0
 
     "......또, {p}교실이다."
     "내 자리. \n창밖의 풍경. \n그리고——"
@@ -336,6 +346,8 @@ label loop_5:
     scene bg school library morning
     with dissolve
     pause 0.3
+
+    play music general2 fadein 1.0
 
     "역시나 수첩이 있던 자리는 비어 있었다. \n잠시 책장을 둘러보고 있었는데, \n어느새 하늘이가 조용히 나타나 나를 바라보고 있었다."
 
@@ -437,6 +449,8 @@ label loop_5:
             "누리는 내 의문에 답하듯 말했다."
             h "이 루프는 곧 끝납니다. \n하지만... 다음번엔, 반드시 {p}선택하셔야 할 겁니다."
             "도서관의 풍경이 하얀빛으로 일렁이며 녹아내린다."
+
+    stop music fadeout 1.0
 
     scene bg white screen
     with fade
