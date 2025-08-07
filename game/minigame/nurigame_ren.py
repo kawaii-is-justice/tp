@@ -100,6 +100,9 @@ class NurigameCDD(renpy.Displayable):
          self.item_pos = self.spawn_item()
          self.item_count += 1
 
+         renpy.sound.play("audio/sfx/minigame/collect.wav")
+         return
+
          # if self.redraw_time > 0.15:
          #    self.redraw_time -= 0.01
 
@@ -112,6 +115,9 @@ class NurigameCDD(renpy.Displayable):
             self.segments.pop()
             self.btem_pos = self.spawn_item()
             self.item_count -= 1
+         
+         renpy.sound.play("audio/sfx/minigame/decollect.wav")
+         return
       
       # Check if char has collided with walls.
       halfpad = self.pad // 2
@@ -121,10 +127,13 @@ class NurigameCDD(renpy.Displayable):
       yb2 = self.lh - halfpad
       xcond = col_pos[0] == xb1 or col_pos[0] == xb2
       ycond = col_pos[1] == yb1 or col_pos[1] == yb2
+
       if xcond or ycond:
          # self.init_game()
          self.segments = prev_state
          self.end_game()
+         renpy.sound.play("audio/sfx/minigame/collide.wav")
+         return
 
       # Check if char has collided with itself.
       if len(self.segments) > 5:
@@ -134,6 +143,7 @@ class NurigameCDD(renpy.Displayable):
             if xcond and ycond:
                # self.init_game()
                self.end_game()
+         return
 
    def gen_map(self):
       tiles = []
@@ -162,14 +172,18 @@ class NurigameCDD(renpy.Displayable):
       # tiles[1][ilx] = 2
       # tiles[ily][1] = 1
       # tiles[ily][ilx] = 0
+      tiles[1][1] = 8
+      tiles[1][ilx] = 9
+      tiles[ily][1] = 10
+      tiles[ily][ilx] = 11
 
       # set walls
-      for x in range(1, lx):
-         tiles[1][x] = 7
-         tiles[ly][x] = 6
-      for y in range(2, ly):
+      for x in range(2, ilx):
+         tiles[1][x] = 6
+         tiles[ily][x] = 7
+      for y in range(2, ily):
          tiles[y][1] = 4
-         tiles[y][lx] = 5
+         tiles[y][ilx] = 5
       # for x in range(2, ilx):
       #    tiles[1][x] = 7
       #    tiles[ily][x] = 6
@@ -232,7 +246,7 @@ class NurigameCDD(renpy.Displayable):
          self.update()
 
       # Render
-      text = Text(f"Score: {self.item_count}", size=gui.rfsiz)
+      text = Text(f"Cookies: {self.item_count}", size=gui.rfsiz)
       char = self.char
       # icol = self.icol
       # ispwn = self.ispwn
@@ -251,7 +265,7 @@ class NurigameCDD(renpy.Displayable):
       rdbg = renpy.render(bg, self.w, self.h, st, at)
 
       rdmain.blit(rdbg, (0, 0))
-      rdmain.blit(rdtext, (0, 0))
+      rdmain.blit(rdtext, (10, 10))
       # for segment in self.segments[1:]:
       #    rdmain.blit(rdicol, tuple(s * n for n in segment))
       # rdmain.blit(rdispwn, tuple(s * n for n in self.item_pos))
