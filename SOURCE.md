@@ -10,6 +10,8 @@ This document shows the sources of the resources used in this game.
 - [audio/music/title_screen.mp3](https://soundcloud.com/kubbi/up-in-my-jam-all-of-a-sudden) by Kubbi. Music name: Up In My Jam.
 - [audio/sfx/story/dish_break.wav](https://soundbible.com/1761-Glass-Breaking.html) by Mike Koenig.
 - [audio/sfx/story/car_accident.wav](https://freesound.org/people/Medartimus/sounds/217542/) by Medartimus.
+- [audio/sfx/story/rain_sound.mp3](https://pixabay.com/ko/sound-effects/rain-sound-272604/) by dinamakan.
+
 - [audio/music/general1.mp3](https://pixabay.com/music/modern-classical-peaceful-piano-background-music-218762/) by nickpanek620
 - [audio/music/general2.mp3] (https://pixabay.com/music/modern-classical-calm-and-peaceful-115481/) by music_for_video
 - [audio/music/event.mp3](https://pixabay.com/music/elevator-music-jazz-lounge-elevator-music-332339/) by lkoliks
