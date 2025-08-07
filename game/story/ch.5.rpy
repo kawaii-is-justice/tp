@@ -15,6 +15,8 @@ label loop_6:
     "생각이 잠깐 멍해지려던 그때, \n익숙한 목소리가 들려왔다."
 
     show nuri smile with dissolve
+
+    show nuri say
     n "안녕~ 전학생! \n난 누리. {p}전학생은 이름이 뭐야?"
 
     "나는 잠시 멈칫했다가 이름을 말했다."
@@ -37,10 +39,12 @@ label loop_6:
     show nuri at chls with dissolve
     show hanl at chrs with dissolve
 
+    show nuri say at chls
     n "...반장, 할 말이 있다고 했지? \n무슨 일인데 학교 옥상까지 올라온 거야?"
 
     "하늘이는 한참 동안 침묵하다, \n조용히 입을 열었다."
 
+    show hanl say at chrs
     h "아뇨, 큰일인 건 아닙니다. \n다만, 누리. 당신은 가끔..."
     h "...당신이 느끼는 감정의 이유를 {p}생각해 본 적 있습니까?"
 
@@ -76,14 +80,14 @@ label loop_6:
 
     "누리는 나를 발견하자 금세 얼굴을 바꾸고, \n환하게 웃으며 말했다."
 
-    show nuri smile
+    show nuri smile at center
     n "{color=#AAAAAA}[prtname]{/color}! \n내가 전학생 이름은 똑똑히 외워뒀다고."
     n "옥상엔 어쩐 일이야? \n길이라도 잃어버린 거야?"
 
     "누리는 평소처럼 웃고 있었지만, \n그 눈빛은 어딘가 흔들리고 있었다."
 
     if nurilove >= 8:
-        "그렇게 웃는 누리를 보며... \n나는 이상하게, 마음이 놓였다."
+        "그렇게 웃는 누리를 보며... \n나는, 이상하게 마음이 놓였다."
 
     scene bg school cafeteria
     with fade
@@ -92,6 +96,8 @@ label loop_6:
     "점심시간이 되어 급식실로 향했다. \n정말이지, 몇 번을 반복해도 \n이 학교 급식은 맛있다."
 
     show nuri smile with dissolve
+
+    show nuri say
     n "전학생~ 오늘 급식 메뉴가 뭐게? \n오늘은 카레랑 오므라이스래! \n자, 너부터 골라봐."
 
     p "[loop_0_lunch_menu]"
@@ -137,17 +143,17 @@ label loop_6:
 
     n "나도... 같이 들어가면 안 돼?"
 
-    show hanl at chrs
+    show hanl angry at chrs
     "하늘의 표정이 단단히 굳었다. \n차가운 기운이 도서관 안을 채우는 듯했다."
 
     h "누리, 당신은 지금 들어오면 안 됩니다."
 
     n "왜? {p}왜 난 안 되는 건데?"
 
-    show nuri angry
-    n "하늘이 너...     \n전학생이랑 나를 계속 떨어뜨려 놓으려고만 하잖아!"
+    show nuri angry at chls
+    n "하늘이 너... \n전학생이랑 나를 계속 떨어뜨려 놓으려고만 하잖아!"
 
-    show hanl 
+    show hanl say at chrs
     "하늘은 잠시 눈을 감았다가 뜨며, \n낮고 단호한 목소리로 말했다."
     h "당신이 여기 있으면... \n전학생에게도, \n당신에게도 좋지 않습니다."
 
@@ -158,7 +164,11 @@ label loop_6:
 
     h "......전학생. \n이제 더는 미룰 수 없습니다."
 
-    "하늘이 나를 똑바로 바라봤다. {p}누리 또한 눈물을 머금은 채 나를 올려다본다."
+    show hanl at chrs
+
+    "하늘이 나를 똑바로 바라봤다. {p}누리 또한 울먹이며 나를 올려다본다."
+
+    show nuri sad at chls
 
     "내 앞에는 두 개의 시선이 마주치고 있었다."
     
@@ -188,11 +198,14 @@ label end_hanl:
     "하늘이 내 손을 잡는다. 처음으로, 차가운 손이 약간 떨리고 있었다."
 
     show hanl smile with doup
-    h "......와주셔서 감사합니다. \n당신이 날 믿어준다면... \n이 루프는, 오늘로 끝납니다."
 
+    show hanl say
+    h "......와주셔서 감사합니다. \n당신이 날 믿어준다면... \n이 루프는, 오늘로 끝날겁니다."
+
+    show hanl smile blush
     "하늘이가 나를 바라보며 미묘하게 미소를 지었다. \n언제나 무표정했던 얼굴에 처음으로 온기가 스쳤다."
 
-    p "처음으로 알았다. \n하늘이의 눈빛 속에, \n이런 따뜻함이 숨어 있었다는 걸."
+    "처음으로 알았다. \n하늘이의 눈빛 속에, \n이런 따뜻함이 숨어 있었다는 걸."
 
     "하늘이를 따라 도서관 안쪽으로 들어가자, \n눈부심과 함께 시야가 뒤집히고──"
 
@@ -205,7 +218,7 @@ label end_hanl:
     "눈을 떴다. {p}창밖의 햇살, 하얀 커튼, 기계음."
     "옆에는 익숙한 목소리가 들려왔다."
 
-    show hanl smile
+    show hanl smile with dissolve
 
     h "돌아오신 것을 환영합니다. \n{color=#AAAAAA}[prtname]{/color}"
 
@@ -222,8 +235,11 @@ label end_hanl_low:
 
     "하늘은 말없이 내 팔을 잡아끌었다. \n그 눈에는 감정이 거의 없었다."
 
+    show hanl say
 
     h "......이제야 선택하셨군요. {p}늦지 않았길 바랍니다."
+
+    show hanl
 
     "하늘이를 따라 도서관 안쪽으로 들어갔다. \n점점 머리가 어지러워지고 심장은 빠르게 뛰었다."
 

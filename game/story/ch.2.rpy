@@ -173,7 +173,7 @@ label loop_2:
 
     "오후 수업 도중, \n옆자리인 누리에게서 쪽지가 슬그머니 넘어왔다."
 
-    show nuri smile at center, ishade
+    show nuri smile
     with dissolve
 
     # TODO: use a paper image and place text on it, rather than
