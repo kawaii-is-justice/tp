@@ -128,6 +128,7 @@ label interlude_nuri:
     n "조심하자... \n뭐가 튀어나올지 몰라..."
 
     # minigame part
+    call screen testScreen()
 
     n "됐다! 완성~!"
     n "초콜릿이 녹지 않게 냉장고에 넣어놔야겠다~"
