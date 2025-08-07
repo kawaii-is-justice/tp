@@ -1,5 +1,7 @@
 label loop_1:
 
+    play music general1 fadein 1.0
+
     $ save_name = "익숙함의 틈"
 
     scene bg school classroom morning
@@ -75,6 +77,8 @@ label loop_1:
     
     h "{cps=8}당신은 이곳을 테스트—{/cps}{w=1.0}{nw}" with vpunch
 
+    stop music fadeout 0.5
+
     "{color=#FF0000}허용되지 않은 정보 접근 감지.{w=0.5} \n세션 강제 초기화 중{cps=3}...{/cps}{w=1.0}{nw}{/color}"
 
     jump loop_2
@@ -82,6 +86,8 @@ label loop_1:
 label loop_2:
     scene bg school classroom morning
     with Fade(2.0, 2.0, 1.0)
+
+    play music general1 fadein 1.0
 
     "여긴{cps=5}... {/cps}교실인가? \n잠깐 정신을 잃었었나{cps=5}...{/cps}"
     "그런데 내가 어쩌다 전학을 오게 된 건지{cps=5}...{/cps}"
@@ -210,6 +216,8 @@ label loop_2_after_school_library:
     scene bg school library afternoon
     with fade
 
+    play music general2 fadein 1.0
+
     if loop_2_nuri_company == True:
         show hanl say at chls
         with dissolve
@@ -273,6 +281,8 @@ label loop_2_after_school_library:
 label loop_2_after_school_cafe:
     scene bg cafe lateafternoon
     with fade
+
+    play music event fadein 1.0
 
     show nuri smile at center, doup
     with dissolve
