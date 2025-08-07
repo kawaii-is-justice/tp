@@ -43,8 +43,8 @@ class NurigameCDD(renpy.Displayable):
       self.direction = (1,0)
       self.redraw_time = 0.1   # thus determines the move speed.
       self.item_count = 0
-      self.item_pos = self.spawn_item()
-      self.btem_pos = (center_x - 1, center_y - 1) # self.spawn_item()
+      self.item_pos = (center_x + 2, center_y + 2)
+      self.btem_pos = (center_x - 2, center_y - 2)
 
    def end_game(self):
       self.game_ended = True
@@ -53,8 +53,17 @@ class NurigameCDD(renpy.Displayable):
       # renpy.timeout(0)
 
    def spawn_item(self):
-      x = random.randint(1, self.lw - 2)
-      y = random.randint(1, self.lh - 2)
+      while True:
+         x = random.randint(1, self.lw - 2)
+         y = random.randint(1, self.lh - 2)
+
+         if (x,y) == self.btem_pos:
+            continue
+         for segment in self.segments:
+            if (x,y) == segment:
+               continue
+         break
+      
       return (x,y)
 
    def update(self):
