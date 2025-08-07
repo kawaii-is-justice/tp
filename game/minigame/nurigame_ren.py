@@ -2,7 +2,7 @@
 init python:
 """
 
-import random, pygame, time
+import random, pygame, time, copy
 
 class NurigameCDD(renpy.Displayable):
    TILE_SIZE = 40
@@ -31,9 +31,9 @@ class NurigameCDD(renpy.Displayable):
       self.leave_ready = False
 
       self.char = NurigameCDD.CHAR_RIGHT
-      self.icol = NurigameCDD.ITEM_COLLECTED_DISP
-      self.ispwn = NurigameCDD.ITEM_SPAWNED_DISP
-      self.ibad = NurigameCDD.ITEM_BAD
+      # self.icol = NurigameCDD.ITEM_COLLECTED_DISP
+      # self.ispwn = NurigameCDD.ITEM_SPAWNED_DISP
+      # self.ibad = NurigameCDD.ITEM_BAD
       self.bg = NurigameCDD.BG_DISP
 
       self.init_game()
@@ -58,8 +58,8 @@ class NurigameCDD(renpy.Displayable):
       halfpad = self.pad // 2
 
       while True:
-         x = random.randint(halfpad, self.lw - halfpad)
-         y = random.randint(halfpad, self.lh - halfpad)
+         x = random.randint(halfpad, self.lw - halfpad - 1)
+         y = random.randint(halfpad, self.lh - halfpad - 1)
 
          if (x,y) == self.btem_pos:
             continue
@@ -71,6 +71,8 @@ class NurigameCDD(renpy.Displayable):
       return (x,y)
 
    def update(self):
+      prev_state = copy.deepcopy(self.segments)
+
       # Update first before drawing.
       tail = self.segments[-1]
       head = self.segments[0]
@@ -112,10 +114,16 @@ class NurigameCDD(renpy.Displayable):
             self.item_count -= 1
       
       # Check if char has collided with walls.
-      xcond = col_pos[0] == 0 or col_pos[0] == self.lw - 1
-      ycond = col_pos[1] == 0 or col_pos[1] == self.lh - 1
+      halfpad = self.pad // 2
+      xb1 = halfpad - 1
+      xb2 = self.lw - halfpad
+      yb1 = halfpad - 1
+      yb2 = self.lh - halfpad
+      xcond = col_pos[0] == xb1 or col_pos[0] == xb2
+      ycond = col_pos[1] == yb1 or col_pos[1] == yb2
       if xcond or ycond:
          # self.init_game()
+         self.segments = prev_state
          self.end_game()
 
       # Check if char has collided with itself.
@@ -150,18 +158,32 @@ class NurigameCDD(renpy.Displayable):
       tiles[ly][0] = 21
       tiles[ly][lx] = 22
 
-      tiles[1][1] = 3
-      tiles[1][ilx] = 2
-      tiles[ily][1] = 1
-      tiles[ily][ilx] = 0
+      # tiles[1][1] = 3
+      # tiles[1][ilx] = 2
+      # tiles[ily][1] = 1
+      # tiles[ily][ilx] = 0
 
       # set walls
-      for x in range(2, ilx):
+      for x in range(1, lx):
          tiles[1][x] = 7
-         tiles[ily][x] = 6
-      for y in range(2, ily):
+         tiles[ly][x] = 6
+      for y in range(2, ly):
          tiles[y][1] = 4
-         tiles[y][ilx] = 5
+         tiles[y][lx] = 5
+      # for x in range(2, ilx):
+      #    tiles[1][x] = 7
+      #    tiles[ily][x] = 6
+      # for y in range(2, ily):
+      #    tiles[y][1] = 4
+      #    tiles[y][ilx] = 5
+
+      # # set fields
+      for y in range(2, ily):
+         for x in range(2, ilx):
+            tiles[y][x] = 16
+      # for y in range(3, ily - 1):
+      #    for x in range(3, ilx - 1):
+      #       tiles[y][x] = 16
 
       # manipulate specific tiles
       for segment in self.segments[1:]:
@@ -190,8 +212,8 @@ class NurigameCDD(renpy.Displayable):
       tz = self.tsiz
       lw = self.lw
       lh = self.lh
-      w = self.w
-      h = self.h
+      aw = self.w
+      ah = self.h
 
       args = []
 
@@ -202,7 +224,7 @@ class NurigameCDD(renpy.Displayable):
             args.append((j * tz, i * tz))
             args.append(Crop((x,y,w,h), "tileset house"))
 
-      return Flatten(Composite((w,h), *args), drawable_resolution=False)
+      return Flatten(Composite((aw,ah), *args), drawable_resolution=False)
 
 
    def render(self, width, height, st, at):
@@ -212,9 +234,9 @@ class NurigameCDD(renpy.Displayable):
       # Render
       text = Text(f"Score: {self.item_count}", size=gui.rfsiz)
       char = self.char
-      icol = self.icol
-      ispwn = self.ispwn
-      ibad = self.ibad
+      # icol = self.icol
+      # ispwn = self.ispwn
+      # ibad = self.ibad
       bg = self.get_field(self.gen_map())
 
       s = self.tsiz
@@ -223,17 +245,17 @@ class NurigameCDD(renpy.Displayable):
       rdmain = renpy.Render(self.w, self.h)
       rdtext = renpy.render(text, width, height, st, at)
       rdchar = renpy.render(char, width, height, st, at)
-      rdicol = renpy.render(icol, width, height, st, at)
-      rdispwn = renpy.render(ispwn, width, height, st, at)
-      rdibad = renpy.render(ibad, width, height, st, at)
+      # rdicol = renpy.render(icol, width, height, st, at)
+      # rdispwn = renpy.render(ispwn, width, height, st, at)
+      # rdibad = renpy.render(ibad, width, height, st, at)
       rdbg = renpy.render(bg, self.w, self.h, st, at)
 
       rdmain.blit(rdbg, (0, 0))
       rdmain.blit(rdtext, (0, 0))
-      for segment in self.segments[1:]:
-         rdmain.blit(rdicol, tuple(s * n for n in segment))
-      rdmain.blit(rdispwn, tuple(s * n for n in self.item_pos))
-      rdmain.blit(rdibad, tuple(s * n for n in self.btem_pos))
+      # for segment in self.segments[1:]:
+      #    rdmain.blit(rdicol, tuple(s * n for n in segment))
+      # rdmain.blit(rdispwn, tuple(s * n for n in self.item_pos))
+      # rdmain.blit(rdibad, tuple(s * n for n in self.btem_pos))
       # rdmain.blit(rdchar, tuple(s * n for n in self.segments[0]))
       rdmain.blit(rdchar, (s * c[0], s * (c[1] - 1)))
       
