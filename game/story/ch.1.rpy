@@ -2,7 +2,7 @@ label loop_0:
     
     $ save_name = "멈춰 있는 봄"
 
-    # play music loop general
+    play music general1 fadein 1.0
 
     scene bg school classroom morning
     with Fade(1.0, 1.0, 1.0, color="#000")
@@ -78,7 +78,7 @@ label loop_0:
     "내가 공을 주워 들려는 찰나, \n도로를 건너려는 고양이가 내 눈에 들어왔다."
     "고양이가 차에 치이려는 그 순간, \n나는 반사적으로 고양이에게 몸을 던졌다."
 
-    stop music
+    stop music fadeout 1.0
 
     play sound car_accident
 

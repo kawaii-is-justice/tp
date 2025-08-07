@@ -5,6 +5,8 @@ label loop_3:
    scene bg school classroom morning
    with fade
 
+   play music general1 fadein 1.0
+
    "......여긴? {p}또... 교실인 건가?"
    "......또? {p}내가 지금... 뭘 생각한 거지? \n전학 첫날이라 긴장했나......"
 
@@ -42,6 +44,8 @@ label loop_3:
    scene bg school library morning
    with fade
 
+   play music general2 fadein 1.0
+
    show hanl
    with dissolve
 
@@ -63,6 +67,8 @@ label loop_3:
    
    "나는 그대로 무너져 쓰러졌다."
 
+   stop music fadeout 0.5
+
    scene bg school nurseoffice
    with fade
 
@@ -80,6 +86,8 @@ label loop_3:
    scene bg school cafeteria
    with fade
    pause 0.3
+
+   play music general1 fadein 1.0
 
    "교실로 돌아갔더니 바로 누리에게 붙잡혀 급식실로 끌려왔다."
    "벌써 점심시간인건지, \n급식실엔 맛있는 냄새가 퍼지고 학생들도 많았다."
@@ -110,9 +118,13 @@ label loop_3:
          n "아... 그래, 알겠어... \n그래도 몸 조심해..."
          $ nurilove -=1
 
+   stop music fadeout 1.0
+
    scene bg school hallway
    with dissolve
    pause 0.3
+
+   play music general2 fadein 1.0
 
    "점심을 먹고 반으로 돌아가려던 참이었다. \n그런데. 또 한 번 반장, 하늘이에게 붙잡히고 말았다. "
    "내가 없어진 걸 깨달은 누리는 \n고개를 돌려 나를 찾다 하늘이와 눈이 마주치곤 \n조용히 고개를 숙이고 반으로 돌아갔다."
