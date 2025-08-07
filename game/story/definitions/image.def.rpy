@@ -43,3 +43,6 @@ image hanl shy = Crop((0, -200, 1500, 1000),"images/hanl/hanl_shy.png", zoom= 1.
 image hanl frown = Crop((0, -200, 1500, 1000),"images/hanl/hanl_frown.png", zoom= 1.3)
 image hanl angry = Crop((0, -200, 1500, 1000),"images/hanl/hanl_angry.png", zoom= 1.3)
 image hanl embarrassed = Crop((0, -200, 1500, 1000),"images/hanl/hanl_embarrassed.png", zoom= 1.3)
+
+# Effects
+image solid white = Solid("#FFFFFF")
