@@ -2,21 +2,25 @@
 init python:
 """
 
-import random, pygame
+import random, pygame, time
 
 class NurigameCDD(renpy.Displayable):
    TILE_SIZE = 40
-   CHAR_DISP = renpy.displayable("nuri walk down")
-   CHAR_GAMEEND = renpy.displayable("nuri walk down 2")
+   CHAR_DOWN = renpy.displayable("nuri walk down")
+   CHAR_LEFT = renpy.displayable("nuri walk left")
+   CHAR_UP = renpy.displayable("nuri walk up")
+   CHAR_RIGHT = renpy.displayable("nuri walk right")
+   CHAR_GAMEEND = renpy.displayable("nuri down 2")
    ITEM_COLLECTED_DISP = Transform("images/minigame/cookie.png", zoom=0.25)
    ITEM_SPAWNED_DISP = Transform("images/minigame/pie.png", zoom=0.25)
    ITEM_BAD = Transform("images/minigame/pufferfish.png", zoom=0.25)
    BG_DISP = Solid("#777")
+   STAGESIZ = 18
 
    def __init__(self, **kwargs):
       super(NurigameCDD, self).__init__(**kwargs)
-      self.lw = 12  # logical width
-      self.lh = 12  # logical height
+      self.lw = NurigameCDD.STAGESIZ  # logical width
+      self.lh = NurigameCDD.STAGESIZ  # logical height
       self.tsiz = NurigameCDD.TILE_SIZE
       self.w = self.lw * self.tsiz
       self.h = self.lh * self.tsiz
@@ -24,7 +28,7 @@ class NurigameCDD(renpy.Displayable):
       self.game_ended = False
       self.leave_ready = False
 
-      self.char = NurigameCDD.CHAR_DISP
+      self.char = NurigameCDD.CHAR_RIGHT
       self.icol = NurigameCDD.ITEM_COLLECTED_DISP
       self.ispwn = NurigameCDD.ITEM_SPAWNED_DISP
       self.ibad = NurigameCDD.ITEM_BAD
@@ -33,25 +37,27 @@ class NurigameCDD(renpy.Displayable):
       self.init_game()
 
    def init_game(self):
-      self.segments = [[3,3]]
+      center_x = (self.lw - 2) // 2
+      center_y = (self.lh - 2) // 2
+      self.segments = [[center_x, center_y]]
       self.direction = (1,0)
-      self.redraw_time = 0.25   # thus determines the move speed.
+      self.redraw_time = 0.1   # thus determines the move speed.
       self.item_count = 0
       self.item_pos = self.spawn_item()
-      self.btem_pos = self.spawn_item()
+      self.btem_pos = (center_x - 1, center_y - 1) # self.spawn_item()
 
    def end_game(self):
       self.game_ended = True
       self.char = NurigameCDD.CHAR_GAMEEND
-      renpy.pause(delay=1.0)
-      renpy.timeout(0)
+      # renpy.pause(delay=1.0)
+      # renpy.timeout(0)
 
    def spawn_item(self):
       x = random.randint(1, self.lw - 2)
       y = random.randint(1, self.lh - 2)
       return (x,y)
 
-   def render(self, width, height, st, at):
+   def update(self):
       # Update first before drawing.
       tail = self.segments[-1]
       head = self.segments[0]
@@ -93,8 +99,8 @@ class NurigameCDD(renpy.Displayable):
             self.item_count -= 1
       
       # Check if char has collided with walls.
-      xcond = col_pos[0] == 0 or col_pos[0] == 11
-      ycond = col_pos[1] == 0 or col_pos[1] == 11
+      xcond = col_pos[0] == 0 or col_pos[0] == self.lw - 1
+      ycond = col_pos[1] == 0 or col_pos[1] == self.lh - 1
       if xcond or ycond:
          # self.init_game()
          self.end_game()
@@ -107,6 +113,10 @@ class NurigameCDD(renpy.Displayable):
             if xcond and ycond:
                # self.init_game()
                self.end_game()
+
+   def render(self, width, height, st, at):
+      if not self.game_ended:
+         self.update()
 
       # Render
       text = Text(f"Score: {self.item_count}", size=gui.rfsiz)
@@ -125,7 +135,7 @@ class NurigameCDD(renpy.Displayable):
       rdicol = renpy.render(icol, width, height, st, at)
       rdispwn = renpy.render(ispwn, width, height, st, at)
       rdibad = renpy.render(ibad, width, height, st, at)
-      rdbg = renpy.render(bg, 480, 480, st, at)
+      rdbg = renpy.render(bg, self.w, self.h, st, at)
 
       rdmain.blit(rdbg, (0, 0))
       rdmain.blit(rdtext, (0, 0))
@@ -137,11 +147,24 @@ class NurigameCDD(renpy.Displayable):
       rdmain.blit(rdchar, (s * c[0], s * (c[1] - 1)))
       
       renpy.redraw(self, self.redraw_time)
+
+      if self.game_ended:
+         now = time.time()
+         te = self.time_ended
+
+         if te is None:
+            self.time_ended = now
+         elif now - te >= 1.0:
+               self.leave_ready = True
+               renpy.timeout(0)
+
       return rdmain
 
    def event(self, e, x, y, st):
-      if self.game_ended == True:
-         return self.score
+      if self.leave_ready:
+         return self.item_count
+      if self.game_ended:
+         raise renpy.IgnoreEvent()
 
       if e.type != pygame.KEYDOWN:
          return
@@ -149,12 +172,16 @@ class NurigameCDD(renpy.Displayable):
       if e.key == pygame.K_UP:
          if self.direction == (0,1): return
          self.direction = (0,-1)
+         self.char = NurigameCDD.CHAR_UP
       elif e.key == pygame.K_DOWN:
          if self.direction == (0,-1): return
          self.direction = (0,1)
+         self.char = NurigameCDD.CHAR_DOWN
       elif e.key == pygame.K_LEFT:
          if self.direction == (1,0): return
          self.direction = (-1,0)
+         self.char = NurigameCDD.CHAR_LEFT
       elif e.key == pygame.K_RIGHT:
          if self.direction == (-1,0): return
          self.direction = (1,0)
+         self.char = NurigameCDD.CHAR_RIGHT
