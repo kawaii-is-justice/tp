@@ -32,4 +32,5 @@
 
 label start:
     stop music
-    jump loop_0
+    # jump loop_0
+    jump snakeGame
