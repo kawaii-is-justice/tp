@@ -40,10 +40,8 @@ class NurigameCDD(renpy.Displayable):
 
    def render(self, width, height, st, at):
       # Update first before drawing.
-      tail_x = self.segments[-1][0]
-      tail_y = self.segments[-1][1]
-      head_x = self.segments[0][0]
-      head_y = self.segments[0][1]
+      tail = self.segments[-1]
+      head = self.segments[0]
 
       prev_x = head[0]
       prev_y = head[1]
@@ -78,11 +76,12 @@ class NurigameCDD(renpy.Displayable):
          self.init_game()
 
       # Check if char has collided with itself.
-      for segment in self.segments[1:]:
-         xcond = col_pos[0] == segment[0]
-         ycond = col_pos[1] == segment[1]
-         if xcond and ycond:
-            self.init_game()
+      if len(self.segments) > 2:
+         for segment in self.segments[1:]:
+            xcond = col_pos[0] == segment[0]
+            ycond = col_pos[1] == segment[1]
+            if xcond and ycond:
+               self.init_game()
 
       # Render
       text = Text(f"Score: {self.item_count}", size=gui.rfsiz)
