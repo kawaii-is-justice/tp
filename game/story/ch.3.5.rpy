@@ -127,9 +127,24 @@ label interlude_nuri:
     n "주방이 어질러져서, 재료도 막 흩어져있고... {p}전에 태운 쿠키 잔해도 있고..."
     n "조심하자... \n뭐가 튀어나올지 몰라..."
 
-    # minigame part
+    # Proceeds to the snake minigame
+    window hide dissolve
+    $ disable_save()
 
-    n "됐다! 완성~!"
+    call screen minigame_snake()
+    $ snake_res = _return   # self.item_count
+
+    n "어디보자~{cps=5}... {/cps}{w}"
+    if snake_res >= 10:
+        extend "이 정도면 잘 만들었는걸?"
+    elif snake_res >= 5:
+        extend "선물하지 못할 정도는 아니라서 다행이네."
+    elif snake_res >= 0:
+        extend "내 요리 실력이 이렇게 절망적이라니..."
+    
+    $ enable_save()
+
+    n "아무튼 완성!"
     n "초콜릿이 녹지 않게 냉장고에 넣어놔야겠다~"
     n "아차... {p}냉장고 열기 전에 노크해야 되는데!"
     n @ smile "왜냐하면— {p}샐러드가 드레스를 입고 있을지도 모르잖아~? 히히~"
