@@ -132,8 +132,11 @@ class SnakeMinigameCDD(renpy.Displayable):
             xcond = col_pos[0] == segment[0]
             ycond = col_pos[1] == segment[1]
             if xcond and ycond:
+               renpy.sound.play("audio/sfx/minigame/collide.wav")
                self.end_game()
-         return
+               return
+      
+      return
 
    def gen_map(self):
       tiles = []
