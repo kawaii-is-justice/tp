@@ -210,7 +210,7 @@ label end_hanl:
 
     "하늘이 내 손을 잡는다. 처음으로, 차가운 손이 약간 떨리고 있었다."
 
-    show hanl smile with doup
+    show hanl smile at doup
     show hanl say
 
     h "......와주셔서 감사합니다. \n당신이 날 믿어준다면... \n이 루프는, 오늘로 끝날겁니다."
@@ -331,7 +331,7 @@ label end_nuri_low:
     "교실. \n창밖은 봄, 고요하다. \n누리가 내 손을 꼭 쥐고 있었다."
 
     show nuri smile
-    
+
     n "......이제 네 옆에는 나밖에 없어. {p}{cps=4}우리, 계속 이렇게 있을 거야.{/cps} 그치?"
 
     "미소 짓는 그녀의 눈동자에, \n알 수 없는 그림자가 스쳤다."

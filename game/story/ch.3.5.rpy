@@ -77,13 +77,13 @@ label interlude_hanl:
     
     h "흠{cps=5}... {/cps}이번 청소는 "
     if tilestep_res == "perfect":
-        show hanl smile with doup
+        show hanl smile at doup
         extend "깔끔하게 완료됐습니다!"
     elif tilestep_res == "not bad":
-        show hanl with doup
+        show hanl at doup
         extend "그럭저럭 적당한 것 같네요."
     elif tilestep_res == "bad":
-        show hanl frown with doup
+        show hanl frown at doup
         extend "썩 잘하지 못한 것 같습니다..."
 
     $ enable_save()

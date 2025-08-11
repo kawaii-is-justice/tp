@@ -83,7 +83,7 @@ label loop_4:
 
             "점심시간이 끝나갈 무렵, \n누리가 나를 찾아왔다."
 
-            show nuri say with doup
+            show nuri say at doup
 
             n "다 먹었어? \n헤헤... 밥은 같이 못 먹었어도, \n학교 구경은 시켜줘야 할 것 같아서..."
 
@@ -486,10 +486,10 @@ label loop_5:
             scene bg school library morning
             with fade
             pause 0.3
-            show hanl with doup
+            show hanl at doup
 
             show hanl say
-            
+
             "(도서관 문이 닫히자, 적막만이 감돈다.)"
             h "......겨우 막았습니다. \n전학생, 이제 느껴지십니까."
             h "이 세계는—— {p}안정적이지 않습니다."
