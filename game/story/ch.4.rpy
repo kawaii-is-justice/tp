@@ -1,5 +1,4 @@
 label loop_4:
-
     $ save_name = "봄의 파편"
 
     scene bg school classroom morning
@@ -12,8 +11,7 @@ label loop_4:
 
     show nuri say with dissolve
 
-    n "좋은 아침!  \n전학생~ 난 누리야.  \n전학생은 이름이 뭐야?"
-
+    n "좋은 아침! \n전학생~ 난 누리야.  \n전학생은 이름이 뭐야?"
     p "아... {color=#AAAAAA}[prtname]{/color}이야."
 
     show nuri smile
@@ -50,6 +48,7 @@ label loop_4:
     "누리는 멍하니 그 뒷모습을 바라보다, \n작게 중얼거린다."
 
     show nuri sad at chls
+
     n "...도대체 무슨 뜻이람."
 
     scene bg school classroom morning
@@ -57,36 +56,37 @@ label loop_4:
     pause 0.3
 
     show nuri smile at chls with dissolve
+
     n "전학생~ 점심 먹으러 같이 갈래? \n오늘 전학 왔으니까 궁금한 게 많을 것 같아서... \n같이 밥도 먹고 이야기하고 그런 거지 뭐~"
 
     menu:
         "그래, 같이 가자.":
+            $ nurilove += 1
 
             scene bg school cafeteria
             with dissolve
             pause 0.3
             
-            $ nurilove += 1
             show nuri smile at chls with dissolve
+
             n "오늘 점심 메뉴는 카레랑 오므라이스래! \n너랑 같은 거 먹을 테니 골라봐!"
-
             p "음... 역시 [loop_0_lunch_menu]가 좋겠어."
-
             n "나도 [loop_0_lunch_menu] 좋아하는데, 잘됐네~"
+        
         "혼자 먹고 싶어.":
+            $ nurilove -= 1
+
             hide nuri
             scene bg school cafeteria
             with dissolve
             pause 0.3
-            $ nurilove -= 1
+            
             "혼자 먹으니까 쓸쓸하네... \n역시 누리랑 같이 먹을 걸 그랬나..."
-
             "점심시간이 끝나갈 무렵, \n누리가 나를 찾아왔다."
 
             show nuri say at doup
 
             n "다 먹었어? \n헤헤... 밥은 같이 못 먹었어도, \n학교 구경은 시켜줘야 할 것 같아서..."
-
             p "그래, 같이 가자."
 
     scene bg school hallway
@@ -101,17 +101,13 @@ label loop_4:
     show hanl say
 
     h "전학생. \n...잠시, 도서관 쪽으로 와주시겠습니까?"
-
     n "어... 어라? \n반장, 무슨 일이야?"
-
     h "학생증 관련 처리입니다. \n도서관 쪽 업무이므로, \n잠시 데려가겠습니다."
-
     n "아... 그래? \n음... 그럼 이따 교실에서 봐."
 
     hide nuri with moveoutright
 
     "하늘은 아무 말 없이 고개를 끄덕이며 앞서 걷는다."
-
     p "도서관에서 학생증이라니... \n일단 따라가보자."
 
     stop music fadeout 1.0
@@ -125,7 +121,6 @@ label loop_4:
     show hanl at chrs
     
     h "잠시만 기다려 주시겠습니까."
-
     "하늘은 책장 너머로 사라진다."
 
     hide hanl with fade
@@ -147,6 +142,7 @@ label loop_4:
                     "시간에 관한 책들이 있는 책장이 눈에 띈다."
                     "그 중, 전혀 어울리지 않는 작은 수첩 하나가 눈에 띈다."
                     p "이건...?"
+                
                 "(근처를 둘러본다.)":
                     "입구 근처 책장을 둘러보던 중, \n다른 책들과 달리 "
                     "먼지가전혀 쌓이지 않은 수첩 하나가 눈에 들어온다."
@@ -204,17 +200,15 @@ label loop_4:
     show nuri say
 
     n "전학생~ 오늘 끝나고 뭐해? \n별일 없으면... 같이 카페 가자~"
-
     p "카페...?"
-
     n "응! 전학생한테 꼭 보여주고 싶은 곳이 있어. \n내 비밀 아지트랄까~ 헤헤."
-
     "잠시 망설이다가 누리와 눈이 마주쳤다. \n밝게 웃는 얼굴, \n하지만 아까 본 글귀가 떠오르며 어딘가 묘한 기분이 든다."
 
     menu:
         "(같이 간다.)":
             $ nurilove += 2
             jump cafe_event
+        
         "(거절한다.)":
             $ nurilove -= 1
             jump skip_cafe
@@ -238,32 +232,26 @@ label cafe_event:
             "케이크를 한 입 먹는다. {p}부드럽게 녹아내리며 달콤함이 입안을 채운다."
             p "정말 맛있네."
             n "그렇지~? \n나도 여기 케이크는 자주 먹으러 와!"
+
         "(먹지 않는다.)":
             show nuri frown
-            
             $ nurilove -= 1
             n "에~ 여기 케이크 진짜 맛있는데... {p}안 먹으면 내가 다 먹어야겠다!"
             "누리가 케이크를 전부 먹어 치우고는 \n눈을 감고 기분 좋다는 듯 흥얼거린다."
-
             show nuri say
 
     n "나는 기분이 별로거나 우울할 때, \n여기 케이크를 먹으러 와."
     n "너는... {p}특별하니까 알려주는 거야."
     "누리가 밝게 웃으며 말했다."
-
     p "...하지만 나는 마냥 기뻐할 수 없었다. \n특별하다니... 무슨 뜻이지?"
     "아까 도서관에서 봤던 수첩의 글귀가 머릿속을 스친다."
     "눈앞의 누리는 해맑게 웃고 있지만, {p}그 웃음 뒤에 숨어 있는 감정이 무엇인지 알 수 없다."
     "...정말로, {p}그냥 호의일까. \n아니면——"
-
     "카페를 나서자, \n저녁 공기가 서늘하게 느껴진다."
-
     n "오늘 즐거웠어~! \n내일 학교에서 봐, 전학생!"
-
     "누리는 골목 끝으로 달려가듯 사라졌다. \n나는 혼자 집으로 향했다."
 
     hide nuri with moveoutright
-
     jump evening
 
 label skip_cafe:
@@ -286,7 +274,6 @@ label evening:
     jump loop_5
 
 label loop_5:
-
     scene bg school classroom morning
     with fade
     pause 0.3
@@ -303,7 +290,6 @@ label loop_5:
     show nuri say
 
     n "좋은 아침~ 전학생! \n내 이름은 누리야. \n전학생 이름은 뭐야?"
-
     "누리가 고개를 살짝 기울이며 기다린다. \n이번엔... 내 이름을 모르는 모양이네."
 
     menu:
@@ -311,6 +297,7 @@ label loop_5:
             p "내 이름은 {color=#AAAAAA}[prtname]{/color}이야."
             n "{color=#AAAAAA}[prtname]{/color}~ 좋은 이름이네! \n앞으로 잘 부탁해, 전학생~"
             "누리의 웃음은 맑고 해맑다. \n하지만 나는 알 수 없는 위화감을 느낀다."
+        
         "(없는 이름을 지어낸다.)":
             p "내 이름은... {p}누바라고 해."
             n "에? 누...바?"
@@ -338,9 +325,7 @@ label loop_5:
     n "그게 무슨 말이야? \n반장, 왜 그래? \n전학생이랑 얘기 좀 하는 게 뭐가 문제야?"
     h "......당신은 모릅니다. \n당신도, 전학생도 위험할 수 있어요."
     n "위험하다니? \n그냥... {p}전학생이랑 같이 있는 게 좋은 건데..."
-
     "누리는 어리둥절한 얼굴로 고개를 갸웃한다. \n하늘은 더 말하지 않고 조용히 시선을 돌린다."
-
     "......이 대화. \n어딘가 익숙하다. 그래서 더 불안하다. \n하늘이는{cps=6}......{/cps} 이번에도, 알고 있는 걸까."
 
     scene bg school classroom morning
@@ -359,21 +344,23 @@ label loop_5:
         "(점심을 같이 먹는다.)":
             $ nurilove += 1
             "누리가 신난 표정으로 내 팔을 잡고 급식실로 향했다. \n밥을 먹는 내내 누리는 즐겁게 떠들었지만, \n나는 익숙한 장면에 조용히 숟가락만 움직였다."
+        
         "(점심을 같이 먹지 않는다.)":
             $ nurilove -= 1
             p "오늘은 혼자 먹을게."
             n "...아, 그래...?"
             "누리의 표정이 눈에 띄게 어두워졌다. \n이후 누리는 친구들과 밥을 먹으러 간 듯했다."
+
             hide nuri with dissolve
+
             menu:
                 "(혼자 밥을 먹으러 간다.)":
                     "혼자 밥을 먹었다. \n그런데, \n이상할 정도로 자주 누리와 시선이 마주쳤다."
                     "멀리서도 계속 나를 신경 쓰는듯한 눈빛이었다."
                     "밥을 먹고 나서 수첩을 확인하러 가보자."
+                
                 "(도서관에 가본다.)":
                     "점심시간을 활용해 \n수첩을 발견했던 도서관으로 가보기로 생각했다."
-                    scene bg school library morning
-
 
     scene bg school library morning
     with dissolve
@@ -384,15 +371,18 @@ label loop_5:
     "역시나 수첩이 있던 자리는 비어 있었다. \n잠시 책장을 둘러보고 있었는데, \n어느새 하늘이가 조용히 나타나 나를 바라보고 있었다."
 
     show hanl at center, moveinright
+
     h "전학생...입니까. \n도서관에는 무슨 일로 오셨습니까? \n저는 같은 반 반장, 하늘입니다."
 
     menu:
         "(하늘이에게 수첩에 관해 물어본다.)":
             p "혹시... \n여기 있던 작은 수첩 본 적 있어?"
+
             if hanllove >= 4:
                 h "수첩{cps=6}...{/cps} 말입니까. {p}혹시 이것을 찾으시는 건가요."
                 "하늘이 품에서 낯익은 수첩을 꺼낸다. \n지난 루프에서 봤던 그 수첩이었다."
                 h "언제 두고 가신 건지는 모르겠지만... \n당신 것이 맞는 것 같군요. \n받으시죠."
+            
             else:
                 h "수첩... 말입니까. \n...아뇨, 본 적 없습니다."
                 p "하늘이가 뭔가 숨기고 있는 것 같은 기분이 든다."
@@ -402,6 +392,7 @@ label loop_5:
             h "그렇습니까. \n그럼 오신 김에 학생증을 받아 가시죠."
             "하늘이 조용히 작은 카드를 내밀었다."
             h "학생증은... \n잃어버리지 마시길 바랍니다."
+
             if hanllove >= 4:
                 h "......혹시, {p}이미 학생증을 가지고 계신 건 아니겠지요?"
                 "그 말을 듣는 순간, \n주머니 속 수첩과 카드가 떠올랐다."
@@ -420,7 +411,6 @@ label loop_5:
     n "{color=#AAAAAA}[prtname]{/color}~ 같이 놀자!"
     "누리가 내 팔을 잡아 운동장으로 데리고 나갔다. \n우리는 공을 주고받으며 잠시 웃었다."
     "그러다, 공이 예상치 못한 방향으로 튀어 나갔다. \n나는 반사적으로 공을 잡으러 달려갔다—— {p}차가 있는 도로 방향이었다."
-
     "그 순간, {p}누군가 내 팔목을 잡았다."
 
     show hanl at chrs with moveinright
@@ -434,11 +424,8 @@ label loop_5:
     show hanl sad at chrs
 
     h "......이번에는... \n안 될지도 몰라."
-
     "......이번에는? \n하늘이는...... 뭔갈 알고 있는 걸까."
-
     n "전학생, 괜찮아? \n어디 아픈 데 있어?"
-
     "내가 우두커니 서있자 누리가 물어왔다."
 
     show hanl say at chrs
@@ -449,7 +436,6 @@ label loop_5:
     show nuri sad at chls
 
     n "오늘 하루만이라도... 나랑 있어 줄 수 없을까?"
-
     menu:
         "(누리와 함께 운동장에 남는다.)":
             $ nurilove += 2
