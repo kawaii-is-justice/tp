@@ -1,5 +1,4 @@
 label interlude:
-
     $ save_name = "interlude"
 
     scene bg black screen
@@ -8,8 +7,8 @@ label interlude:
     play music general1 fadein 1.0
 
     "이번에는 누리와 하늘이의 이야기를 해보고자 합니다."
-
     "어느 쪽의 이야기를 먼저 들으시겠습니까?"
+
     menu:
         "하늘이의 이야기":
             jump interlude_hanl
@@ -17,10 +16,8 @@ label interlude:
             jump interlude_nuri
 
 label interlude_hanl:
-
     $ save_name = "각자의 이야기: 하늘"
     
-
     scene bg school library afternoon
     with dissolve
     pause 0.3
@@ -50,7 +47,6 @@ label interlude_hanl:
     h "어쩌면... {p}이미 수 없이 놓쳤을지도 모르겠네요." 
 
     stop music fadeout 0.5
-
     play sound dish_break
 
     show hanl embarrassed
