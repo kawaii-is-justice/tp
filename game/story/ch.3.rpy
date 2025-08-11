@@ -10,13 +10,13 @@ label loop_3:
    "......여긴? {p}또... 교실인 건가?"
    "......또? {p}내가 지금... 뭘 생각한 거지? \n전학 첫날이라 긴장했나......"
 
-   show nuri smile at center, ishade
+   show nuri smile
    with dissolve
 
    "나는 고개를 돌려 누리가 있는 쪽을 바라보았다."
    "누리는 뭔가 하려다 살짝 당황한 듯, 멈칫하며 말을 걸었다."
 
-   show nuri at doup, light
+   show nuri say
 
    n "오~ 전학생! 감이 좋은걸~ \n나는 {color=#FFAEC9}누리{/color}야. \n전학생은 이름이 뭐야?"
 
@@ -129,7 +129,8 @@ label loop_3:
    "점심을 먹고 반으로 돌아가려던 참이었다. \n그런데. 또 한 번 반장, 하늘이에게 붙잡히고 말았다. "
    "내가 없어진 걸 깨달은 누리는 \n고개를 돌려 나를 찾다 하늘이와 눈이 마주치곤 \n조용히 고개를 숙이고 반으로 돌아갔다."
 
-   show hanl at center, doup with dissolve
+   show hanl
+   show hanl say at center, doup with dissolve
 
    h "이제 당신도... \n어느 정도 눈치챘을 거에요.."
    h "궁금한 게 있다면 언제든지 도서관으로 찾아오세요."
@@ -139,6 +140,8 @@ label loop_3:
    show nuri at center, doup with dissolve
 
    p "누리 너는 하늘이에 대해 잘 알아?"
+
+   show nuri say
 
    n "반장? 음... 엄청 친하진 않아도 \n이것저것 도움을 받고 있긴 하지... 특히 공부에서,"
 
@@ -157,6 +160,8 @@ label loop_3:
    n "근데, 하늘이 좀 너무하지 않아? \n아침부터 우리 얘기하는데 갑자기 끌고 가질 않나, \n복도에서도 또 갑자기 부르고..."
    n "그냥, 너랑 좀 친해지고 싶었는데, \n계속 방해만 당하는 기분이야..."
 
+   stop music 
+
    "순간, 이상한 기척이 느껴진다."
    "눈을 감았다 떠보니, \n교실 안의 모든 것이 멈춰있었다."
    "말을 하던 누리도, 주변의 친구들도 전부 멈춰 있고 \n나조차도 말이 나오지 않는다."
@@ -164,12 +169,17 @@ label loop_3:
    "{color=#FF0000}WARNING{/color}: '{color=#FFAEC9}누리{/color}' 감정 통제 실패 \n권장 조치: 분리, 세션 초기화"
    "시간이 흘러 모두가 다시 움직이기 시작했다. \n하지만 나는 갑작스러운 상황에 놀라 움직이지 못했다."
 
+   play music general2 fadein 1.0
+
+   show nuri embarrassed
+
    n "{cps=6}...{/cps}어? \n너 괜찮아? 갑자기 왜 이렇게 굳어 있어{cps=6}...{/cps} \n혹시... 내가 무슨 말이라도 잘못 했어?"
    n "그게 아니면... 그냥 내가 너무 끼어들었나......"
 
    "그 순간, 교실 문이 '쾅' 하고 열리며 하늘이 들어왔다."
 
    show hanl at chrs with moveinright
+   show hanl say
    
    h "전학생. \n여기서 더 대화를 이어가시면 안 됩니다."
 
@@ -178,6 +188,8 @@ label loop_3:
    n "또? 또 데려가는 거야?"
 
    h "누리 당신은 현재 불안정한 상태입니다. \n분리 조치가 필요합니다."
+
+   show hanl
 
    n "{cps=6}...{/cps}그게 무슨 말이야. \n아까도 갑자기 데려가더니, \n이번엔 또 왜?"
    n "왜 자꾸 나랑 전학생을 떼어놓으려고 하는데...?"
@@ -194,6 +206,7 @@ label loop_3:
    pause 0.3
 
    show hanl at center, doup with dissolve
+   show hanl say
    
    h "따라오시죠. \n지금 누리는{cps=6}...{/cps}매우 위험한 상태입니다."
    h "그리고 지금이라면 당신에게 \n진실을 어느 정도 말씀드릴 수 있을지도 모르겠군요."
@@ -206,9 +219,13 @@ label loop_3:
    with dissolve
    pause 0.3
 
+   show hanl at center, doup with dissolve
+
    "조용한 도서관이었다. \n텅 빈 공간에 우리의 발소리만이 들린다."
 
    h "잠시만 기다려주시겠습니까."
+
+   hide hanl with moveoutright
 
    "하늘이는 책장 사이, \n어둠이 짙게 깔린 안쪽으로 사라졌다."
    "도서관 안을 좀 둘러볼까......"
@@ -240,6 +257,9 @@ label loop_3:
             "(걱정돼서 돌아왔다고 한다.)":
                $ nurilove += 1
                p "누리 네가 걱정돼서... \n사실 난 하늘이가 무슨 말을 하는지도 잘 모르겠어..."
+
+               show nuri smile
+               
                n "...그래? \n나만 그런 건 아닌가 보네... \n아무튼 걱정해 줘서 고마워."
             "(침묵한다.)":
                "누리가 다시 고개를 떨궜다."

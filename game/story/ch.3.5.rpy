@@ -28,6 +28,7 @@ label interlude_hanl:
     play music event fadein 1.0
 
     show hanl at center, doup with dissolve
+    show hanl say
 
     h "제 이름은 {color=#99D9EA}하늘{/color}. █████학교의 ■학년 ■반 반장을 맡고 있습니다."
     h "처음엔... 제가 이상해진 줄 알았습니다. \n뭔가 어딘가... 맞지 않는 느낌."
@@ -52,10 +53,14 @@ label interlude_hanl:
 
     play sound dish_break
 
+    show hanl embarrassed
+
     h "...?!" with hpunch
     h "이 소리... \n{cps=6}...{/cps}푸른색 유령 같은 게 튀어나오진 않겠죠?"
 
     play music event fadein 1.0
+
+    show hanl
 
     h "옛날 게임에 도서관에 그런 괴물이 등장했다던데요."
     h "푸른 얼굴에, 저택을 배회하는 유령. {p}이상하게도 기억에 남아 있네요."
@@ -72,13 +77,18 @@ label interlude_hanl:
     
     h "흠{cps=5}... {/cps}이번 청소는 "
     if tilestep_res == "perfect":
+        show hanl smile at doup
         extend "깔끔하게 완료됐습니다!"
     elif tilestep_res == "not bad":
+        show hanl at doup
         extend "그럭저럭 적당한 것 같네요."
     elif tilestep_res == "bad":
+        show hanl frown at doup
         extend "썩 잘하지 못한 것 같습니다..."
 
     $ enable_save()
+
+    show hanl say
 
     h "...후. \n어느 정도 정리가 된 것 같네요."
     h "오늘 있었던 일도... \n노트에 잘 기록했고요."
@@ -104,6 +114,7 @@ label interlude_nuri:
     play sound rain fadein 1.0
 
     show nuri at center, doup with dissolve
+    show nuri say
 
     n "흠~ 또 비가 오네?"
     n "요즘 왜 이렇게 자주 비가 오는거야?"
@@ -122,8 +133,14 @@ label interlude_nuri:
     n  "그리고 분명 처음 본 걸텐데... \n왠지 모르게 두근두근했달까..."
     n "{cps=6}...{/cps}이게 그냥 전학생이라서 그런걸까?"
     n "아니면{cps=6}......{/cps}"
-    n @ smile blush "이게... {p}한눈에 반해버렸다는 거?!"
+
+    show nuri smile blush
+
+    n "이게... {p}한눈에 반해버렸다는 거?!"
     n "에이! 모르겠다! \n일단 쿠키부터 만들자!"
+
+    show nuri
+
     n "주방이 어질러져서, 재료도 막 흩어져있고... {p}전에 태운 쿠키 잔해도 있고..."
     n "조심하자... \n뭐가 튀어나올지 몰라..."
 
@@ -147,8 +164,14 @@ label interlude_nuri:
     n "아무튼 완성!"
     n "초콜릿이 녹지 않게 냉장고에 넣어놔야겠다~"
     n "아차... {p}냉장고 열기 전에 노크해야 되는데!"
-    n @ smile "왜냐하면— {p}샐러드가 드레스를 입고 있을지도 모르잖아~? 히히~"
+
+    show nuri smile
+
+    n  "왜냐하면— {p}샐러드가 드레스를 입고 있을지도 모르잖아~? 히히~"
     n "그러니까{cps=6}...{/cps} \n드레싱{cps=6}...{/cps} dressing이 옷을 갈아입는다는 뜻도 있어서{cps=6}...{/cps}"
+    
+    show nuri
+
     n "아무튼!"
     n "좋아! \n내일은 하늘이한테 쿠키를 주고{cps=6}...{/cps}"
     n "그리고— \n그 애랑도 꼭 말해봐야지."
