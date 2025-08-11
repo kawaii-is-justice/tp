@@ -11,11 +11,13 @@ label loop_4:
     "...졸았던건가? \n이상하게 어지럽네..."
 
     show nuri say with dissolve
+
     n "좋은 아침!  \n전학생~ 난 누리야.  \n전학생은 이름이 뭐야?"
 
     p "아... {color=#AAAAAA}[prtname]{/color}이야."
 
     show nuri smile
+
     n "{color=#AAAAAA}[prtname]{/color}... 좋은 이름이네. 앞으로 잘 부탁해!"
 
     scene bg school hallway
@@ -30,6 +32,7 @@ label loop_4:
 
     show nuri frown
     show hanl say
+
     n "...하늘이 너 오늘 좀 이상해. \n아까 전학생이랑 대화하고 나서 왜 그런 말을 한 거야?"
     h "어떤 말 말입니까?"
     n "네가 나 보고 전학생을 멀리하는 게 좋겠다고 했잖아. \n무슨 뜻이야?"
@@ -91,11 +94,12 @@ label loop_4:
     pause 0.3
 
     show nuri smile at chrs with dissolve
+
     n "소화도 시킬 겸 운동장 산책할까? \n아니면..."
 
     show hanl at chls with dissolve
-
     show hanl say
+
     h "전학생. \n...잠시, 도서관 쪽으로 와주시겠습니까?"
 
     n "어... 어라? \n반장, 무슨 일이야?"
@@ -167,6 +171,7 @@ label loop_4:
 
     show hanl with dissolve
     show hanl say
+
     h "기다리게 해서 죄송합니다. \n여기, 당신의 학생증입니다. \n학생증은... 잃어버리지 마시길."
     h "...실례지만, \n손에 들고 계신 건 무엇입니까?"
 
@@ -196,8 +201,8 @@ label loop_4:
     "도서관에서 돌아온 나는 책상에 앉아 \n멍하니 수첩을 만지작거리고 있었다."
 
     show nuri smile with dissolve
-
     show nuri say
+
     n "전학생~ 오늘 끝나고 뭐해? \n별일 없으면... 같이 카페 가자~"
 
     p "카페...?"
@@ -222,8 +227,8 @@ label cafe_event:
     play music event fadein 1.0
 
     show nuri smile with dissolve
-
     show nuri say
+
     n "여기 케이크 진짜 맛있어! \n그중에서 내가 제일 좋아하는 건——"
     n "이 딸기가 올라간 초코케이크! \n전학생도 한 입 먹어볼래?"
 
@@ -234,10 +239,12 @@ label cafe_event:
             p "정말 맛있네."
             n "그렇지~? \n나도 여기 케이크는 자주 먹으러 와!"
         "(먹지 않는다.)":
-            $ nurilove -= 1
             show nuri frown
+            
+            $ nurilove -= 1
             n "에~ 여기 케이크 진짜 맛있는데... {p}안 먹으면 내가 다 먹어야겠다!"
             "누리가 케이크를 전부 먹어 치우고는 \n눈을 감고 기분 좋다는 듯 흥얼거린다."
+
             show nuri say
 
     n "나는 기분이 별로거나 우울할 때, \n여기 케이크를 먹으러 와."
@@ -293,8 +300,8 @@ label loop_5:
     p "이번엔{cps=6}......{/cps} \n기억을 잃지 않았다. 수첩 덕분일까."
 
     show nuri smile at chls with moveinleft
-
     show nuri say
+
     n "좋은 아침~ 전학생! \n내 이름은 누리야. \n전학생 이름은 뭐야?"
 
     "누리가 고개를 살짝 기울이며 기다린다. \n이번엔... 내 이름을 모르는 모양이네."
@@ -310,6 +317,7 @@ label loop_5:
             p "응. \n누리 바보라는 뜻이야."
 
             show nuri smile
+
             n "정말~! \n처음 보는 사이에 무슨 그런 장난을 치고 그래~ \n전학생은 장난꾸러기구나! 근데, 진짜 이름은 뭐야?"
             p "{color=#AAAAAA}[prtname]{/color}이야."
             n "{color=#AAAAAA}[prtname]{/color}~ 좋은 이름이네! 앞으로 잘 부탁해~"
@@ -325,6 +333,7 @@ label loop_5:
 
     show hanl say at chrs
     show nuri frown at chls
+
     h "......전학생에게서 거리를 두는 게 좋습니다."
     n "그게 무슨 말이야? \n반장, 왜 그래? \n전학생이랑 얘기 좀 하는 게 뭐가 문제야?"
     h "......당신은 모릅니다. \n당신도, 전학생도 위험할 수 있어요."
@@ -341,6 +350,7 @@ label loop_5:
     "수업 종이 울리자, \n교실 안은 급식 이야기로 떠들썩해졌다."
 
     show nuri smile at center
+
     n "오늘 급식은 카레랑 오므라이스래! {color=#AAAAAA}[prtname]{/color}, 같이 밥 먹으러 가자~!"
 
     scene bg school cafeteria
@@ -405,8 +415,8 @@ label loop_5:
     "나와 친해져 보라고 하셨지만, \n다들 자기 무리와 노느라 바쁘다."
 
     show nuri smile at chls
-
     show nuri say at chls
+
     n "{color=#AAAAAA}[prtname]{/color}~ 같이 놀자!"
     "누리가 내 팔을 잡아 운동장으로 데리고 나갔다. \n우리는 공을 주고받으며 잠시 웃었다."
     "그러다, 공이 예상치 못한 방향으로 튀어 나갔다. \n나는 반사적으로 공을 잡으러 달려갔다—— {p}차가 있는 도로 방향이었다."
@@ -414,14 +424,15 @@ label loop_5:
     "그 순간, {p}누군가 내 팔목을 잡았다."
 
     show hanl at chrs with moveinright
-    
     show hanl say at chrs
+
     h "멈추세요. 거긴... 위험합니다. \n또 같은 일이 일어나게 둘 순 없습니다."
     n "어? 반장? \n갑자기 왜 그래? \n우리 그냥 놀고 있었는데..."
     "그 사이 공은 도로를 굴러가다, \n지나가던 차에 부딪혀 힘없이 터졌다."
     "심장이 빠르게 뛰기 시작했다. \n만약 방금 공을 잡으러 갔다면——"
 
     show hanl sad at chrs
+
     h "......이번에는... \n안 될지도 몰라."
 
     "......이번에는? \n하늘이는...... 뭔갈 알고 있는 걸까."
@@ -431,18 +442,23 @@ label loop_5:
     "내가 우두커니 서있자 누리가 물어왔다."
 
     show hanl say at chrs
+
     h "운동장은{cps=6}...{/cps} 안전한 장소가 아닌 듯합니다. \n전학생, 저와 함께 이동하시죠."
     n "잠깐! {color=#AAAAAA}[prtname]{/color}이를 어디로 데려가려는 거야? \n오늘은 나랑 놀기로 했는데..."
 
     show nuri sad at chls
+
     n "오늘 하루만이라도... 나랑 있어 줄 수 없을까?"
 
     menu:
         "(누리와 함께 운동장에 남는다.)":
             $ nurilove += 2
             $ hanllove -= 2
+
             p "...알았어. {p}누리, 너랑 같이 있을게."
+
             show nuri smile at chls
+
             n "정말? 진짜로!?"
             "누리가 내 팔을 잡고 운동장을 이리저리 뛰며 웃는다. \n하늘이의 모습은 어느새 사라졌다."
             n "전학생... \n이 순간이... 계속됐으면 좋겠다."
@@ -461,8 +477,10 @@ label loop_5:
         "(하늘이와 함께 이동한다.)":
             $ hanllove += 2
             $ nurilove -= 2
+
             p "미안, 누리. \n오늘은... 하늘이랑 가야 할 것 같아."
             n "{cps=6}......{/cps}그래. {p}조심해..."
+
             hide nuri with fade
 
             scene bg school library morning
@@ -471,6 +489,7 @@ label loop_5:
             show hanl with doup
 
             show hanl say
+            
             "(도서관 문이 닫히자, 적막만이 감돈다.)"
             h "......겨우 막았습니다. \n전학생, 이제 느껴지십니까."
             h "이 세계는—— {p}안정적이지 않습니다."

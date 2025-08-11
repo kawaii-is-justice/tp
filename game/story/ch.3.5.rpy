@@ -28,7 +28,6 @@ label interlude_hanl:
     play music event fadein 1.0
 
     show hanl at center, doup with dissolve
-
     show hanl say
 
     h "제 이름은 {color=#99D9EA}하늘{/color}. █████학교의 ■학년 ■반 반장을 맡고 있습니다."
@@ -78,14 +77,14 @@ label interlude_hanl:
     
     h "흠{cps=5}... {/cps}이번 청소는 "
     if tilestep_res == "perfect":
-        extend "깔끔하게 완료됐습니다!"
         show hanl smile with doup
+        extend "깔끔하게 완료됐습니다!"
     elif tilestep_res == "not bad":
-        extend "그럭저럭 적당한 것 같네요."
         show hanl with doup
+        extend "그럭저럭 적당한 것 같네요."
     elif tilestep_res == "bad":
-        extend "썩 잘하지 못한 것 같습니다..."
         show hanl frown with doup
+        extend "썩 잘하지 못한 것 같습니다..."
 
     $ enable_save()
 
@@ -115,7 +114,6 @@ label interlude_nuri:
     play sound rain fadein 1.0
 
     show nuri at center, doup with dissolve
-
     show nuri say
 
     n "흠~ 또 비가 오네?"
@@ -137,10 +135,12 @@ label interlude_nuri:
     n "아니면{cps=6}......{/cps}"
 
     show nuri smile blush
+
     n "이게... {p}한눈에 반해버렸다는 거?!"
     n "에이! 모르겠다! \n일단 쿠키부터 만들자!"
 
     show nuri
+
     n "주방이 어질러져서, 재료도 막 흩어져있고... {p}전에 태운 쿠키 잔해도 있고..."
     n "조심하자... \n뭐가 튀어나올지 몰라..."
 
@@ -151,10 +151,12 @@ label interlude_nuri:
     n "아차... {p}냉장고 열기 전에 노크해야 되는데!"
 
     show nuri smile
+
     n  "왜냐하면— {p}샐러드가 드레스를 입고 있을지도 모르잖아~? 히히~"
     n "그러니까{cps=6}...{/cps} \n드레싱{cps=6}...{/cps} dressing이 옷을 갈아입는다는 뜻도 있어서{cps=6}...{/cps}"
     
     show nuri
+
     n "아무튼!"
     n "좋아! \n내일은 하늘이한테 쿠키를 주고{cps=6}...{/cps}"
     n "그리고— \n그 애랑도 꼭 말해봐야지."

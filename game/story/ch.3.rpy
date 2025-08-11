@@ -179,7 +179,6 @@ label loop_3:
    "그 순간, 교실 문이 '쾅' 하고 열리며 하늘이 들어왔다."
 
    show hanl at chrs with moveinright
-
    show hanl say
    
    h "전학생. \n여기서 더 대화를 이어가시면 안 됩니다."
@@ -207,7 +206,6 @@ label loop_3:
    pause 0.3
 
    show hanl at center, doup with dissolve
-
    show hanl say
    
    h "따라오시죠. \n지금 누리는{cps=6}...{/cps}매우 위험한 상태입니다."
