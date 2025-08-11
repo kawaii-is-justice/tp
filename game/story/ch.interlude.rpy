@@ -50,11 +50,11 @@ label interlude_prompt_hanl_route:
             window hide dissolve
             hide nuri_char with dissolve
             pause 0.5
-            show hanl_char anim:
+            show hanl_char anim2:
                 linear 0.75 xoffset 0
-            pause 1.5
+            pause 0.75
             show hanl_char
-            pause 1.0
+            pause 2.0
             jump interlude_hanl
 
         "아니다":
@@ -72,11 +72,11 @@ label interlude_prompt_nuri_route:
             window hide dissolve
             hide hanl_char with dissolve
             pause 0.5
-            show nuri_char anim:
+            show nuri_char anim2:
                 linear 0.75 xoffset 0
-            pause 1.5
+            pause 0.75
             show nuri_char
-            pause 1.0
+            pause 2.0
             jump interlude_nuri
         
         "아니다":
