@@ -153,7 +153,7 @@ label interlude_nuri:
     call screen minigame_snake()
     $ snake_res = _return   # self.item_count
 
-    n "어디보자~{cps=5}... {/cps}{w}"
+    n "어디보자~{cps=5}... {/cps}"
     if snake_res >= 10:
         show nuri smile at doup
         extend "이 정도면 잘 만들었는걸?"
