@@ -155,11 +155,14 @@ label interlude_nuri:
 
     n "어디보자~{cps=5}... {/cps}{w}"
     if snake_res >= 10:
+        show nuri smile at doup
         extend "이 정도면 잘 만들었는걸?"
         $ nurilove += 1
     elif snake_res >= 5:
+        show nuri say at doup
         extend "선물하지 못할 정도는 아니라서 다행이네."
     elif snake_res >= 0:
+        show nuri disappointed at doup
         extend "내 요리 실력이 이렇게 절망적이라니..."
         $ nurilove -= 1
     
