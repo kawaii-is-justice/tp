@@ -8,3 +8,7 @@ define audio.end = "audio/music/end.mp3"
 define audio.car_accident = "audio/sfx/story/car_accident.wav"
 define audio.dish_break = "audio/sfx/story/dish_break.wav"
 define audio.rain = "audio/sfx/story/rain.mp3"
+
+# Sound Channels
+init python:
+   renpy.music.register_channel("environment", loop=True)
