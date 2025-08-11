@@ -1,9 +1,8 @@
 label loop_1:
-
-    play music general1 fadein 1.0
-
     $ save_name = "익숙함의 틈"
 
+    play music general1 fadein 1.0
+    
     scene bg school classroom morning
     with Fade(2.0, 2.0, 1.0)
 
@@ -115,6 +114,7 @@ label loop_2:
             with dissolve
             "누리와의 눈싸움에서 이겼다."
             "누리는 고개를 돌려 푹 숙이고는 아무 말이 없다. \n조금 부끄러워하는 것 같기도 하다."
+        
         "(왜 그러냐고 묻는다.)":
             p "왜? 무슨 일 있어?"
             n "아무것도 아니야... \n그냥 네가 어딘가 좀 익숙하게 느껴져서 말이야..."
@@ -135,6 +135,7 @@ label loop_2:
         "...무슨 일 있어?":
             show hanl at doup
             h "아무것도 아닙니다. 그냥, 전학생은 처음이라서요. \n괜찮으시다면 수업 끝나고 잠깐 도서관에 들러주세요."
+        
         "(침묵한다)":
             show hanl at doup
             h "전학생이라 처리해야 할 일이 있으니, \n수업 끝나고 잠깐 도서관에 들러주세요."
@@ -161,6 +162,7 @@ label loop_2:
         "누리와 함께 {color=#FFAEC9}[loop_0_lunch_menu]{/color}를 먹는다.":
             "누리와 함께 즐거운 점심을 먹었다."
             $ nurilove += 1
+        
         "{color=#FFAEC9}[loop_0_lunch_menu_not_selected]{/color}를 더 좋아한다고 말한다.":
             show nuri disappointed
             with dissolve
@@ -193,6 +195,7 @@ label loop_2:
             $ loop_2_after_school_plan = "house"
             n "그러면 내가 정말 좋아하는 카페 있는데, \n같이 갈래?"
             n "거기 디저트가 진짜 맛있어~!"
+        
         "도서관에 한 번 가보려고 했어.":
             $ loop_2_after_school_plan = "lib"
             n "도서관~? 무슨 책 보려고? ...나도 같이 가도 돼?"
@@ -204,6 +207,7 @@ label loop_2:
             "내 대답에 누리는 살짝 들뜬 것 같다."
             $ nurilove += 1
             $ loop_2_nuri_company = True
+        
         "미안, 다음에 같이 가자.":
             show nuri disappointed
             with dissolve
@@ -225,7 +229,7 @@ label loop_2_after_school_library:
 
     play music general2 fadein 1.0
 
-    if loop_2_nuri_company == True:
+    if loop_2_nuri_company:
         show hanl say at chls
         with dissolve
         show nuri smile at chrs, shade
@@ -244,12 +248,10 @@ label loop_2_after_school_library:
 
         hide hanl
         with dissolve
-
         pause 0.5
 
         show nuri smile at center, light
         with ease
-
         pause 0.5
 
         show nuri at doup
@@ -257,11 +259,13 @@ label loop_2_after_school_library:
         if loop_2_after_school_plan == "house":
             n "그럼 이제 귀찮은 일도 끝났으니, 케이크나 먹으러 갈까?"
             jump loop_2_after_school_cafe
+        
         else:
             n "이제 귀찮은 일도 끝났으니~ \n내가 정말 좋아하는 카페 있는데, 같이 갈래? \n거기 디저트가 진짜 맛있어~!"
             menu:
                 "(간다.)":
                     jump loop_2_after_school_cafe
+
                 "(가지 않는다.)":
                     n "그럼 이제 귀찮은 일도 끝났으니, 집으로 돌아가자~ \n조심히 돌아가, {color=#AAAAAA}[prtname]{/color}~ 내일 보자!"
                     jump loop_2_after_school_home
@@ -275,10 +279,12 @@ label loop_2_after_school_library:
                 menu:
                     "(그냥 넘어간다)":
                         h "{cps=12}{i}학생증은 잃어버리지 마시길... {/i}{/cps}그럼, 이만."
+
                     "(끈질기게 물어본다)":
                         h "하... 말 그대로입니다. 당신은 이 학교에 있으면 안 됩니다."
                         p "......그게 무슨...? 내가 이 학교에 있으면 안 된다니?"
                         h "...더 이상은 말할 수 없겠군요. \n{cps=12}{i}학생증을 잊지 말고 챙겨주시기를 바랍니다. {/i}{/cps}그럼, 이만."
+
             "(침묵한다)":
                 h "{cps=12}{i}학생증은 잃어버리지 마시길... {/i}{/cps}그럼, 이만."
         $ hanllove += 1
@@ -295,7 +301,6 @@ label loop_2_after_school_cafe:
     with dissolve
 
     n "여기 케이크가 진짜 맛있어~! \n너도 한번 먹어봐~"
-
     menu:
         "(케이크를...)"
 
@@ -304,6 +309,7 @@ label loop_2_after_school_cafe:
             p "정말 맛있네."
             n "그렇지~? 나도 여기 케이크는 진짜 자주 먹으러 와~"
             $ nurilove += 1
+
         "(먹지 않는다)":
             n "여기 케이크 진짜 맛있는데... 안 먹으면 내가 다 먹어야지!"
             "누리가 케이크를 전부 먹어 치운다. {p}눈을 감고 기분 좋다는 듯이 흥얼거리는 걸 보니 정말 맛있는 모양이다."

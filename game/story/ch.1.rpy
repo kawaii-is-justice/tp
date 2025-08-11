@@ -1,5 +1,4 @@
 label loop_0:
-    
     $ save_name = "멈춰 있는 봄"
 
     play music general1 fadein 1.0
@@ -7,7 +6,7 @@ label loop_0:
     scene bg school classroom morning
     with Fade(1.0, 1.0, 1.0, color="#000")
 
-    # refer to https://www.renpy.org/doc/html/text.html#dialogue-text-tags
+    # Refer to https://www.renpy.org/doc/html/text.html#dialogue-text-tags
     p_noname "여긴... 교실인가? {p}잠깐 정신을 잃었었나..."
     p_noname "어쩌다 전학을 오게 된 건지... {p}기억은 잘 나지 않지만..."
 
@@ -52,9 +51,9 @@ label loop_0:
 
     menu:
         "이러다 올해 급식 메뉴를 전부 읊겠어... \n빨리 고르자."
-
         "카레라이스가 좋겠어.":
             $ loop_0_lunch_menu = "카레라이스"
+        
         "오므라이스가 더 끌리는데.":
             $ loop_0_lunch_menu = "오므라이스"
 
