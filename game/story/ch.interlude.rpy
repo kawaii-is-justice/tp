@@ -2,30 +2,100 @@ label interlude:
     $ save_name = "interlude"
 
     scene bg black screen
-    with fade
+    with Fade(2.0, 2.0, 2.0)
 
     play music general1 fadein 1.0
 
-    "이번에는 누리와 하늘이의 이야기를 해보고자 합니다."
-    "어느 쪽의 이야기를 먼저 들으시겠습니까?"
+    window show
 
+    "지금부터 이야기가 잠시 두 갈래로 분기됩니다."
+
+    window hide dissolve
+    pause 0.5
+
+    show hanl_char with Dissolve(1.0):
+        ilight
+        truecenter
+        xoffset -200
+        yoffset  80
+        zoom 1.5
+    pause 0.2
+
+    show nuri_char with Dissolve(1.0):
+        ilight
+        truecenter
+        xoffset  200
+        yoffset  80
+        zoom 1.5
+    pause 1.0
+
+    jump interlude_menu
+
+label interlude_menu:
+    # window show
     menu:
+        "어느 쪽을 먼저 진행합니까?"
         "하늘이의 이야기":
-            jump interlude_hanl
+            jump interlude_prompt_hanl_route
         "누리의 이야기":
+            jump interlude_prompt_nuri_route
+
+label interlude_prompt_hanl_route:
+    show hanl_char anim
+    show nuri_char at shade
+    menu:
+        "하늘이의 이야기로 진입합니까?"
+        "그렇다":
+            stop music fadeout 1.0
+            window hide dissolve
+            hide nuri_char with dissolve
+            pause 0.5
+            show hanl_char anim:
+                linear 0.75 xoffset 0
+            pause 1.5
+            show hanl_char
+            pause 1.0
+            jump interlude_hanl
+
+        "아니다":
+            show hanl_char
+            show nuri_char at light
+            jump interlude_menu
+
+label interlude_prompt_nuri_route:
+    show nuri_char anim
+    show hanl_char at shade
+    menu:
+        "누리의 이야기로 진입합니까?"
+        "그렇다":
+            stop music fadeout 1.0
+            window hide dissolve
+            hide hanl_char with dissolve
+            pause 0.5
+            show nuri_char anim:
+                linear 0.75 xoffset 0
+            pause 1.5
+            show nuri_char
+            pause 1.0
             jump interlude_nuri
+        
+        "아니다":
+            show nuri_char
+            show hanl_char at light
+            jump interlude_menu
 
 label interlude_hanl:
     $ save_name = "각자의 이야기: 하늘"
     
     scene bg school library afternoon
-    with dissolve
+    with Dissolve(1.0)
     pause 0.3
 
     play music event fadein 1.0
 
     show hanl at center, doup with dissolve
     show hanl say
+    window show
 
     h "제 이름은 {color=#99D9EA}하늘{/color}. █████학교의 ■학년 ■반 반장을 맡고 있습니다."
     h "처음엔... 제가 이상해진 줄 알았습니다. \n뭔가 어딘가... 맞지 않는 느낌."
@@ -64,6 +134,8 @@ label interlude_hanl:
     h "이게 유령이 아니라면... {p}세상이 저를 시험하고 있는 걸지도 모르죠."
     h "...일단 도서관 정리를 마저 하도록 하죠."
 
+    hide hanl with dissolve
+
     # Proceeds to the tilestep minigame
     window hide dissolve
     $ disable_save()
@@ -71,7 +143,11 @@ label interlude_hanl:
     call screen minigame_tilestep(1)
     $ tilestep_res = _return['res']
     
+    show hanl frown at center, doup with dissolve
+    window show
+
     h "흠{cps=5}... {/cps}이번 청소는 "
+
     if tilestep_res == "perfect":
         show hanl smile at doup
         extend "깔끔하게 완료됐습니다!"
@@ -87,6 +163,7 @@ label interlude_hanl:
     $ enable_save()
 
     show hanl say
+    window show
 
     h "...후. \n어느 정도 정리가 된 것 같네요."
     h "오늘 있었던 일도... \n노트에 잘 기록했고요."
@@ -94,18 +171,42 @@ label interlude_hanl:
     h "그 아이가 어떤 선택을 하게 될지... \n계속 생각하게 되네요."
     h "내일도... \n그 아이에게 말을 걸게 될까요."
 
+    show hanl
+    window hide dissolve
+    pause 0.25
+
+    hide hanl with dissolve
+
+    stop music fadeout 2.0
+    pause 0.5
+
     $ hanl_done = True
 
-    if nuri_done == True:
+    if nuri_done:
         jump loop_4
     else:
-        jump interlude_nuri
+        jump transition_hanl_to_nuri
+
+label transition_hanl_to_nuri:
+    $ save_name = "interlude"
+
+    scene bg black screen
+    with Fade(1.0, 1.0, 1.0)
+
+    window show
+
+    "한편, 누리는..."
+    
+    window hide dissolve
+    pause 0.5
+
+    jump interlude_nuri
 
 label interlude_nuri:
     $ save_name = "각자의 이야기: 누리"
     
     scene bg home kitchen
-    with dissolve
+    with Dissolve(1.0)
     pause 0.3
 
     play music event fadein 1.0 volume 0.5
@@ -113,6 +214,7 @@ label interlude_nuri:
 
     show nuri at center, doup with dissolve
     show nuri say
+    window show
 
     n "흠~ 또 비가 오네?"
     n "요즘 왜 이렇게 자주 비가 오는거야?"
@@ -137,10 +239,12 @@ label interlude_nuri:
     n "이게... {p}한눈에 반해버렸다는 거?!"
     n "에이! 모르겠다! \n일단 쿠키부터 만들자!"
 
-    show nuri
+    show nuri say
 
     n "주방이 어질러져서, 재료도 막 흩어져있고... {p}전에 태운 쿠키 잔해도 있고..."
     n "조심하자... \n뭐가 튀어나올지 몰라..."
+
+    hide nuri with dissolve
 
     # Proceeds to the snake minigame
     window hide dissolve
@@ -148,21 +252,30 @@ label interlude_nuri:
 
     call screen minigame_snake()
     $ snake_res = _return   # self.item_count
+    
+    show nuri frown at center, doup with dissolve
+    window show
 
     n "어디보자~{cps=5}... {/cps}"
+
     if snake_res >= 10:
         show nuri smile at doup
         extend "이 정도면 잘 만들었는걸?"
         $ nurilove += 1
+
     elif snake_res >= 5:
         show nuri say at doup
         extend "선물하지 못할 정도는 아니라서 다행이네."
+
     elif snake_res >= 0:
         show nuri disappointed at doup
         extend "내 요리 실력이 이렇게 절망적이라니..."
         $ nurilove -= 1
     
     $ enable_save()
+
+    show nuri smile
+    window show
 
     n "아무튼 완성!"
     n "초콜릿이 녹지 않게 냉장고에 넣어놔야겠다~"
@@ -179,10 +292,35 @@ label interlude_nuri:
     n "좋아! \n내일은 하늘이한테 쿠키를 주고{cps=6}...{/cps}"
     n "그리고— \n그 애랑도 꼭 말해봐야지."
     n "내일은{cps=6}...{/cps} \n조금 더 가까워질 수 있을까?"
+    
+    show nuri
+    window hide dissolve
+    pause 0.25
+
+    hide nuri with dissolve
+
+    stop music fadeout 2.0
+    stop environment fadeout 2.0
+    pause 0.5
 
     $ nuri_done = True
 
-    if hanl_done == True:
+    if hanl_done:
         jump loop_4
     else:
-        jump interlude_hanl
+        jump transition_nuri_to_hanl
+
+label transition_nuri_to_hanl:
+    $ save_name = "interlude"
+
+    scene bg black screen
+    with Fade(1.0, 1.0, 1.0)
+
+    window show
+
+    "한편, 하늘이는..."
+
+    window hide dissolve
+    pause 0.5
+
+    jump interlude_hanl

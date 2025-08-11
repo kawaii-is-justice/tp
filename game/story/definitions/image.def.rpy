@@ -46,3 +46,21 @@ image hanl embarrassed = Crop((0, -200, 1500, 1000),"images/hanl/hanl_embarrasse
 
 # Effects
 image solid white = Solid("#FFFFFF")
+
+# Used in interlude
+image nuri_char = "nuri down 2" # Crop((40, 0, 40, 80), "charset nuri")
+image nuri_char anim = "nuri walk down"
+
+image hanl_char = Crop((40, 0, 40, 80), "charset hanl")
+image hanl_char 1 = Crop((0, 0, 40, 80), "charset hanl")
+image hanl_char 3 = Crop((80, 0, 40, 80), "charset hanl")
+image hanl_char anim:
+   "hanl_char 1"
+   pause 0.25
+   "hanl_char"
+   pause 0.25
+   "hanl_char 3"
+   pause 0.25
+   "hanl_char"
+   pause 0.25
+   repeat
