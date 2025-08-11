@@ -3,7 +3,7 @@ label loop_4:
     $ save_name = "봄의 파편"
 
     scene bg school classroom morning
-    with fade
+    with Fade(2.0, 2.0, 2.0)
     pause 0.3
 
     play music general1 fadein 1.0

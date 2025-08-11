@@ -306,4 +306,6 @@ label loop_3:
 
    "그런 하늘이를 바라보다, \n눈을 깜빡였더니, {p}눈앞이 깜깜해지고 말았다."
 
+   stop music fadeout 2.0
+
    jump interlude
