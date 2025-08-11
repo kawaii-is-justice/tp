@@ -136,8 +136,8 @@ label interlude_hanl:
 
     show solid gray tp with dissolve
 
-    "{color=#7FFF00}<미니게임: 도서관 정리!>{/color} \n규칙: 모든 땅을 밟아야 한다. 화살표 키로 이동할 수 있다."
-    "{color=#7FFF00}<미니게임: 도서관 정리!>{/color} \n{fast}이 때, 빵 봉지는 1번, 빵은 2번 밟아야 한다."
+    "{space=325}{color=#7FFF00}<미니게임: 도서관 정리!>{/color} \n{fast}규칙: 모든 땅을 밟아야 한다. 화살표 키로 이동할 수 있다."
+    "{space=325}{color=#7FFF00}<미니게임: 도서관 정리!>{/color} \n{fast}이 때, 빵 봉지는 1번, 빵은 2번 밟아야 한다."
 
     window hide dissolve
     hide solid gray tp with dissolve
@@ -254,9 +254,9 @@ label interlude_nuri:
 
     show solid gray tp with dissolve
 
-    "{color=#7FFF00}<미니게임: 쿠키 수집!>{/color} \n규칙: 벽에 부딪히지 않도록 캐릭터의 방향을 변경하면서 갈색 쿠키를 모은다. 화살표 키로 이동할 수 있다."
-    "{color=#7FFF00}<미니게임: 쿠키 수집!>{/color} \n{fast}검은색 쿠키에 닿으면 모은 쿠키를 하나 잃어버린다."
-    "{color=#7FFF00}<미니게임: 쿠키 수집!>{/color} \n{fast}지금 전진하고 있는 방향의 반대로는 변경할 수 없다."
+    "{space=350}{color=#7FFF00}<미니게임: 쿠키 수집!>{/color} \n{fast}규칙: 벽에 부딪히지 않도록 캐릭터의 방향을 변경하면서 갈색 쿠키를 모은다. 화살표 키로 이동할 수 있다."
+    "{space=350}{color=#7FFF00}<미니게임: 쿠키 수집!>{/color} \n{fast}검은색 쿠키에 닿으면 모은 쿠키를 하나 잃어버린다."
+    "{space=350}{color=#7FFF00}<미니게임: 쿠키 수집!>{/color} \n{fast}지금 전진하고 있는 방향의 반대로는 변경할 수 없다."
 
     hide nuri with dissolve
 
