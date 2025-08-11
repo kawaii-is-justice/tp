@@ -29,6 +29,9 @@ init python:
         quick_menu = False
         _game_menu_screen = None  # disable esc
         config.rollback_enabled = False
+        renpy.clear_keymap_cache()
+        config.keymap['skip'].remove('anymod_K_LCTRL')
+        config.keymap['skip'].remove('anymod_K_RCTRL')
 
     def enable_save():
         global quick_menu, _game_menu_screen, config
@@ -36,3 +39,6 @@ init python:
         config.rollback_enabled = True
         _game_menu_screen = "save"
         quick_menu = True
+        renpy.clear_keymap_cache()
+        config.keymap['skip'].append('anymod_K_LCTRL')
+        config.keymap['skip'].append('anymod_K_RCTRL')
