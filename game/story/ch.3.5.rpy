@@ -100,8 +100,8 @@ label interlude_nuri:
     with dissolve
     pause 0.3
 
-    play music event fadein 1.0
-    play sound rain fadein 1.0
+    play music event fadein 1.0 volume 0.5
+    play environment rain fadein 1.0
 
     show nuri at center, doup with dissolve
 
