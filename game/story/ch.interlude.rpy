@@ -258,10 +258,13 @@ label interlude_nuri:
     "{space=350}{color=#7FFF00}<미니게임: 쿠키 수집!>{/color} \n{fast}검은색 쿠키에 닿으면 모은 쿠키를 하나 잃어버린다."
     "{space=350}{color=#7FFF00}<미니게임: 쿠키 수집!>{/color} \n{fast}지금 전진하고 있는 방향의 반대로는 변경할 수 없다."
 
+    window hide dissolve
+    hide solid gray tp with dissolve
+    pause 0.5
     hide nuri with dissolve
+    pause 0.5
 
     # Proceeds to the snake minigame
-    window hide dissolve
     $ disable_save()
 
     call screen minigame_snake()
