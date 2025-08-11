@@ -50,10 +50,11 @@ image solid gray tp = Solid("#7F7F7F7F")
 
 # Used in interlude
 image nuri_char = "nuri down 2" # Crop((40, 0, 40, 80), "charset nuri")
-image nuri_char anim = "nuri walk down"
+image nuri_char anim  = "nuri walk down"
+image nuri_char anim2 = "nuri walk left"
 
-image hanl_char = Crop((40, 0, 40, 80), "charset hanl")
-image hanl_char 1 = Crop((0, 0, 40, 80), "charset hanl")
+image hanl_char   = Crop((40, 0, 40, 80), "charset hanl")
+image hanl_char 1 = Crop(( 0, 0, 40, 80), "charset hanl")
 image hanl_char 3 = Crop((80, 0, 40, 80), "charset hanl")
 image hanl_char anim:
    "hanl_char 1"
@@ -63,5 +64,18 @@ image hanl_char anim:
    "hanl_char 3"
    pause 0.25
    "hanl_char"
+   pause 0.25
+   repeat
+image hanl_char 4 = Crop(( 0, 240, 40, 80), "charset hanl")
+image hanl_char 5 = Crop((40, 240, 40, 80), "charset hanl")
+image hanl_char 6 = Crop((80, 240, 40, 80), "charset hanl")
+image hanl_char anim2:
+   "hanl_char 4"
+   pause 0.25
+   "hanl_char 5"
+   pause 0.25
+   "hanl_char 6"
+   pause 0.25
+   "hanl_char 5"
    pause 0.25
    repeat
