@@ -79,12 +79,14 @@ label interlude_hanl:
     if tilestep_res == "perfect":
         show hanl smile at doup
         extend "깔끔하게 완료됐습니다!"
+        $ hanllove += 1
     elif tilestep_res == "not bad":
         show hanl at doup
         extend "그럭저럭 적당한 것 같네요."
     elif tilestep_res == "bad":
         show hanl frown at doup
         extend "썩 잘하지 못한 것 같습니다..."
+        $ hanllove -= 1
 
     $ enable_save()
 
@@ -154,10 +156,12 @@ label interlude_nuri:
     n "어디보자~{cps=5}... {/cps}{w}"
     if snake_res >= 10:
         extend "이 정도면 잘 만들었는걸?"
+        $ nurilove += 1
     elif snake_res >= 5:
         extend "선물하지 못할 정도는 아니라서 다행이네."
     elif snake_res >= 0:
         extend "내 요리 실력이 이렇게 절망적이라니..."
+        $ nurilove -= 1
     
     $ enable_save()
 
