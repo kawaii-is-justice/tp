@@ -134,10 +134,18 @@ label interlude_hanl:
     h "이게 유령이 아니라면... {p}세상이 저를 시험하고 있는 걸지도 모르죠."
     h "...일단 도서관 정리를 마저 하도록 하죠."
 
-    hide hanl with dissolve
+    show solid gray tp with dissolve
 
-    # Proceeds to the tilestep minigame
+    "{color=#7FFF00}<미니게임: 도서관 정리!>{/color} \n규칙: 모든 땅을 밟아야 한다. 화살표 키로 이동할 수 있다."
+    "{color=#7FFF00}<미니게임: 도서관 정리!>{/color} \n{fast}이 때, 빵 봉지는 1번, 빵은 2번 밟아야 한다."
+
     window hide dissolve
+    hide solid gray tp with dissolve
+    pause 0.5
+    hide hanl with dissolve
+    pause 0.5
+    
+    # Proceeds to the tilestep minigame
     $ disable_save()
     
     call screen minigame_tilestep(1)
@@ -243,6 +251,12 @@ label interlude_nuri:
 
     n "주방이 어질러져서, 재료도 막 흩어져있고... {p}전에 태운 쿠키 잔해도 있고..."
     n "조심하자... \n뭐가 튀어나올지 몰라..."
+
+    show solid gray tp with dissolve
+
+    "{color=#7FFF00}<미니게임: 쿠키 수집!>{/color} \n규칙: 벽에 부딪히지 않도록 캐릭터의 방향을 변경하면서 갈색 쿠키를 모은다. 화살표 키로 이동할 수 있다."
+    "{color=#7FFF00}<미니게임: 쿠키 수집!>{/color} \n{fast}검은색 쿠키에 닿으면 모은 쿠키를 하나 잃어버린다."
+    "{color=#7FFF00}<미니게임: 쿠키 수집!>{/color} \n{fast}지금 전진하고 있는 방향의 반대로는 변경할 수 없다."
 
     hide nuri with dissolve
 

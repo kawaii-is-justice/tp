@@ -46,6 +46,7 @@ image hanl embarrassed = Crop((0, -200, 1500, 1000),"images/hanl/hanl_embarrasse
 
 # Effects
 image solid white = Solid("#FFFFFF")
+image solid gray tp = Solid("#7F7F7F7F")
 
 # Used in interlude
 image nuri_char = "nuri down 2" # Crop((40, 0, 40, 80), "charset nuri")
