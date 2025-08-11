@@ -12,3 +12,6 @@ define audio.rain = "audio/sfx/story/rain.mp3"
 # Sound Channels
 init python:
    renpy.music.register_channel("environment", loop=True)
+
+# Audio Filters
+define af = renpy.audio.filter

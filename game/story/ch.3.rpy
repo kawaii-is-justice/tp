@@ -59,7 +59,8 @@ label loop_3:
 
    h "학생증은 도서관에서만 만들 수 있어요. \n그런데 당신이 이미 가지고 있다는 건... 역시——"
 
-   # TODO: it would be nice to have a chromatic abberation effect here.
+   stop music fadeout 1.0
+   show solid gray tp with Pixellate(2.0, 7)
 
    "갑자기 엄청난 두통이 느껴지고 숨이 안 쉬어졌다."
    p "{cps=10}......아파... 숨이......{/cps}{w=1.0}{nw}" with vpunch
@@ -68,27 +69,25 @@ label loop_3:
    stop music fadeout 0.5
 
    scene bg school nurseoffice
-   with fade
+   with Fade(1.0, 1.0, 1.0)
+
+   play music general2 fadein 1.0
 
    p "......아으... 머리야......"
-
    school_nurse "일어났니, 전학생? \n전학 온 첫날부터 쓰러지다니, 별일이구나."
    school_nurse "겉으로 봤을 땐 큰 문제 없어 보이는데... \n갑자기 의식을 잃다니, 나중에 큰 병원 가서 검사 받아보는 게 어때?"
-
    "보건 선생님께서는 나에게 약 봉투를 건네주셨다."
-
    school_nurse "여기 약 줄게. 갖고 있어~"
-
    "나는 약을 받아 주머니에 넣었다."
 
    scene bg school cafeteria
    with fade
-   pause 0.3
 
    play music general1 fadein 1.0
+   pause 0.3
 
    "교실로 돌아갔더니 바로 누리에게 붙잡혀 급식실로 끌려왔다."
-   "벌써 점심시간인건지, \n급식실엔 맛있는 냄새가 퍼지고 학생들도 많았다."
+   "벌써 점심시간인 건지, \n급식실엔 맛있는 냄새가 퍼지고 학생들도 많았다."
 
    show nuri at center, doup with dissolve
    
@@ -129,13 +128,18 @@ label loop_3:
    "점심을 먹고 반으로 돌아가려던 참이었다. \n그런데, 또 한 번 반장인 하늘이에게 붙잡히고 말았다. "
    "내가 없어진 걸 깨달은 누리는 \n고개를 돌려 나를 찾다 하늘이와 눈이 마주치곤 \n조용히 고개를 숙이고 반으로 돌아갔다."
 
-   show hanl
    show hanl say at center, doup with dissolve
 
    h "이제 당신도... \n어느 정도 눈치챘을 거에요.."
    h "궁금한 게 있다면 언제든지 도서관으로 찾아오세요."
 
+   hide hanl with dissolve
+   window hide dissolve
+
    scene bg school classroom afternoon
+   with dissolve
+   pause 0.3
+
    show nuri at center, doup with dissolve
 
    p "누리 너는 하늘이에 대해 잘 알아?"
@@ -158,17 +162,27 @@ label loop_3:
 
    n "근데, 하늘이 좀 너무하지 않아? \n아침부터 우리 얘기하는데 갑자기 끌고 가질 않나, \n복도에서도 또 갑자기 부르고..."
    n "그냥, 너랑 좀 친해지고 싶었는데, \n계속 방해만 당하는 기분이야..."
-
-   stop music 
-
    "순간, 이상한 기척이 느껴진다."
+
+   show solid gray tp with Fade(1.0, 1.0, 1.0)
+   $ renpy.music.set_audio_filter("music", af.Sequence([af.Reverb(1.0), af.Lowpass(110), af.Peaking(110)]), replace=True)
+
    "눈을 감았다 떠보니, \n교실 안의 모든 것이 멈춰있었다."
    "말을 하던 누리도, 주변의 친구들도 전부 멈춰 있고 \n나조차도 말이 나오지 않는다."
    "갑자기 눈앞에 글자가 떠올랐다."
-   "{color=#FF0000}WARNING{/color}: '{color=#FFAEC9}누리{/color}' 감정 통제 실패 \n권장 조치: 분리, 세션 초기화"
-   "시간이 흘러 모두가 다시 움직이기 시작했다. \n하지만 나는 갑작스러운 상황에 놀라 움직이지 못했다."
 
-   play music general2 fadein 1.0
+   pause 0.5
+   window show dissolve
+   "{color=#FF0000}WARNING{/color}: '{color=#FFAEC9}누리{/color}' 감정 통제 실패 \n권장 조치: 분리, 세션 초기화{w=1.0}{nw}"
+   window hide dissolve
+   pause 0.5
+
+   hide solid gray tp with Dissolve(3.0)
+   $ renpy.music.set_audio_filter("music", None, replace=True)
+
+   show nuri say at doup
+
+   "시간이 흘러 모두가 다시 움직이기 시작했다. \n하지만 나는 갑작스러운 상황에 놀라 움직이지 못했다."
 
    show nuri embarrassed
 
@@ -177,7 +191,7 @@ label loop_3:
 
    "그 순간, 교실 문이 쾅 하고 열리며 하늘이가 들어왔다."
 
-   show hanl at chrs with moveinright
+   show hanl at chrs with easeinright
    show hanl say
    
    h "전학생, \n여기서 더 대화를 이어가시면 안 됩니다."
@@ -192,19 +206,16 @@ label loop_3:
    n "{cps=6}...{/cps}그게 무슨 말이야. \n아까도 갑자기 데려가더니, \n이번엔 또 왜?"
    n "왜 자꾸 나랑 전학생을 떼어놓으려고 하는데...?"
 
-   "그러나 누리가 말을 마치기도 전에 \n하늘이가 조용히 내 팔을 잡은 채 \n나를 교실 밖으로 데리고 나갔다."
-   "뒤에서 누리의 목소리가 들려왔다."
-
-   n "...너 진짜...!"
-
-   hide nuri with fade
-
+   "그러나 누리가 말을 마치기도 전에, 하늘이가 조용히 내 팔을 잡은 채 나를 교실 밖으로 데리고 나갔다."
+   
    scene bg school hallway
    with dissolve
    pause 0.3
 
-   show hanl at center, doup with dissolve
-   show hanl say
+   "뒤에서 누리의 목소리가 들려왔다."
+   n "...너 진짜...!"
+
+   show hanl say at center, doup with dissolve
    
    h "따라오시죠. \n지금 누리는{cps=6}...{/cps}매우 위험한 상태입니다."
    h "그리고 지금이라면 당신에게 \n진실을 어느 정도 말씀드릴 수 있을지도 모르겠군요."
