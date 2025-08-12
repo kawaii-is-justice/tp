@@ -12,7 +12,7 @@ label loop_6:
 
     n "안녕~ 전학생! 난 누리. {p}전학생은 이름이 뭐야?"
     "나는 잠시 멈칫했다가 이름을 말했다."
-    p "...{color=#AAAAAA}[prtname]{/color}이야."
+    p "내 이름은... {color=#AAAAAA}[prtname]{/color}."
 
     show nuri smile with dissolve
 

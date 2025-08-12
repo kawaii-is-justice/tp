@@ -25,7 +25,7 @@ label loop_3:
          p "오늘 날씨가 참 좋네, 그렇지 않아?"
          "누리는 멈칫했지만 곧 웃으며 반응했다."
    
-   n "{color=#AAAAAA}[prtname]{/color}이구나~ "
+   n "음~ {color=#AAAAAA}[prtname]{/color}!"
    show nuri at doup
    extend "좋은 이름인걸!"
 
