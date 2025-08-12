@@ -2,7 +2,7 @@ label loop_0:
     $ save_name = "멈춰 있는 봄"
 
     stop music fadeout 1.0
-    scene bg school classroom morning with Fade(1.0, 1.0, 1.0, color="#000")
+    scene bg school classroom morning with Fade(2.0, 2.0, 2.0, color="#000")
     play music general1 fadein 1.0
 
     # Refer to https://www.renpy.org/doc/html/text.html#dialogue-text-tags
