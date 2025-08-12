@@ -141,12 +141,12 @@ label loop_2:
         $ loop_0_lunch_menu_not_selected = "카레라이스"
 
     menu:
-        "(뭐라고 대답해야 할까?)"
-        "(누리와 함께 {color=#FFAEC9}[loop_0_lunch_menu]{/color}를 먹는다.)":
+        "(뭘 선택해야 할까?)"
+        "나는 {color=#FFAEC9}[loop_0_lunch_menu]{/color}.":
             "누리와 함께 즐거운 점심을 먹었다."
             $ nurilove += 1
         
-        "({color=#FFAEC9}[loop_0_lunch_menu_not_selected]{/color}를 더 좋아한다고 말한다.)":
+        "나는 {color=#FFAEC9}[loop_0_lunch_menu_not_selected]{/color}.":
             show nuri disappointed with dissolve
             n "그랬구나... 알겠어."
             "누리와 함께 점심을 먹었다."

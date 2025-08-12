@@ -74,7 +74,7 @@ label loop_4:
             show nuri smile at center, doup with dissolve
 
             n "오늘 점심 메뉴는 카레랑 오므라이스래! \n너랑 같은 거 먹을 테니 골라봐!"
-            p "음... 역시 {color=#FFAEC9}[loop_0_lunch_menu]{/color}가 좋겠어."
+            p "음... 나는 {color=#FFAEC9}[loop_0_lunch_menu]{/color} 먹고 싶어."
             n "나도 {color=#FFAEC9}[loop_0_lunch_menu]{/color} 좋아하는데, 잘됐네~"
             "나는 누리와 점심을 맛있게 먹었다."
         
