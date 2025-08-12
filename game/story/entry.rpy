@@ -1,6 +1,5 @@
 ﻿label splashscreen:
-    scene expression Solid("#FFF")
-    with dissolve
+    scene expression Solid("#FFF") with dissolve
     pause 1.0
 
     play sound "audio/sfx/splash_screen/in.wav" volume 0.5 fadein 0.05
@@ -31,5 +30,4 @@
     return
 
 label start:
-    stop music
     jump loop_0

@@ -131,6 +131,12 @@ style say_dialogue:
     adjust_spacing False
     line_spacing gui.dialogue.linespace
 
+style block1_multiple2_say_window:
+    yalign 0.7
+
+style block2_multiple2_say_window:
+    yalign 1.0
+
 ##############
 # QUICK MENU #
 ##############
