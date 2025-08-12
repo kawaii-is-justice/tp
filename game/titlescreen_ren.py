@@ -166,7 +166,7 @@ class TitleScreenMenu:
             if xcond and ycond:
                 btn = self.btns[i]
                 if btn.state != "hover":
-                    renpy.sound.play("sfx/title_screen/menubtn.hover.wav")
+                    renpy.sound.play("sfx/btn/hover.wav")
                 btn.state = "hover"
                 hovered = i
             else:
@@ -176,7 +176,7 @@ class TitleScreenMenu:
             return
         
         if evt.type == pygame.MOUSEBUTTONUP:
-            renpy.sound.play("sfx/title_screen/menubtn.click.wav")
+            renpy.sound.play("sfx/btn/click.wav")
             if hovered == 0:
                 renpy.run(Start())
             elif hovered == 1:
