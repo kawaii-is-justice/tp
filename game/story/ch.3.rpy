@@ -25,7 +25,7 @@ label loop_3:
          p "오늘 날씨가 참 좋네, 그렇지 않아?"
          "누리는 멈칫했지만 곧 웃으며 반응했다."
    
-   n "{color=#AAAAAA}[prtname]{/color}이구나~ "
+   n "음~ {color=#AAAAAA}[prtname]{/color}!"
    show nuri at doup
    extend "좋은 이름인걸!"
 
@@ -82,16 +82,16 @@ label loop_3:
 
    show nuri at center, doup with dissolve
    
-   n "{color=#AAAAAA}[prtname]{/color}, 넌 역시 {color=#FFAEC9}[loop_0_lunch_menu]{/color}지?"
+   n "{color=#AAAAAA}[prtname]{/color}, 넌 역시 {color=#FFAEC9}[loop_0_lunch_menu]{/color}, 맞지?"
    n "후후... 어떻게 알았는지는 비밀!"
 
    menu:
-      "역시 {color=#FFAEC9}[loop_0_lunch_menu]{/color}지.":
+      "맞아, 나는 {color=#FFAEC9}[loop_0_lunch_menu]{/color}.":
          show nuri smile blush
          n "역시 너라면 그걸 고를 줄 알았어!"
          $ nurilove += 1
       
-      "아니? {color=#FFAEC9}[loop_0_lunch_menu_not_selected]{/color} 먹을 건데?":
+      "미안, 나는 {color=#FFAEC9}[loop_0_lunch_menu_not_selected]{/color}.":
          show nuri disappointed
          n "어? 그래... 알겠어..."
          "누리는 시무룩해졌다."

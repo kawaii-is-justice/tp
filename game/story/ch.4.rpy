@@ -10,7 +10,7 @@ label loop_4:
     show nuri say with dissolve
 
     n "좋은 아침~ 전학생! 난 누리야. \n전학생은 이름이 뭐야?"
-    p "아... {color=#AAAAAA}[prtname]{/color}이야."
+    p "아... 내 이름은 {color=#AAAAAA}[prtname]{/color}."
 
     show nuri smile
 
@@ -74,7 +74,7 @@ label loop_4:
             show nuri smile at center, doup with dissolve
 
             n "오늘 점심 메뉴는 카레랑 오므라이스래! \n너랑 같은 거 먹을 테니 골라봐!"
-            p "음... 역시 {color=#FFAEC9}[loop_0_lunch_menu]{/color}가 좋겠어."
+            p "음... 나는 {color=#FFAEC9}[loop_0_lunch_menu]{/color} 먹고 싶어."
             n "나도 {color=#FFAEC9}[loop_0_lunch_menu]{/color} 좋아하는데, 잘됐네~"
             "나는 누리와 점심을 맛있게 먹었다."
         
@@ -293,7 +293,7 @@ label loop_5:
 
     menu:
         "(진짜 이름을 알려준다.)":
-            p "내 이름은 {color=#AAAAAA}[prtname]{/color}이야."
+            p "내 이름은... {color=#AAAAAA}[prtname]{/color}."
             n "{color=#AAAAAA}[prtname]{/color}~ 좋은 이름이네! \n앞으로 잘 부탁해, 전학생!"
             "누리의 웃음은 해맑았다. \n하지만 나는 알 수 없는 위화감을 느꼈다."
         
@@ -305,7 +305,7 @@ label loop_5:
             show nuri smile at doup
             n "정말~! \n처음 보는 사이에 무슨 그런 장난을 치고 그래~"
             n "전학생은 장난꾸러기구나! 근데, 진짜 이름은 뭐야?"
-            p "{color=#AAAAAA}[prtname]{/color}이야."
+            p "내 이름은... {color=#AAAAAA}[prtname]{/color}."
             n "{color=#AAAAAA}[prtname]{/color}~ 좋은 이름이네! 앞으로 잘 부탁해!"
             "누리는 이런 수준 높은 유머에도 싫은 기색은 커녕, 즐겁게 웃어줬다."
             "...이번에도, {p}누리는 나를 좋아하는 것 같다."
