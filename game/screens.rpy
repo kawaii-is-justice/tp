@@ -244,7 +244,9 @@ screen choice(items):
 
     vbox:
         for i in items:
-            textbutton i.caption action i.action
+            textbutton i.caption action i.action:
+                hover_sound    "audio/sfx/btn/hover.wav"
+                activate_sound "audio/sfx/btn/click.wav"
 
 style choice_vbox is vbox
 style choice_button is button
